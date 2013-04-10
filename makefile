@@ -7,7 +7,15 @@ LOADLIBES = -lm
 cfiles := $(wildcard *.c)
 ofiles := $(cfiles:.c=.o)
 
+all: plot.pdf
+
 2: 2.o my_abs.o
+
+plot.pdf: plot sin.csv
+	./$<
+
+sin.csv: 2
+	./$<
 
 dep:
 	gcc -MM $(cfiles) > dep.makefile

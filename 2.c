@@ -7,7 +7,7 @@
 #include "my_abs.h"
 
 int main(int argc, char **argv) {
-	char filename[] = "2-out.csv";
+	char filename[] = "sin.csv";
 	FILE *fp = fopen(filename, "w");
 
 	for (double x = -20.0; x <= 20.0; ++x) {
