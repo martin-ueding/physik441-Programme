@@ -13,6 +13,12 @@ Für diese Aufgabe nur ``make`` eingeben, es werden die Daten in ``sin.csv``
 erstellt und durch das Plotprogramm ``plot`` in die Datei ``plot.pdf``
 geplottet.
 
+Aufgabe 3
+=========
+
+Hier wieder ``make`` ausführen dann ``./3`` ausführen. Das Programm gibt dann
+die gefundenen Genaugikeiten aus.
+
 Abhängigkeiten
 ==============
 
