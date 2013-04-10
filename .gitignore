@@ -1,12 +1,5 @@
+*.o
 2
-
-2-out.csv
-
-2.o
-
 dep.makefile
-
-my_abs.o
-
 plot.pdf
 sin.csv
