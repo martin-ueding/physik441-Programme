@@ -31,9 +31,12 @@ dep:
 
 .PHONY: clean
 clean:
+	$(RM) *.csv
 	$(RM) *.o *.out
 	$(RM) *.orig
 	$(RM) *.pyc *.pyo
 	$(RM) 2
+	$(RM) 3
+	$(RM) 4
 	$(RM) dep.makefile
-	$(RM) plot.pdf
+	$(RM) plot*.pdf
