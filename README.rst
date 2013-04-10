@@ -9,9 +9,9 @@ Abgabe für physik411, Aufgabenzettel 1.
 Aufgabe 2
 =========
 
-Für diese Aufgabe einfach nur ``make`` eingeben, es werden die Daten in
-``sin.csv`` erstellt und durch das Plotprogramm ``plot`` in die Datei
-``plot.pdf`` geplottet.
+Für diese Aufgabe nur ``make`` eingeben, es werden die Daten in ``sin.csv``
+erstellt und durch das Plotprogramm ``plot`` in die Datei ``plot.pdf``
+geplottet.
 
 Abhängigkeiten
 ==============
