@@ -19,6 +19,13 @@ Aufgabe 3
 Hier wieder ``make`` ausführen dann ``./3`` ausführen. Das Programm gibt dann
 die gefundenen Genaugikeiten aus.
 
+Auf meiner Maschine (``Linux Martin-X220 3.5.0-27-generic #46-Ubuntu SMP Mon
+Mar 25 19:58:17 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux``) gibt das Programm
+aus:::
+
+    double: 2.22045e-16
+    float:  1.19209e-07
+
 Aufgabe 4
 =========
 
