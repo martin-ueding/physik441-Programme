@@ -24,7 +24,9 @@ dep:
 
 .PHONY: clean
 clean:
-	$(RM) *.class *.jar
 	$(RM) *.o *.out
-	$(RM) *.pyc *.pyo
 	$(RM) *.orig
+	$(RM) *.pyc *.pyo
+	$(RM) 2
+	$(RM) dep.makefile
+	$(RM) plot.pdf
