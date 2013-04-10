@@ -15,6 +15,10 @@ def main():
     data = np.genfromtxt("sin.csv")
 
     pl.plot(data[:,0], data[:,1])
+    pl.title(ur"Plot der Funktion $g(x) = \left| \sin(x) + 0.2 \right|$")
+    pl.xlabel(ur"$x$")
+    pl.ylabel(ur"$g(x)$")
+    pl.grid(True)
     pl.savefig("plot.pdf")
 
 def _parse_args():
