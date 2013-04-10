@@ -7,7 +7,7 @@ double pi_a(int k) {
 }
 
 double pi_b(int k) {
-	return sqrt(series_a(k) * 90);
+	return pow(series_b(k) * 90, 0.25);
 }
 
 double series_a(int k) {
@@ -15,7 +15,19 @@ double series_a(int k) {
 	double summand = 1.0;
 
 	for (int n = 1; n <= k; ++n) {
-		summand /= n * n;
+		summand = 1.0 / (n * n);
+		sum += summand;
+	}
+
+	return sum;
+}
+
+double series_b(int k) {
+	double sum = 0.0;
+	double summand = 1.0;
+
+	for (int n = 1; n <= k; ++n) {
+		summand = 1.0 / (n * n * n * n);
 		sum += summand;
 	}
 

@@ -6,16 +6,18 @@
 #include "series.h"
 
 int main(int argc, char **argv) {
+	int limit = 100;
+
 	char filename_a[] = "pi_a.csv";
 	FILE *fp = fopen(filename_a, "w");
-	for (int k = 1; k < 10; ++k) {
+	for (int k = 1; k < limit; ++k) {
 		fprintf(fp, "%d\t%f\n", k, pi_a(k));
 	}
 	fclose(fp);
 
 	char filename_b[] = "pi_b.csv";
 	fp = fopen(filename_b, "w");
-	for (int k = 1; k < 10; ++k) {
+	for (int k = 1; k < limit; ++k) {
 		fprintf(fp, "%d\t%f\n", k, pi_b(k));
 	}
 	fclose(fp);
