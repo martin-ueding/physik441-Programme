@@ -7,7 +7,7 @@ LOADLIBES = -lm
 cfiles := $(wildcard *.c)
 ofiles := $(cfiles:.c=.o)
 
-2: 2.o
+2: 2.o my_abs.o
 
 dep:
 	gcc -MM $(cfiles) > dep.makefile
