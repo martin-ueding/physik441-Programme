@@ -29,6 +29,9 @@ dep:
 
 -include dep.makefile
 
+physik441-01-Martin_Ueding.tar:
+	git archive --output "$@" master
+
 .PHONY: clean
 clean:
 	$(RM) *.csv
