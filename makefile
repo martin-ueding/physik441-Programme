@@ -7,9 +7,11 @@ LOADLIBES = -lm
 cfiles := $(wildcard *.c)
 ofiles := $(cfiles:.c=.o)
 
-all: plot.pdf
+all: plot.pdf 3
 
 2: 2.o my_abs.o
+
+3: 3.o
 
 plot.pdf: plot sin.csv
 	./$<
