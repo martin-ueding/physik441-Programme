@@ -27,3 +27,15 @@ Abhängigkeiten
 
 Überlegungen zu Aufgabe 2
 =========================
+
+Der Strom, der durch die Diode geht ist:
+
+.. math::
+
+    I_D(U_D) = I_S \exp\left( \frac{U_D}{m U_T} \right)
+
+Die Spannung, die über dem Widerstand und der Diode abfällt, muss gerade die Eingangsspannung sein:
+
+.. math::
+
+    U_0 - U_D + R I_D (U_D) = 0
