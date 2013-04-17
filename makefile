@@ -25,7 +25,7 @@ dep:
 
 -include dep.makefile
 
-physik441-02-Martin_Ueding.tar:
+physik441-02-Ueding_Weber.tar:
 	git archive --output "$@" master
 
 .PHONY: clean
