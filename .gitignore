@@ -1,2 +1,4 @@
 1
 1.o
+bisect.o
+dep.makefile
