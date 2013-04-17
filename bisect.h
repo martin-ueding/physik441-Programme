@@ -3,6 +3,8 @@
 #ifndef BISECT_H
 #define BISECT_H
 
+#include <math.h>
+
 /**
  * Finds a root of the given function.
  *
