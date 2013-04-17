@@ -11,7 +11,7 @@
  * It has roots at x=-1 and x=2.
  */
 double f(double x) {
-	return x*x - x - 2;
+	return x * x - x - 2;
 }
 
 int main(int argc, char **argv) {

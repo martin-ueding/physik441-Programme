@@ -6,7 +6,7 @@ int opposite_signs(double x1, double x2) {
 	return ((x1 > 0.0 && x2 < 0.0) || (x1 < 0.0 && x2 > 0.0));
 }
 
-double bisect(double a1, double a2, double (*f)(double), int max_iter, double precision) {
+double bisect(double a1, double a2, double(*f)(double), int max_iter, double precision) {
 	// Check, whether f(a1) and f(a2) have opposite sign.
 	int signs = !opposite_signs(f(a1), f(a2));
 	if (signs) {
@@ -26,7 +26,7 @@ double bisect(double a1, double a2, double (*f)(double), int max_iter, double pr
 		y2 = f(a2);
 		y_cur = f(cur);
 		abs_y_cur = fabs(y_cur);
-		
+
 		if (abs_y_cur <= precision) {
 			// Found a root.
 			break;

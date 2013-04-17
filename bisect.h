@@ -17,7 +17,7 @@
  * @param max_iter Maximal number of iterations
  * @param precision Working precision
  */
-double bisect(double a1, double a2, double (*f)(double), int max_iter, double precision);
+double bisect(double a1, double a2, double(*f)(double), int max_iter, double precision);
 
 /**
  * Checks whether the arguments have opposite sign.
