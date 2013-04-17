@@ -19,19 +19,17 @@ Kompilieren und Ausführen
 Mit ``make dep && make`` wird alles kombiliert und ausgeführt, die Ausgaben
 erscheinen ganz unten in der Ausgabe von ``make``::
 
-    Ausgabe Programm 1
-    ./1
-    Roots: -1, 2
+    Ausgabe Programm
+    ./main
+    Roots -12
+    U_d = 5.95465
+    I_d = 1
 
-    Ausgabe Programm 2
-    ./2
-    U_d = 5.95465 V
-    I_d = 0.000453479 A
 
 Abhängigkeiten
 ==============
 
-- gcc
+- g++
 - make
 
 Überlegungen zu Aufgabe 2
