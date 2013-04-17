@@ -8,17 +8,12 @@ LOADLIBES = -lm
 cfiles := $(wildcard *.cpp)
 ofiles := $(cfiles:.cpp=.o)
 
-all: 1 2
+all: main
 	@echo
-	@echo "Ausgabe Programm 1"
-	./1
-	@echo
-	@echo "Ausgabe Programm 2"
-	./2
+	@echo "Ausgabe Programm"
+	./$<
 
-1: 1.o bisect.o
-
-2: 2.o bisect.o
+main: $(ofiles)
 
 dep:
 	gcc -MM $(cfiles) > dep.makefile
@@ -35,7 +30,6 @@ clean:
 	$(RM) *.o *.out
 	$(RM) *.orig
 	$(RM) *.pyc *.pyo
-	$(RM) 1
-	$(RM) 2
+	$(RM) main
 	$(RM) dep.makefile
 	$(RM) plot*.pdf
