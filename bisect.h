@@ -19,4 +19,9 @@
  */
 double bisect(double a1, double a2, double (*f)(double), int max_iter, double precision);
 
+/**
+ * Checks whether the arguments have opposite sign.
+ */
+int opposite_signs(double x1, double x2);
+
 #endif /* end of include guard: BISECT_H */

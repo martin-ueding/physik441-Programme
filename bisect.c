@@ -27,24 +27,21 @@ double bisect(double a1, double a2, double (*f)(double), int max_iter, double pr
 		y_cur = f(cur);
 		abs_y_cur = fabs(y_cur);
 		
-		printf("a1 = %g, cur = %g, a2 = %g, y1 = %g, y_cur = %g (%g), "
-				"y2 = %g\n", a1, cur, a2, y1, y_cur, abs_y_cur, y2);
-
 		if (abs_y_cur <= precision) {
-			printf("Root found with %g.\n", abs_y_cur);
+			// Found a root.
 			break;
 		}
 
 		if (opposite_signs(y1, y_cur)) {
-			printf("Using a2 = %g\n", a2);
+			// There is a change in sign in the first half of the interval.
 			a2 = cur;
 		}
 		else if (opposite_signs(y2, y_cur)) {
-			printf("Using a1 = %g\n", a1);
+			// There is a change in sign in the second half of the interval.
 			a1 = cur;
 		}
 		else {
-			printf("No root found\n");
+			// No root was found.
 			return NAN;
 		}
 	}
