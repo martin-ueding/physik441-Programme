@@ -7,18 +7,18 @@
 #include "bisect.h"
 
 double i_d(double u_d) {
+	double i_s = 1.0e-10;
 	double m = 1.5;
 	double u_t = 259.0e-3;
 
-	return exp(u_d / (m * u_t));
+	return i_s * exp(u_d / (m * u_t));
 }
 
 double f(double u_d) {
-	double i_s = 1.0e-10;
 	double r = 100.0;
 	double u0 = 6.0;
 
-	return u0 - u_d - r * i_s * i_d(u_d);
+	return u0 - u_d - r * i_d(u_d);
 }
 
 int main(int argc, char **argv) {
