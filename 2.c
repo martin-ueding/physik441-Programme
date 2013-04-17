@@ -22,10 +22,10 @@ double f(double u_d) {
 }
 
 int main(int argc, char **argv) {
-	double u_d = bisect(0.0, 100.0, f, 10000, 1e-6);
+	double u_d = bisect(0.0, 100.0, f, 1000000, 1e-6);
 	double i_d_ = i_d(u_d);
 	printf("U_d = %g V\n", u_d);
-	printf("I_d = %g A\n", i_d);
+	printf("I_d = %g A\n", i_d_);
 
 	return 0;
 }
