@@ -3,7 +3,6 @@
 
 CC = g++
 CFLAGS = -O3 -pedantic -std=c++11 -Wall
-LOADLIBES = -lm
 
 cfiles := $(wildcard *.cpp)
 ofiles := $(cfiles:.cpp=.o)
