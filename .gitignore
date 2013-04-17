@@ -1,8 +1,4 @@
-1
-1.o
-bisect.o
 dep.makefile
-2
-2.o
+*.tar
+*.o
 main
-main.o

@@ -29,6 +29,7 @@ clean:
 	$(RM) *.o *.out
 	$(RM) *.orig
 	$(RM) *.pyc *.pyo
-	$(RM) main
+	$(RM) *.tar
 	$(RM) dep.makefile
+	$(RM) main
 	$(RM) plot*.pdf
