@@ -2,7 +2,7 @@
 
 CC = gcc
 CFLAGS = -O3 -pedantic -std=c99 -Wall
-LOADLIBES = -lm
+#LOADLIBES = -lm
 
 cfiles := $(wildcard *.c)
 ofiles := $(cfiles:.c=.o)

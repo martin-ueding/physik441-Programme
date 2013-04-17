@@ -15,7 +15,7 @@ double f(double x) {
 }
 
 int main(int argc, char **argv) {
-	double root = bisect(0.0, 5.0, f, 100, 1e-10);
+	double root = bisect(0.0, 5.0, f, 100, 0.0001);
 	printf("Root: %g\n", root);
 
 	return 0;
