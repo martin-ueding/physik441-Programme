@@ -4,6 +4,9 @@
 physik441-02
 ############
 
+Kompilieren und Ausführen
+=========================
+
 Mit ``make dep && make`` wird alles kombiliert und ausgeführt, die Ausgaben
 erscheinen ganz unten in der Ausgabe von ``make``::
 
@@ -21,3 +24,6 @@ Abhängigkeiten
 
 - gcc
 - make
+
+Überlegungen zu Aufgabe 2
+=========================
