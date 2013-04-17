@@ -5,6 +5,8 @@
 physik441-02
 ############
 
+Abgabe von Martin Ueding und Jan Weber.
+
 .. note::
 
     Dieses Dokument kann mit ``rst2html README.rst README.html`` aus
