@@ -26,7 +26,7 @@ double bisect(double a1, double a2, double(*f)(double), int max_iter, double pre
 		y1 = f(a1);
 		y2 = f(a2);
 		y_cur = f(cur);
-		abs_y_cur = fabs(y_cur);
+		abs_y_cur = std::fabs(y_cur);
 
 		if (abs_y_cur <= precision) {
 			break;
