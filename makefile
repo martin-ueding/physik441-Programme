@@ -9,11 +9,11 @@ ofiles := $(cfiles:.c=.o)
 
 all: 1
 
-1: 1.o
-
+1: 1.o bisect.o
 
 dep:
 	gcc -MM $(cfiles) > dep.makefile
+	cat dep.makefile
 
 -include dep.makefile
 

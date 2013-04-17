@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "bisect.h"
+
 /**
  * Test function.
  */
