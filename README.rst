@@ -4,6 +4,12 @@
 physik441-02
 ############
 
+.. note::
+
+    Dieses Dokument kann mit ``rst2html README.rst README.html`` aus
+    ``python-docutils`` in HTML übersetzt werden. Dort werden auch die Formeln
+    unten dargestellt.
+
 Kompilieren und Ausführen
 =========================
 
