@@ -2,14 +2,22 @@
 
 CC = gcc
 CFLAGS = -O3 -pedantic -std=c99 -Wall
-#LOADLIBES = -lm
+LOADLIBES = -lm
 
 cfiles := $(wildcard *.c)
 ofiles := $(cfiles:.c=.o)
 
-all: 1
+all: 1 2
+	@echo
+	@echo "Ausgabe Programm 1"
+	./1
+	@echo
+	@echo "Ausgabe Programm 2"
+	./2
 
 1: 1.o bisect.o
+
+2: 2.o bisect.o
 
 dep:
 	gcc -MM $(cfiles) > dep.makefile
