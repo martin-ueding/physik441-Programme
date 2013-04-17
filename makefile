@@ -26,8 +26,7 @@ clean:
 	$(RM) *.o *.out
 	$(RM) *.orig
 	$(RM) *.pyc *.pyo
+	$(RM) 1
 	$(RM) 2
-	$(RM) 3
-	$(RM) 4
 	$(RM) dep.makefile
 	$(RM) plot*.pdf
