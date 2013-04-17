@@ -15,3 +15,9 @@ erscheinen ganz unten in der Ausgabe von ``make``::
     ./2
     U_d = 5.95465 V
     I_d = 0.000453479 A
+
+Abhängigkeiten
+==============
+
+- gcc
+- make
