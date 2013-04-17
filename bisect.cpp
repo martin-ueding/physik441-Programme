@@ -8,13 +8,7 @@ int opposite_signs(double x1, double x2) {
 }
 
 double bisect(double a1, double a2, double(*f)(double), int max_iter, double precision) {
-	// Check, whether f(a1) and f(a2) have opposite sign.
-	int signs = !opposite_signs(f(a1), f(a2));
-	if (signs) {
-		std::cout << "Error: f(a1) and f(a2) do not have opposite sign!" << std::endl;
-		assert(signs);
-		return NAN;
-	}
+	assert(opposite_signs(f(a1), f(a2)));
 
 	double cur = NAN;
 	double y1, y2;
