@@ -1,12 +1,12 @@
 # Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 # Abgabe zusammen mit Jan Weber
 
-CC = gcc
-CFLAGS = -O3 -pedantic -std=c99 -Wall
+CC = g++
+CFLAGS = -O3 -pedantic -std=c++11 -Wall
 LOADLIBES = -lm
 
-cfiles := $(wildcard *.c)
-ofiles := $(cfiles:.c=.o)
+cfiles := $(wildcard *.cpp)
+ofiles := $(cfiles:.cpp=.o)
 
 all: 1 2
 	@echo

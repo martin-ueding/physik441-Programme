@@ -4,10 +4,9 @@
 #ifndef BISECT_H
 #define BISECT_H
 
-#include <assert.h>
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <cassert>
+#include <cmath>
+#include <iostream>
 
 /**
  * Finds a root of the given function.

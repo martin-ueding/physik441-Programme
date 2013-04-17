@@ -1,7 +1,7 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 // Abgabe zusammen mit Jan Weber
 
-#include "bisect.h"
+#include "bisect.hpp"
 
 int opposite_signs(double x1, double x2) {
 	return ((x1 > 0.0 && x2 < 0.0) || (x1 < 0.0 && x2 > 0.0));
@@ -11,7 +11,7 @@ double bisect(double a1, double a2, double(*f)(double), int max_iter, double pre
 	// Check, whether f(a1) and f(a2) have opposite sign.
 	int signs = !opposite_signs(f(a1), f(a2));
 	if (signs) {
-		printf("Error: f(a1) and f(a2) do not have opposite sign!\n");
+		std::cout << "Error: f(a1) and f(a2) do not have opposite sign!" << std::endl;
 		assert(signs);
 		return NAN;
 	}
@@ -29,20 +29,16 @@ double bisect(double a1, double a2, double(*f)(double), int max_iter, double pre
 		abs_y_cur = fabs(y_cur);
 
 		if (abs_y_cur <= precision) {
-			// Found a root.
 			break;
 		}
 
 		if (opposite_signs(y1, y_cur)) {
-			// There is a change in sign in the first half of the interval.
 			a2 = cur;
 		}
 		else if (opposite_signs(y2, y_cur)) {
-			// There is a change in sign in the second half of the interval.
 			a1 = cur;
 		}
 		else {
-			// No root was found.
 			return NAN;
 		}
 	}

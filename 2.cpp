@@ -1,11 +1,10 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 // Abgabe zusammen mit Jan Weber
 
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <cmath>
+#include <iostream>
 
-#include "bisect.h"
+#include "bisect.hpp"
 
 double i_d(double u_d) {
 	double i_s = 1.0e-10;
@@ -25,8 +24,8 @@ double f(double u_d) {
 int main(int argc, char **argv) {
 	double u_d = bisect(0.0, 100.0, f, 1000000, 1e-6);
 	double i_d_ = i_d(u_d);
-	printf("U_d = %g V\n", u_d);
-	printf("I_d = %g A\n", i_d_);
+	std::cout << "U_d = " << u_d << std::endl;
+	std::cout << "I_d = " << i_d << std::endl;
 
 	return 0;
 }
