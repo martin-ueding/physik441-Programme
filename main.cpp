@@ -6,6 +6,12 @@
 #include "bisect.hpp"
 
 /**
+ * @mainpage physik441 problem set 2
+ * @author Martin Ueding <dev@martin-ueding.de>
+ * @author Jan Weber
+ */
+
+/**
  * Test function.
  *
  * It has roots at x=-1 and x=2.

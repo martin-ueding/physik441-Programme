@@ -8,6 +8,9 @@
 #include <cmath>
 #include <iostream>
 
+/**
+ * “Bisect” root finding algorithmn and helper functions.
+ */
 class Bisect {
 	public:
 		/**
