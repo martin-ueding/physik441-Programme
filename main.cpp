@@ -10,7 +10,7 @@
  @author Martin Ueding <dev@martin-ueding.de>
  @author Jan Weber
 
- @section compile Kompilieren und Ausführen
+ @section kompilieren Kompilieren und Ausführen
 
  Mit <tt>make dep && make</tt> wird alles kombiliert und ausgeführt, die
  Ausgaben erscheinen ganz unten in der Ausgabe von <tt>make</tt>:
@@ -26,7 +26,7 @@
  - g++
  - make
 
- @section Überlegungen zu Aufgabe 2
+ @section überlegungen Überlegungen zu Aufgabe 2
 
  Der Strom, der durch die Diode geht ist:
 
