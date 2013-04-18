@@ -2,3 +2,4 @@ dep.makefile
 *.tar
 *.o
 main
+html/
