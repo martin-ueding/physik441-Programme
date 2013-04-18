@@ -15,6 +15,9 @@ namespace bisect {
 	/**
 	 Finds a root of the given function.
 
+	 See https://en.wikipedia.org/wiki/Bisection_method for an explanation of
+	 this algorithmn.
+
 	 @param a1 Minimal start value
 	 @param a2 Maximal start value
 	 @param f Function to use
