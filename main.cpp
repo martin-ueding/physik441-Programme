@@ -27,7 +27,7 @@
 
  @section überlegungen Überlegungen zu Aufgabe 2
 
- Der Strom, der durch die Diode geht ist:
+ Der Strom, der durch die Diode geht, ist:
 
  @f[
      I_D(U_D) = I_S \exp\left( \frac{U_D}{m U_T} \right)
