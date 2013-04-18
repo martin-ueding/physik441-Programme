@@ -6,9 +6,40 @@
 #include "bisect.hpp"
 
 /**
- * @mainpage physik441 problem set 2
- * @author Martin Ueding <dev@martin-ueding.de>
- * @author Jan Weber
+ @mainpage physik441 problem set 2
+ @author Martin Ueding <dev@martin-ueding.de>
+ @author Jan Weber
+
+ @section compile Kompilieren und Ausführen
+ 
+ Mit <tt>make dep && make</tt> wird alles kombiliert und ausgeführt, die
+ Ausgaben erscheinen ganz unten in der Ausgabe von <tt>make</tt>:
+ 
+     Ausgabe Programm
+     ./main
+     Roots -12
+     U_d = 5.95465
+     I_d = 1
+ 
+ @section Abhängigkeiten
+ 
+ - g++
+ - make
+ 
+ @section Überlegungen zu Aufgabe 2
+ 
+ Der Strom, der durch die Diode geht ist:
+ 
+ @f[
+     I_D(U_D) = I_S \exp\left( \frac{U_D}{m U_T} \right)
+ @f]
+ 
+ Die Spannung, die über dem Widerstand und der Diode abfällt, muss gerade die
+ Eingangsspannung sein:
+ 
+ @f[
+     U_0 - U_D + R I_D (U_D) = 0
+ @f]
  */
 
 /**
