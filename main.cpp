@@ -17,7 +17,7 @@
 
      Ausgabe Programm
      ./main
-     Roots -12
+     Roots -1, 2
      U_d = 5.95465
      I_d = 1
 
@@ -69,7 +69,7 @@ double f(double u_d) {
 int aufgabe_a() {
 	double root1 = bisect::bisect(-5.0, 0.0, parabola, 10000, 1.0e-10);
 	double root2 = bisect::bisect(0.0, 5.0, parabola, 10000, 1.0e-10);
-	std::cout << "Roots " << root1 << root2 << "\n";
+	std::cout << "Roots " << root1 << ", " << root2 << "\n";
 	return 0;
 }
 
