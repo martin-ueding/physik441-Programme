@@ -1,6 +1,11 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 // Abgabe zusammen mit Jan Weber
 
+/**
+ @file
+ The bisecting algorithmn.
+ */
+
 #ifndef BISECT_H
 #define BISECT_H
 
