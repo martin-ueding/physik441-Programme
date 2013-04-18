@@ -3,11 +3,11 @@
 
 #include "bisect.hpp"
 
-int opposite_signs(double x1, double x2) {
+int Bisect::opposite_signs(double x1, double x2) {
 	return ((x1 > 0.0 && x2 < 0.0) || (x1 < 0.0 && x2 > 0.0));
 }
 
-double bisect(double a1, double a2, double(*f)(double), int max_iter, double precision) {
+double Bisect::bisect(double a1, double a2, double(*f)(double), int max_iter, double precision) {
 	assert(opposite_signs(f(a1), f(a2)));
 
 	double cur = NAN;

@@ -8,20 +8,24 @@
 #include <cmath>
 #include <iostream>
 
-/**
- * Finds a root of the given function.
- *
- * @param a1 Minimal start value
- * @param a2 Maximal start value
- * @param f Function to use
- * @param max_iter Maximal number of iterations
- * @param precision Working precision
- */
-double bisect(double a1, double a2, double(*f)(double), int max_iter, double precision);
+class Bisect {
+	public:
+		/**
+		 * Finds a root of the given function.
+		 *
+		 * @param a1 Minimal start value
+		 * @param a2 Maximal start value
+		 * @param f Function to use
+		 * @param max_iter Maximal number of iterations
+		 * @param precision Working precision
+		 */
+		static double bisect(double a1, double a2, double(*f)(double), int max_iter, double precision);
 
-/**
- * Checks whether the arguments have opposite sign.
- */
-int opposite_signs(double x1, double x2);
+	private:
+		/**
+		 * Checks whether the arguments have opposite sign.
+		 */
+		static int opposite_signs(double x1, double x2);
+};
 
 #endif /* end of include guard: BISECT_H */
