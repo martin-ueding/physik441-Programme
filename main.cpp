@@ -1,8 +1,6 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 // Abgabe zusammen mit Jan Weber
 
-#include "aufgaben.hpp"
-
 /**
  @mainpage physik441 problem set 2
  @author Martin Ueding <dev@martin-ueding.de>
@@ -42,6 +40,13 @@
      U_0 - U_D + R I_D (U_D) = 0
  @f]
  */
+
+/**
+ @file
+ Main function.
+ */
+
+#include "aufgaben.hpp"
 
 int main(int argc, char **argv) {
 	aufgabe_a();
