@@ -20,8 +20,12 @@ dep:
 
 -include dep.makefile
 
-physik441-02-Ueding_Weber.tar:
+physik441-02-Ueding_Weber.tar: doc
 	git archive --output "$@" master
+	tar --append -f "$@" html
+
+doc:
+	doxygen
 
 .PHONY: clean
 clean:
