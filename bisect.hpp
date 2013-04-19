@@ -28,6 +28,7 @@ namespace bisect {
 	 @param f Function to use
 	 @param max_iter Maximal number of iterations
 	 @param precision Working precision
+	 @throws NoRootException Thrown, if no root was found.
 	 */
 	double bisect(double a1, double a2, double(*f)(double), int max_iter, double precision);
 
@@ -36,6 +37,9 @@ namespace bisect {
 	 */
 	bool opposite_signs(double x1, double x2);
 
+	/**
+	 No root could be found for the given function and interval.
+	 */
 	class NoRootException: public std::exception {
 		public:
 			const char *what() {
