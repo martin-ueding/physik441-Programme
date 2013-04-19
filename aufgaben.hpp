@@ -42,11 +42,11 @@ double f(double u_d);
 /**
  Implementation of problem a.
  */
-int aufgabe_a();
+void aufgabe_a();
 
 /**
  Implementation of problem b.
  */
-int aufgabe_b();
+void aufgabe_b();
 
 #endif /* end of include guard: AUFGABEN_H */
