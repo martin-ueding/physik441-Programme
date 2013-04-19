@@ -23,17 +23,24 @@ double f(double u_d) {
 }
 
 void aufgabe_a() {
-	double root1 = bisect::bisect(-5.0, 0.0, parabola, 10000, 1.0e-10);
-	double root2 = bisect::bisect(0.0, 5.0, parabola, 10000, 1.0e-10);
-	std::cout << "Roots " << root1 << ", " << root2 << "\n";
-	return 0;
+	try {
+		double root1 = bisect::bisect(-5.0, 0.0, parabola, 10000, 1.0e-10);
+		double root2 = bisect::bisect(0.0, 5.0, parabola, 10000, 1.0e-10);
+		std::cout << "Roots " << root1 << ", " << root2 << "\n";
+	}
+	catch (bisect::NoRootException &e) {
+		std::cout << e.what() << std::endl;
+	}
 }
 
 void aufgabe_b() {
-	double u_d = bisect::bisect(0.0, 100.0, f, 1000000, 1e-6);
-	double i_d_ = i_d(u_d);
-	std::cout << "U_d = " << u_d << std::endl;
-	std::cout << "I_d = " << i_d << std::endl;
-
-	return 0;
+	try {
+		double u_d = bisect::bisect(0.0, 100.0, f, 1000000, 1e-6);
+		double i_d_ = i_d(u_d);
+		std::cout << "U_d = " << u_d << std::endl;
+		std::cout << "I_d = " << i_d << std::endl;
+	}
+	catch (bisect::NoRootException &e) {
+		std::cout << e.what() << std::endl;
+	}
 }

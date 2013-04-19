@@ -8,7 +8,10 @@ bool bisect::opposite_signs(double x1, double x2) {
 }
 
 double bisect::bisect(double a1, double a2, double(*f)(double), int max_iter, double precision) {
-	assert(opposite_signs(f(a1), f(a2)));
+	if (!opposite_signs(f(a1), f(a2))) {
+		bisect::NoRootException e;
+		throw e;
+	}
 
 	double cur = NAN;
 	double y1, y2;

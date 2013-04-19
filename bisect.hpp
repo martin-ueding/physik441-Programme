@@ -9,8 +9,8 @@
 #ifndef BISECT_H
 #define BISECT_H
 
-#include <cassert>
 #include <cmath>
+#include <exception>
 #include <iostream>
 
 /**
@@ -35,6 +35,13 @@ namespace bisect {
 	 Checks whether the arguments have opposite sign.
 	 */
 	bool opposite_signs(double x1, double x2);
+
+	class NoRootException: public std::exception {
+		public:
+			const char *what() {
+				return "No root could be found.";
+			}
+	};
 }
 
 #endif /* end of include guard: BISECT_H */
