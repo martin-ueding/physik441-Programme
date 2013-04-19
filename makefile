@@ -34,6 +34,8 @@ clean:
 	$(RM) *.orig
 	$(RM) *.pyc *.pyo
 	$(RM) *.tar
+	$(RM) -r html
 	$(RM) dep.makefile
 	$(RM) main
 	$(RM) plot*.pdf
+	$(RM) tags
