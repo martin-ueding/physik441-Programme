@@ -34,7 +34,7 @@ namespace bisect {
 	/**
 	 Checks whether the arguments have opposite sign.
 	 */
-	int opposite_signs(double x1, double x2);
+	bool opposite_signs(double x1, double x2);
 }
 
 #endif /* end of include guard: BISECT_H */

@@ -3,7 +3,7 @@
 
 #include "bisect.hpp"
 
-int bisect::opposite_signs(double x1, double x2) {
+bool bisect::opposite_signs(double x1, double x2) {
 	return ((x1 > 0.0 && x2 < 0.0) || (x1 < 0.0 && x2 > 0.0));
 }
 
