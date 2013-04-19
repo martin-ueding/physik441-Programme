@@ -36,7 +36,8 @@ double bisect::bisect(double a1, double a2, double(*f)(double), int max_iter, do
 			a1 = cur;
 		}
 		else {
-			return NAN;
+			bisect::NoRootException e;
+			throw e;
 		}
 	}
 	return cur;
