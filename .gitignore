@@ -3,3 +3,4 @@ dep.makefile
 *.o
 main
 html/
+tags
