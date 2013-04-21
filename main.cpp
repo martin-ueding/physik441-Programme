@@ -9,6 +9,9 @@
  Zu dieser Aufgabe existiert ein git Repository auf
  https://github.com/martin-ueding/physik441-02.
 
+ Diese Dokumentation ist auch auf http://martin-ueding.de/apidoc/physik441-02/
+ zu finden.
+
  @section kompilieren Kompilieren und Ausführen
 
  Mit <tt>make dep && make -j4</tt> wird alles kombiliert und ausgeführt, die
