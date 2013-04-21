@@ -20,6 +20,8 @@
      U_d = 5.95465
      I_d = 1
 
+ Mit <tt>make test</tt> können die Unittests ausgeführt werden.
+
  @section Abhängigkeiten
 
  - g++

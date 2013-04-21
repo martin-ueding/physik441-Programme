@@ -7,6 +7,9 @@
 
 #include "bisect.hpp"
 
+/**
+ Tests for the bisect namespace.
+ */
 class BisectTest: public CppUnit::TestFixture {
 	CPPUNIT_TEST_SUITE(BisectTest);
 	CPPUNIT_TEST(testOppositeSigns);

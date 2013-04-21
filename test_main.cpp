@@ -1,5 +1,10 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 
+/*
+ @file
+ Main file for testing.
+ */
+
 #include <cppunit/TextTestRunner.h>
 
 #include "test_BisectTest.hpp"
