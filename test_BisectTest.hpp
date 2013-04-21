@@ -11,10 +11,10 @@
  Tests for the bisect namespace.
  */
 class BisectTest: public CppUnit::TestFixture {
-	CPPUNIT_TEST_SUITE(BisectTest);
-	CPPUNIT_TEST_EXCEPTION(testException, bisect::NoRootException);
-	CPPUNIT_TEST(testOppositeSigns);
-	CPPUNIT_TEST_SUITE_END();
+		CPPUNIT_TEST_SUITE(BisectTest);
+		CPPUNIT_TEST_EXCEPTION(testException, bisect::NoRootException);
+		CPPUNIT_TEST(testOppositeSigns);
+		CPPUNIT_TEST_SUITE_END();
 
 	public:
 		/**
