@@ -30,6 +30,9 @@
  - g++
  - make
 
+ Die Dokumentation kann mit <tt>make doc</tt> generiert werden, wenn
+ <tt>doxygen</tt> installiert ist.
+
  @section überlegungen Überlegungen zu Aufgabe 2
 
  Der Strom, der durch die Diode geht, ist:
