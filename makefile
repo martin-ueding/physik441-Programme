@@ -19,25 +19,25 @@ all: main
 	@echo "Ausgabe Programm"
 	./$<
 
-test: test_main
-	./$<
-
-main: $(program_o_files)
-
-test_main: $(filter-out main.o,$(o_files))
-
 dep:
 	gcc -MM $(c_files) > dep.makefile
 	cat dep.makefile
 
--include dep.makefile
+doc:
+	doxygen
+
+main: $(program_o_files)
 
 physik441-02-Ueding_Weber.tar: doc
 	git archive --output "$@" master
 	tar --append -f "$@" html
 
-doc:
-	doxygen
+test: test_main
+	./$<
+
+test_main: $(filter-out main.o,$(o_files))
+
+-include dep.makefile
 
 .PHONY: clean
 clean:
