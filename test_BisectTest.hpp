@@ -1,4 +1,5 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+// Abgabe zusammen mit Jan Weber
 
 #ifndef BISECTTEST_H
 #define BISECTTEST_H
