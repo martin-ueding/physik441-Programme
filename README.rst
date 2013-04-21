@@ -5,4 +5,4 @@
 physik441-02
 ############
 
-Siehe ``html/index.html``.
+Siehe ``html/index.html`` oder http://martin-ueding.de/apidoc/physik441-02/.
