@@ -11,7 +11,7 @@
 
  @section kompilieren Kompilieren und Ausführen
 
- Mit <tt>make dep && make</tt> wird alles kombiliert und ausgeführt, die
+ Mit <tt>make dep && make -j4</tt> wird alles kombiliert und ausgeführt, die
  Ausgaben erscheinen ganz unten in der Ausgabe von <tt>make</tt>:
 
      Ausgabe Programm
