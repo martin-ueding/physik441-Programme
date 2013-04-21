@@ -31,7 +31,7 @@ class BisectTest: public CppUnit::TestFixture {
 		/**
 		 Test function that always gives one.
 
-		 @param x Input value.
+		 @param[in] x Input value.
 		 @returns Always 1.0.
 		 */
 		static double one(double x);

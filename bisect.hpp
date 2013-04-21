@@ -23,11 +23,11 @@ namespace bisect {
 	 See https://en.wikipedia.org/wiki/Bisection_method for an explanation of
 	 this algorithmn.
 
-	 @param a1 Minimal start value
-	 @param a2 Maximal start value
-	 @param f Function to use
-	 @param max_iter Maximal number of iterations
-	 @param precision Working precision
+	 @param[in] a1 Minimal start value
+	 @param[in] a2 Maximal start value
+	 @param[in] f Function to use
+	 @param[in] max_iter Maximal number of iterations
+	 @param[in] precision Working precision
 	 @throws NoRootException Thrown, if no root was found.
 	 */
 	double bisect(double a1, double a2, double(*f)(double), int max_iter, double precision);
@@ -35,8 +35,8 @@ namespace bisect {
 	/**
 	 Checks whether the arguments have opposite sign.
 
-	 @param x1 First value.
-	 @param x2 Second value.
+	 @param[in] x1 First value.
+	 @param[in] x2 Second value.
 	 */
 	bool opposite_signs(double x1, double x2);
 
