@@ -4,3 +4,4 @@ dep.makefile
 main
 html/
 tags
+test_main
