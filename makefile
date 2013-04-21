@@ -27,7 +27,7 @@ main: $(program_o_files)
 test_main: $(filter-out main.o,$(o_files))
 
 dep:
-	gcc -MM $(cfiles) > dep.makefile
+	gcc -MM $(c_files) > dep.makefile
 	cat dep.makefile
 
 -include dep.makefile
