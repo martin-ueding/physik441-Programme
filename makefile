@@ -51,3 +51,4 @@ clean:
 	$(RM) main
 	$(RM) plot*.pdf
 	$(RM) tags
+	$(RM) type_main
