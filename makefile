@@ -3,16 +3,28 @@
 
 CC = g++
 CFLAGS = -O3 -pedantic -std=c++11 -Wall
+LOADLIBES = -lcppunit
 
-cfiles := $(wildcard *.cpp)
-ofiles := $(cfiles:.cpp=.o)
+c_files := $(wildcard *.cpp)
+o_files := $(c_files:.cpp=.o)
+
+program_c_files := $(filter-out test_%, $(c_files))
+program_o_files := $(program_c_files:.cpp=.o)
+
+test_c_files := $(filter test_%, $(c_files))
+test_o_files := $(test_c_files:.cpp=.o)
 
 all: main
 	@echo
 	@echo "Ausgabe Programm"
 	./$<
 
-main: $(ofiles)
+test: test_main
+	./$<
+
+main: $(program_o_files)
+
+test_main: $(filter-out main.o,$(o_files))
 
 dep:
 	gcc -MM $(cfiles) > dep.makefile
