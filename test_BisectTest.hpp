@@ -12,6 +12,7 @@
  */
 class BisectTest: public CppUnit::TestFixture {
 	CPPUNIT_TEST_SUITE(BisectTest);
+	CPPUNIT_TEST_EXCEPTION(testException, bisect::NoRootException);
 	CPPUNIT_TEST(testOppositeSigns);
 	CPPUNIT_TEST_SUITE_END();
 
@@ -20,6 +21,20 @@ class BisectTest: public CppUnit::TestFixture {
 		 Tests the oppsoite_signs function.
 		 */
 		void testOppositeSigns();
+
+		/**
+		 Checks for the exception.
+		 */
+		void testException();
+
+	private:
+		/**
+		 Test function that always gives one.
+
+		 @param x Input value.
+		 @returns Always 1.0.
+		 */
+		static double one(double x);
 };
 
 #endif /* end of include guard: BISECTTEST_H */
