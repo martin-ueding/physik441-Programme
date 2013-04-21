@@ -3,10 +3,7 @@
 #ifndef BISECTTEST_H
 #define BISECTTEST_H
 
-#include <cppunit/TestCaller.h>
-#include <cppunit/TestCase.h>
 #include <cppunit/extensions/HelperMacros.h>
-#include <cppunit/TestSuite.h>
 
 #include "bisect.hpp"
 
