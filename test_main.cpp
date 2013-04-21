@@ -9,6 +9,9 @@
 
 #include "test_BisectTest.hpp"
 
+/**
+ Main function of the test runner.
+ */
 int main() {
 	CppUnit::TextTestRunner runner;
 	runner.addTest(BisectTest::suite());

@@ -50,6 +50,9 @@
 
 #include "aufgaben.hpp"
 
+/**
+ Main function of the program.
+ */
 int main(int argc, char **argv) {
 	aufgabe_a();
 	aufgabe_b();

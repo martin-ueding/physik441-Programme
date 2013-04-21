@@ -16,6 +16,9 @@ class BisectTest: public CppUnit::TestFixture {
 	CPPUNIT_TEST_SUITE_END();
 
 	public:
+		/**
+		 Tests the oppsoite_signs function.
+		 */
 		void testOppositeSigns();
 };
 

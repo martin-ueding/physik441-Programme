@@ -34,6 +34,9 @@ namespace bisect {
 
 	/**
 	 Checks whether the arguments have opposite sign.
+
+	 @param x1 First value.
+	 @param x2 Second value.
 	 */
 	bool opposite_signs(double x1, double x2);
 
@@ -42,6 +45,9 @@ namespace bisect {
 	 */
 	class NoRootException: public std::exception {
 		public:
+			/**
+			 Gives the error message.
+			 */
 			const char *what() {
 				return "No root could be found.";
 			}
