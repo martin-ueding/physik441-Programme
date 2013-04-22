@@ -24,6 +24,14 @@
      U_d = 5.95465
      I_d = 1
 
+ Mit den Korrekturen für den Übungszettel gibt das Programm aus:
+
+	 Ausgabe Programm
+	 ./main
+	 Roots -1, 2
+	 U_d = 0.779844
+	 I_d = 1
+
  Mit <tt>make test</tt> können die Unittests ausgeführt werden.
 
  @section Abhängigkeiten

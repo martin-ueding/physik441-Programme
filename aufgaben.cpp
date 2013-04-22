@@ -10,9 +10,9 @@ double parabola(double x) {
 double i_d(double u_d) {
 	double i_s = 1.0e-10;
 	double m = 1.5;
-	double u_t = 259.0e-3;
+	double u_t = 25.9e-3;
 
-	return i_s * exp(u_d / (m * u_t));
+	return i_s * (exp(u_d / (m * u_t)) - 1);
 }
 
 double f(double u_d) {
