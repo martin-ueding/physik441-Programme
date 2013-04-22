@@ -5,6 +5,7 @@
  @mainpage physik441 problem set 2
  @author Martin Ueding <dev@martin-ueding.de>
  @author Jan Weber
+ @copyright GNU Public License 2 (oder neuer)
 
  Zu dieser Aufgabe existiert ein git Repository auf
  https://github.com/martin-ueding/physik441-02.
