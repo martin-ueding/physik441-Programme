@@ -28,6 +28,7 @@ namespace bisect {
 	 @param[in] f Function to use
 	 @param[in] max_iter Maximal number of iterations
 	 @param[in] precision Working precision
+	 @return Found root of the function
 	 @throws NoRootException Thrown, if no root was found.
 	 */
 	double bisect(double a1, double a2, double(*f)(double), int max_iter, double precision);
