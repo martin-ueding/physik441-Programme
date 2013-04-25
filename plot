@@ -35,9 +35,6 @@ def main():
     pl.savefig("out-5.pdf")
     pl.clf()
 
-
-
-
 def _parse_args():
     """
     Parses the command line arguments.
@@ -51,7 +48,6 @@ def _parse_args():
     #parser.add_argument("--version", action="version", version="<the version>")
 
     return parser.parse_args()
-
 
 if __name__ == "__main__":
     main()
