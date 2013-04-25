@@ -8,9 +8,9 @@
 
  @section kompilieren Kompilieren und Ausführen
 
- Wie immer, mit <tt>make dep && make</tt> werden alle Programmteile kompiliert
- und ausgeführt. Mit <tt>make dep && make test</tt> können alle Tests
- ausgeführt werden, die benötigt die CppUnit Bibliothek.
+ Wie immer, mit <tt>make dep && make -j4</tt> werden alle Programmteile
+ kompiliert und ausgeführt. Mit <tt>make dep && make -j4 test</tt> können alle
+ Tests ausgeführt werden, die benötigt die CppUnit Bibliothek.
 
  @section aufgaben Aufgaben
 
