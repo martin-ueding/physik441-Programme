@@ -1,1 +1,7 @@
 html/
+aufgaben.o
+dep.makefile
+main
+main.o
+roots.o
+tags
