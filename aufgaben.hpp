@@ -58,12 +58,20 @@ double parabola(double x);
 
  The period is calculated with the given formula:
  @f[
-	T(k, l, g) = 4 \sqrt{\frac lg} \int_0^{\pi/2}
+	T(k^2, l, g) = 4 \sqrt{\frac lg} \int_0^{\pi/2}
 	\frac{\mathrm d\phi}{\sqrt{1-k^2 \sin^2(\phi)}}
  @f]
 
- @returns @f$ T(k, l, g) @f$
+ And @f$ k @f$ is given by:
+ @f[
+	k^2 = \sin^2\left(\frac{\phi_0}2\right)
+ @f]
+
+ @param[in] k2 Value of k, already squared
+ @param[in] l Length of the pendulum
+ @param[in] g Gravitational acceleration
+ @returns @f$ T(k^2, l, g) @f$
  */
-double t(double k, double l, double g);
+double t(double k2, double l, double g);
 
 #endif /* end of include guard: AUFGABEN_H */

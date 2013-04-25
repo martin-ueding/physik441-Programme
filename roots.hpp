@@ -14,7 +14,7 @@ namespace nume {
 
 	 @param f Real function
 	 @param[in] start Start value
-	 @oaram[in] max_iter Maximal number of iterations
+	 @param[in] max_iter Maximal number of iterations
 	 */
 	double banach_fix(double(*f)(double), double start, int max_iter);
 }
