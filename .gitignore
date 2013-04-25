@@ -5,3 +5,7 @@ main
 main.o
 roots.o
 tags
+integration.o
+test_integration.o
+test_main
+test_main.o
