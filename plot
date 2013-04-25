@@ -18,6 +18,9 @@ def main():
     y = np.abs(data[:,1] - 7.5)
 
     pl.plot(x, y, linestyle="none", marker="+")
+    pl.title(ur"Fehler bei Integration nach Simpson")
+    pl.xlabel(ur"Unterteilungszahl $n$")
+    pl.ylabel(ur"Fehler $\left|\int_{-2}^1 \mathrm{d}x \, f(x) - S(n)\right|$")
     pl.grid(True)
     pl.savefig("out-4.pdf")
     pl.clf()
