@@ -8,6 +8,7 @@
 #ifndef AUFGABEN_H
 #define AUFGABEN_H
 
+#include <fstream>
 #include <iostream>
 
 #include "integration.hpp"

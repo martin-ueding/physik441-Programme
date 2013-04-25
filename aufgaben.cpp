@@ -9,9 +9,21 @@ void aufgabe1() {
 }
 
 void aufgabe4() {
+	double lower = -2.;
+	double upper = 1.;
+
+	double result;
+
 	std::cout << "Aufgabe 4" << std::endl;
-	double result = nume::integrate_simpson(f2, 0., 1., 10);
-	std::cout << "Integral: " << result << std::endl;
+
+	std::ofstream file;
+	file.open("out-4.csv");
+	for (int n = 1; n < 1000000; n *= 2) {
+		result = nume::integrate_simpson(f2, lower, upper, n);
+		file << n << " " << result << std::endl;
+	}
+	file.close();
+
 	result = nume::integrate_simpson(parabola, 0., 1., 10);
 	std::cout << "Parabalfläche: " << result << std::endl;
 }
