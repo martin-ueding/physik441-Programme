@@ -16,7 +16,7 @@ class IntegrationTest: public CppUnit::TestFixture {
 		void test_simpson();
 
 	private:
-		static double parabola(double x);	
+		static double parabola(double x);
 };
 
 

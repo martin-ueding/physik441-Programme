@@ -13,7 +13,7 @@ namespace nume {
 	 @param[in] section_count Number of sections
 	 @returns Integral @f$ \int_a^b \mathrm dx \, f(x) @f$
 	 */
-	double integrate_simpson(double (*f)(double), double lower, double upper, double section_count);
+	double integrate_simpson(double(*f)(double), double lower, double upper, double section_count);
 }
 
 #endif /* end of include guard: INTEGRATION_H */

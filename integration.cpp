@@ -2,10 +2,10 @@
 
 #include "integration.hpp"
 
-double nume::integrate_simpson(double (*f)(double), double lower, double upper, double section_count) {
+double nume::integrate_simpson(double(*f)(double), double lower, double upper, double section_count) {
 	double result = 0.;
 
-	double section_width = (upper-lower)/section_count;
+	double section_width = (upper - lower) / section_count;
 
 	for (int section_id = 0; section_id <= section_count; ++section_id) {
 		double x = lower + section_width * section_id;
@@ -20,7 +20,7 @@ double nume::integrate_simpson(double (*f)(double), double lower, double upper, 
 		}
 	}
 
-	result *= section_width/3;
+	result *= section_width / 3;
 
 	return result;
 }

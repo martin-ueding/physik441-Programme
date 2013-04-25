@@ -17,7 +17,7 @@ void aufgabe4() {
 }
 
 /**
- @returns @f$ 0.2x^2 + 0.1 x - 5 @f$ 
+ @returns @f$ 0.2x^2 + 0.1 x - 5 @f$
  */
 double f1(double x) {
 	return 0.2 * x * x + 0.1 * x - 5;
@@ -26,9 +26,9 @@ double f1(double x) {
 double f2(double x) {
 	double x2 = x * x;
 	double x3 = x2 * x;
-	return x3 + 2. * x2 +0.5*x+2;
+	return x3 + 2. * x2 + 0.5 * x + 2;
 }
 
 double parabola(double x) {
-	return 0.5 * x*x;
+	return 0.5 * x * x;
 }

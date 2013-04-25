@@ -16,7 +16,7 @@ namespace nume {
 	 @param[in] start Start value
 	 @oaram[in] max_iter Maximal number of iterations
 	 */
-	double banach_fix(double (*f)(double), double start, int max_iter);
+	double banach_fix(double(*f)(double), double start, int max_iter);
 }
 
 #endif /* end of include guard: ROOTS_H */
