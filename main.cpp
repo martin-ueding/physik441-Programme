@@ -6,6 +6,12 @@
  @author Martin Ueding <dev@martin-ueding.de>
  @author Jan Weber
 
+ @section kompilieren Kompilieren und Ausführen
+
+ Wie immer, mit <tt>make dep && make</tt> werden alle Programmteile kompiliert
+ und ausgeführt. Mit <tt>make dep && make test</tt> können alle Tests
+ ausgeführt werden, die benötigt die CppUnit Bibliothek.
+
  @section aufgaben Aufgaben
 
  @subsection aufgabe1 Aufgabe 1

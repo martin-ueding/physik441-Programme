@@ -10,7 +10,9 @@ void aufgabe1() {
 
 void aufgabe4() {
 	std::cout << "Aufgabe 4" << std::endl;
-	double result = nume::integrate_simpson(parabola, 0., 1., 10);
+	double result = nume::integrate_simpson(f2, 0., 1., 10);
+	std::cout << "Integral: " << result << std::endl;
+	result = nume::integrate_simpson(parabola, 0., 1., 10);
 	std::cout << "Parabalfläche: " << result << std::endl;
 }
 
@@ -22,6 +24,9 @@ double f1(double x) {
 }
 
 double f2(double x) {
+	double x2 = x * x;
+	double x3 = x2 * x;
+	return x3 + 2. * x2 +0.5*x+2;
 }
 
 double parabola(double x) {
