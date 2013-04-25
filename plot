@@ -12,6 +12,21 @@ __docformat__ = "restructuredtext en"
 def main():
     options = _parse_args()
 
+    data = np.genfromtxt("out-1.csv")
+    x = data[:,0]
+    y = data[:,1]
+    plot_x = np.linspace(np.min(x), np.max(x), 2)
+    pl.plot(plot_x, np.ones(plot_x.size) * (-3.23293), label=ur"erster Fixpunkt")
+    pl.plot(plot_x, np.ones(plot_x.size) * 7.73293, label=ur"zweiter Fixpunkt")
+    pl.plot(x, y, linestyle="none", marker="+", label=ur"Daten")
+    pl.title(ur"Fehler bei Banach'schen Fixpunktverfahren")
+    pl.xlabel(ur"Iterationszahl $n$")
+    pl.ylabel(ur"Fixpunkt $x_n$")
+    pl.grid(True)
+    pl.legend(loc="best")
+    pl.savefig("out-1.pdf")
+    pl.clf()
+
     data = np.genfromtxt("out-4.csv")
     x = data[:,0]
     y = np.abs(data[:,1] - 7.5)

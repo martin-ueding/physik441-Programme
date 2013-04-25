@@ -6,7 +6,16 @@ const double half_pi = std::atan(1.) * 2;
 
 void aufgabe1() {
 	std::cout << "Aufgabe 1" << std::endl;
-	double result = nume::banach_fix(f1, 0., 30);
+
+	std::ofstream file;
+	file.open("out-1.csv");
+
+	double result;
+	for (int n = 1; n <= 30; ++n) {
+		result = nume::banach_fix(f1, 5.4, n);
+		file << n << " " << result << std::endl;
+	}
+
 	std::cout << "Fixpunkt: " << result << std::endl;
 }
 
