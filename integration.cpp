@@ -7,7 +7,7 @@ double nume::integrate_simpson(double (*f)(double), double lower, double upper, 
 
 	double section_width = (upper-lower)/section_count;
 
-	for (int section_id = 0; section_id < section_count; ++section_id) {
+	for (int section_id = 0; section_id <= section_count; ++section_id) {
 		double x = lower + section_width * section_id;
 		if (section_id == 0 || section_id == section_count) {
 			result += f(x);

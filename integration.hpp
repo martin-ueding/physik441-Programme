@@ -4,7 +4,16 @@
 #define INTEGRATION_H
 
 namespace nume {
-	double integrate_simpson(double (*f)(double), double lower, double upper, double sections);
+	/**
+	 Integrates using the Simpson algorithmn.
+
+	 @param f Real function to integrate
+	 @param[in] lower Lower bound @f$ a @f$
+	 @param[in] upper Upper bound @f$ b @f$
+	 @param[in] section_count Number of sections
+	 @returns Integral @f$ \int_a^b \mathrm dx \, f(x) @f$
+	 */
+	double integrate_simpson(double (*f)(double), double lower, double upper, double section_count);
 }
 
 #endif /* end of include guard: INTEGRATION_H */
