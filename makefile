@@ -14,10 +14,13 @@ program_o_files := $(program_c_files:.cpp=.o)
 test_c_files := $(filter test_%, $(c_files))
 test_o_files := $(test_c_files:.cpp=.o)
 
-all: main
+all: main plot
 	@echo
 	@echo "Ausgabe Programm"
+	@echo
 	./$<
+	@echo
+	./plot
 
 dep:
 	gcc -MM $(c_files) > dep.makefile
