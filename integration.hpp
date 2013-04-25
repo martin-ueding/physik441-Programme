@@ -7,7 +7,7 @@ namespace nume {
 	/**
 	 Integrates using the Simpson algorithmn.
 
-	 @param f Real function to integrate
+	 @param[in] f Real function to integrate
 	 @param[in] lower Lower bound @f$ a @f$
 	 @param[in] upper Upper bound @f$ b @f$
 	 @param[in] section_count Number of sections
