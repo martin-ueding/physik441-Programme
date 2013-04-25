@@ -10,7 +10,8 @@
 
  Wie immer, mit <tt>make dep && make -j4</tt> werden alle Programmteile
  kompiliert und ausgeführt. Mit <tt>make dep && make -j4 test</tt> können alle
- Tests ausgeführt werden, diese benötigen die CppUnit Bibliothek.
+ Tests ausgeführt werden, diese benötigen die CppUnit Bibliothek. Für die Plots
+ wird wieder Python 2, NumPy und die matplotlib gebraucht.
 
  @section aufgaben Aufgaben
 
