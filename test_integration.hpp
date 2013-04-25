@@ -16,6 +16,9 @@ class IntegrationTest: public CppUnit::TestFixture {
 		void test_simpson();
 
 	private:
+		/**
+		 @returns @f$ \frac 12 x^2 @f$
+		 */
 		static double parabola(double x);
 };
 

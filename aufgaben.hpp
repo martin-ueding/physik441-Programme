@@ -50,11 +50,6 @@ double f1(double x);
 double f2(double x);
 
 /**
- @returns @f$ \frac 12 x^2 @f$
- */
-double parabola(double x);
-
-/**
  Period of a physical pendulum.
 
  The period is calculated with the given formula:

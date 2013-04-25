@@ -3,7 +3,7 @@
 #include "test_integration.hpp"
 
 double IntegrationTest::parabola(double x) {
-	return 0.5 * x * x;
+	return 3. * x * x;
 }
 
 void IntegrationTest::test_simpson() {

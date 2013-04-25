@@ -18,14 +18,11 @@ void aufgabe4() {
 
 	std::ofstream file;
 	file.open("out-4.csv");
-	for (int n = 1; n < 1000000; n *= 2) {
+	for (int n = 1; n < 1000; n++) {
 		result = nume::integrate_simpson(f2, lower, upper, n);
 		file << n << " " << result << std::endl;
 	}
 	file.close();
-
-	result = nume::integrate_simpson(parabola, 0., 1., 10);
-	std::cout << "Parabalfläche: " << result << std::endl;
 }
 
 double f1(double x) {
@@ -36,8 +33,4 @@ double f2(double x) {
 	double x2 = x * x;
 	double x3 = x2 * x;
 	return x3 + 2. * x2 + 0.5 * x + 2;
-}
-
-double parabola(double x) {
-	return 0.5 * x * x;
 }
