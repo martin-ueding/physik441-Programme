@@ -8,7 +8,9 @@
 #ifndef AUFGABEN_H
 #define AUFGABEN_H
 
+#include <cmath>
 #include <fstream>
+#include <functional>
 #include <iostream>
 
 #include "integration.hpp"
@@ -48,6 +50,8 @@ double f1(double x);
  @returns @f$ x^3 + 2x^2 + \frac 12 x + 2 @f$
  */
 double f2(double x);
+
+double k2(double phi0);
 
 /**
  Period of a physical pendulum.

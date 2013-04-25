@@ -3,6 +3,8 @@
 #ifndef INTEGRATION_H
 #define INTEGRATION_H
 
+#include <functional>
+
 namespace nume {
 	/**
 	 Integrates using the Simpson algorithmn.
@@ -13,7 +15,8 @@ namespace nume {
 	 @param[in] section_count Number of sections
 	 @returns Integral @f$ \int_a^b \mathrm dx \, f(x) @f$
 	 */
-	double integrate_simpson(double(*f)(double), double lower, double upper, int section_count);
+	double integrate_simpson(std::function<double(double)> f, double lower,
+			double upper, int section_count);
 }
 
 #endif /* end of include guard: INTEGRATION_H */
