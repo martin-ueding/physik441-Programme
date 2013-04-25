@@ -16,9 +16,6 @@ void aufgabe4() {
 	std::cout << "Parabalfläche: " << result << std::endl;
 }
 
-/**
- @returns @f$ 0.2x^2 + 0.1 x - 5 @f$
- */
 double f1(double x) {
 	return 0.2 * x * x + 0.1 * x - 5;
 }
