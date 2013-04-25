@@ -13,7 +13,14 @@
 #include "integration.hpp"
 #include "roots.hpp"
 
+/**
+ Problem 1.
+ */
 void aufgabe1();
+
+/**
+ Problem 4.
+ */
 void aufgabe4();
 
 double f1(double x);
