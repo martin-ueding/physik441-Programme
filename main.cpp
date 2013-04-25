@@ -9,7 +9,10 @@
  @section aufgaben Aufgaben
  @subsection aufgabe1 Aufgabe 1
 
- Die Fixpunkte der Funktion @f$ f(x) = x @f$ liegen bei:
+ Die Fixpunkte @f$ f(x) = x @f$ (intern f1) liegen bei @f$ x = -3.23293 @f$ und @f$ x = -3.23293 @f$. Dies haben wir mit Mathematica bestimmt:
+
+     Solve[0.2 x^2 + 0.1 x - 5 == x, x]
+     {{x -> -3.23293}, {x -> 7.73293}}
  */
 
 #include <iostream>

@@ -3,5 +3,9 @@
 #include "roots.hpp"
 
 double nume::banach_fix(double (*f)(double), double start, int max_iter) {
-	return 0.;
+	double result = start;
+	for (int i = 0; i < max_iter; ++i) {
+		result = f(result);
+	}
+	return result;
 }
