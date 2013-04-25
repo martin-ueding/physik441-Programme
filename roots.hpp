@@ -3,7 +3,12 @@
 #ifndef ROOTS_H
 #define ROOTS_H
 
+#include <boost/numeric/ublas/io.hpp>
+#include <boost/numeric/ublas/matrix.hpp>
+#include <boost/numeric/ublas/vector.hpp>
 #include <iostream>
+
+namespace ublas = boost::numeric::ublas;
 
 /**
  Stuff written in the physik441 “Numerische Methoden der Physik” course.
@@ -17,6 +22,25 @@ namespace nume {
 	 @param[in] max_iter Maximal number of iterations
 	 */
 	double banach_fix(double(*f)(double), double start, int max_iter);
+
+	/**
+	 Newton-Rhapson root finding algorithmn in multiple dimensions.
+
+	 This functions uses the boost::numeric::ublas vector and matrix classes to
+	 represent the mathematical structures.
+
+	 The user has to give a function @f$ f: R^n \mapsto R^n @f$
+	 and the inverse Jacobian @f$ 1/(\mathrm Df) @f$.
+
+	 @param[in] f Input function
+	 @param[in] inverse_jacobian A function, that gives the inverse jacobian at the given point.
+	 @returns Position of root
+	 */
+	ublas::vector<double> newton_rhapson(
+			std::function<ublas::vector<double>(ublas::vector<double>)> f,
+			std::function<ublas::matrix<double>(ublas::vector<double>)>
+			inverse_jacobian);
+
 }
 
 #endif /* end of include guard: ROOTS_H */
