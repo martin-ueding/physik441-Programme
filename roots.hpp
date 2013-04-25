@@ -3,6 +3,8 @@
 #ifndef ROOTS_H
 #define ROOTS_H
 
+#include <iostream>
+
 /**
  Stuff written in the physik441 “Numerische Methoden der Physik” course.
  */

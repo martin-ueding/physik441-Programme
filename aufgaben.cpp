@@ -5,7 +5,7 @@
 void aufgabe1() {
 	std::cout << "Aufgabe 1" << std::endl;
 	double result = nume::banach_fix(f1, 0., 30);
-	std::cout << result << std::endl;
+	std::cout << "Fixpunkt: " << result << std::endl;
 }
 
 /**
