@@ -26,6 +26,7 @@
 
 int main() {
 	aufgabe1();
+	aufgabe4();
 
 	return 0;
 }

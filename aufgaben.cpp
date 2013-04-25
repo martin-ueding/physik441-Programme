@@ -8,9 +8,22 @@ void aufgabe1() {
 	std::cout << "Fixpunkt: " << result << std::endl;
 }
 
+void aufgabe4() {
+	std::cout << "Aufgabe 4" << std::endl;
+	double result = nume::integrate_simpson(parabola, 0., 1., 10);
+	std::cout << "Parabalfläche: " << result << std::endl;
+}
+
 /**
  @returns @f$ 0.2x^2 + 0.1 x - 5 @f$ 
  */
 double f1(double x) {
 	return 0.2 * x * x + 0.1 * x - 5;
+}
+
+double f2(double x) {
+}
+
+double parabola(double x) {
+	return 0.5 * x*x;
 }

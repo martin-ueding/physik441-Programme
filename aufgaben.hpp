@@ -10,10 +10,14 @@
 
 #include <iostream>
 
+#include "integration.hpp"
 #include "roots.hpp"
 
 void aufgabe1();
+void aufgabe4();
 
 double f1(double x);
+double f2(double x);
+double parabola(double x);
 
 #endif /* end of include guard: AUFGABEN_H */
