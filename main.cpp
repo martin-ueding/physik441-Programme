@@ -24,8 +24,8 @@
 
  \subsection aufgabe1 Aufgabe 1
 
- Die Fixpunkte \f$ f(x) = x \f$ (intern f1()) liegen bei \f$ x = -3.23293 \f$
- und \f$ x = 7.73293 \f$. Dies haben wir mit Mathematica bestimmt:
+ Die Fixpunkte der Funktion f1() liegen bei \f$ x = -3.23293 \f$ und \f$ x =
+ 7.73293 \f$. Dies haben wir mit Mathematica bestimmt:
 
      Solve[0.2 x^2 + 0.1 x - 5 == x, x]
      {{x -> -3.23293}, {x -> 7.73293}}
@@ -35,14 +35,19 @@
 
  \image html out-1.png
 
+ \todo Es fehlt die Fehlerabschätzung mit der in der Vorlesung angegebenen
+ Formel.
+
  \subsection aufgabe2 Aufgabe 2
 
- In Aufgabe 2 liefert das Newton-Rhapson Verfahren als Fixpunkt:
+ In Aufgabe 2 liefert das Newton-Rhapson Verfahren für die Funktion f3() als
+ Fixpunkt:
  \f[
 	\vec x = (0.423854 \quad 0.423854)^T
  \f]
 
- Dies ist definitiv eine Nullstelle der Funktion, wie wir mit Mathematica erhalten haben:
+ Dies ist definitiv eine Nullstelle der Funktion, wie wir mit Mathematica
+ erhalten haben:
 
      f[x1, x2] := {x1^3 + x2 - .5, x1^2 - x2^2}
 
@@ -56,6 +61,10 @@
 
  Die Funktion nume::newton_rhapson() ist so gebaut, dass sie eine beliebige
  Funktion und zugehörige inverse Jakobimatrix benutzen kann.
+
+ \subsection aufgabe3 Aufgabe 3
+
+ \todo Es fehlt die Herleitung.
 
  \subsection aufgabe4 Aufgabe 4
 
@@ -86,6 +95,8 @@
  Somit ist die Abhängigkeit wohl \f$ n^{-1} \f$.
 
  \subsection aufgabe5 Aufgabe 5
+
+ Hier der Plot der Funktion t():
 
  \image html out-5.png
  */
