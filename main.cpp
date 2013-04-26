@@ -3,21 +3,27 @@
 /**
  \file
  \mainpage physik441 – Übung 3
- \author Martin Ueding <dev\martin-ueding.de>
+ \author Martin Ueding <dev@martin-ueding.de>
  \author Jan Weber
 
  \section kompilieren Kompilieren und Ausführen
 
  Wie immer, mit <tt>make dep && make -j4</tt> werden alle Programmteile
- kompiliert und ausgeführt. Mit <tt>make dep && make -j4 test</tt> können alle
- Tests ausgeführt werden, diese benötigen die CppUnit Bibliothek. Für die Plots
- wird wieder Python 2, NumPy und die matplotlib gebraucht.
+ kompiliert und ausgeführt. Mit <tt>make dep && make -j4 test</tt>.
+
+ Abhängigkeiten:
+
+ - g++
+ - Boost (uBLAS)
+ - Python 2
+ - \c python-matplolib
+ - CppUnit (allerdings nur für <tt>make test</tt>)
 
  \section aufgaben Aufgaben
 
  \subsection aufgabe1 Aufgabe 1
 
- Die Fixpunkte \f$ f(x) = x \f$ (intern f1) liegen bei \f$ x = -3.23293 \f$
+ Die Fixpunkte \f$ f(x) = x \f$ (intern f1()) liegen bei \f$ x = -3.23293 \f$
  und \f$ x = 7.73293 \f$. Dies haben wir mit Mathematica bestimmt:
 
      Solve[0.2 x^2 + 0.1 x - 5 == x, x]
@@ -25,6 +31,28 @@
 
  Das Programm liefert für den Startwert 0 ab einem gewissen Iterationsindex die
  Werte -5 und 0.5 im Wechsel. Nach 30 Iterationen ist meist 0.5 erreicht.
+
+ \subsection aufgabe2 Aufgabe 2
+
+ In Aufgabe 2 liefert das Newton-Rhapson Verfahren als Fixpunkt:
+ \f[
+	\vec x = \begin{pmatrix} 0.423854 \\ 0.423854 \end{pmatrix}
+ \f]
+
+ Dies ist definitiv eine Nullstelle der Funktion, wie wir mit Mathematica erhalten haben:
+
+     f[x1, x2] := {x1^3 + x2 - .5, x1^2 - x2^2}
+
+     Solve[f[x1, x2] == {0, 0}, {x1, x2}]
+     {{x1 -> -0.595744 - 0.254426 I,
+      x2 -> 0.595744 + 0.254426 I}, {x1 -> -0.595744 + 0.254426 I,
+      x2 -> 0.595744 - 0.254426 I}, {x1 -> -0.211927 - 1.06524 I,
+      x2 -> -0.211927 - 1.06524 I}, {x1 -> -0.211927 + 1.06524 I,
+      x2 -> -0.211927 + 1.06524 I}, {x1 -> 0.423854,
+      x2 -> 0.423854}, {x1 -> 1.19149, x2 -> -1.19149}}
+
+ Die Funktion nume::newton_rhapson() ist so gebaut, dass sie eine beliebige
+ Funktion und zugehörige inverse Jakobimatrix benutzen kann.
 
  \subsection aufgabe4 Aufgabe 4
 
