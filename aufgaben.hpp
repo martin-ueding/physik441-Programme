@@ -55,6 +55,8 @@ double f2(double x);
 
 ublas::vector<double> f3(ublas::vector<double> x);
 
+ublas::matrix<double> inverse_jacobian(ublas::vector<double> x);
+
 double k2(double phi0);
 
 /**

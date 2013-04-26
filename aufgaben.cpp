@@ -71,6 +71,18 @@ double integrand(double phi, double k2) {
 	return 1. / std::sqrt(1. - k2 * s * s);
 }
 
+ublas::matrix<double> inverse_jacobian(ublas::vector<double> x) {
+	ublas::matrix<double> result(2, 2);
+	double x12 = x(0)*x(0);
+	double determinant = -6. * x12 * x(1) - 2 * x(0);
+	result(0, 0) = - 2. * x(1);
+	result(0, 1) = - 1.;
+	result(1, 0) = - 2. * x(0);
+	result(1, 1) = 3. * x12;
+	result /= determinant;
+	return result;
+}
+
 double k2(double phi0) {
 	double s = std::sin(phi0/2.);
 	return s * s;
