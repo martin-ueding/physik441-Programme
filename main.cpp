@@ -9,7 +9,8 @@
  \section kompilieren Kompilieren und Ausführen
 
  Wie immer, mit <tt>make dep && make -j4</tt> werden alle Programmteile
- kompiliert und ausgeführt. Mit <tt>make dep && make -j4 test</tt>.
+ kompiliert und ausgeführt. Mit <tt>make dep && make -j4 test</tt> können die
+ Tests ausgeführt werden.
 
  \subsection abhängigkeiten Abhängigkeiten
 
@@ -31,6 +32,8 @@
 
  Das Programm liefert für den Startwert 0 ab einem gewissen Iterationsindex die
  Werte -5 und 0.5 im Wechsel. Nach 30 Iterationen ist meist 0.5 erreicht.
+
+ \image html out-1.png
 
  \subsection aufgabe2 Aufgabe 2
 
