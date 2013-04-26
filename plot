@@ -3,6 +3,10 @@
 
 # Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 
+"""
+Generates plots for the given data.
+"""
+
 import argparse
 import matplotlib.pyplot as pl
 import numpy as np
