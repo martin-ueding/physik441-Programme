@@ -64,7 +64,23 @@
 
  \subsection aufgabe3 Aufgabe 3
 
+ Es soll die Fläche der Parabel \f$ P \f$ hergeleitet werden:
+ \f[
+     P = \frac{x_3 - x_1}{6} \left( f(x_1) + 4 f(x_2) + f(x_3) \right)
+ \f]
+
  \todo Es fehlt die Herleitung.
+
+ Mit Mathematica ist schnell zu sehen, dass das Polynom korrekt ist:
+
+     In:= l1[x_] := (x - x2) (x - x3)/((x1 - x2) (x1 - x3))
+     In:= l2[x_] := (x - x1) (x - x3)/((x2 - x1) (x2 - x3))
+     In:= l3[x_] := (x - x1) (x - x2)/((x3 - x1) (x3 - x2))
+     In:= p[x_] := y1 l1[x] + y2 l2[x] + y3 l3[x]
+     In:= x2 := x1 + h
+     In:= x3 := x1 + 2 h
+     In:= Integrate[p[x], {x, x1, x3}] // Factor
+     Out= 1/3 h (y1 + 4 y2 + y3)
 
  \subsection aufgabe4 Aufgabe 4
 
