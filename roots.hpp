@@ -26,8 +26,8 @@ namespace nume {
 	/**
 	 Newton-Rhapson root finding algorithmn in multiple dimensions.
 
-	 This functions uses the boost::numeric::ublas vector and matrix classes to
-	 represent the mathematical structures.
+	 This functions uses the <tt>boost::numeric::ublas</tt> <tt>vector</tt> and
+	 <tt>matrix</tt> classes to represent the mathematical structures.
 
 	 The user has to give a function @f$ f: R^n \mapsto R^n @f$
 	 and the inverse Jacobian @f$ 1/(\mathrm Df) @f$.
@@ -35,13 +35,13 @@ namespace nume {
 	 @param[in] f Input function
 	 @param[in] inverse_jacobian A function, that gives the inverse jacobian at the given point.
 	 @param[in] start Start value
-	 @param[in] step_count Number of iterations
+	 @param[in] max_iter Number of iterations
 	 @returns Position of root
 	 */
 	ublas::vector<double> newton_rhapson(
 			std::function<ublas::vector<double>(ublas::vector<double>)> f,
 			std::function<ublas::matrix<double>(ublas::vector<double>)>
-			inverse_jacobian, ublas::vector<double> start, int step_count);
+			inverse_jacobian, ublas::vector<double> start, int max_iter);
 
 }
 

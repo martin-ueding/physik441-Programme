@@ -19,6 +19,9 @@ void aufgabe1() {
 	std::cout << "Fixpunkt: " << result << std::endl;
 }
 
+void aufgabe2() {
+}
+
 void aufgabe4() {
 	double lower = -2.;
 	double upper = 1.;

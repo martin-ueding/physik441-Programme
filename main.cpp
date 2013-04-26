@@ -40,6 +40,7 @@
 
 int main() {
 	aufgabe1();
+	aufgabe2();
 	aufgabe4();
 	aufgabe5();
 
