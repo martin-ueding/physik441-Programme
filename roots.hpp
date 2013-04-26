@@ -34,14 +34,14 @@ namespace nume {
 
 	 @param[in] f Input function
 	 @param[in] inverse_jacobian A function, that gives the inverse jacobian at the given point.
-	 @param[in] start Start value
+	 @param[in] x Start value
 	 @param[in] max_iter Number of iterations
 	 @returns Position of root
 	 */
 	ublas::vector<double> newton_rhapson(
 			std::function<ublas::vector<double>(ublas::vector<double>)> f,
 			std::function<ublas::matrix<double>(ublas::vector<double>)>
-			inverse_jacobian, ublas::vector<double> start, int max_iter);
+			inverse_jacobian, ublas::vector<double> x, int max_iter);
 
 }
 

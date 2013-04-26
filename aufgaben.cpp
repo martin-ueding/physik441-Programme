@@ -20,6 +20,11 @@ void aufgabe1() {
 }
 
 void aufgabe2() {
+	std::cout << "Aufgabe 2" << std::endl;
+
+	ublas::vector<double> x(2);
+	x(0) = x(1) = .5;
+	x = nume::newton_rhapson(f3, inverse_jacobian, x, 10);
 }
 
 void aufgabe4() {
