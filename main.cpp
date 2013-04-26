@@ -10,7 +10,7 @@
 
  Wie immer, mit <tt>make dep && make -j4</tt> werden alle Programmteile
  kompiliert und ausgeführt. Mit <tt>make dep && make -j4 test</tt> können die
- Tests ausgeführt werden.
+ Tests ausgeführt werden. Wegen Boost lohnt sich \c -j4 oder \c -j2 enorm.
 
  \subsection abhängigkeiten Abhängigkeiten
 
