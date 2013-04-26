@@ -60,6 +60,8 @@
  \f[
 	\int_{-2}^1 \mathrm dx \, \left( x^3 + 2 x^2 + \frac 12 x + 2 \right) = 7.5
  \f]
+
+ Nach 1000 Durchläufen ist das Ergebnis von 7.49451 erreicht.
  */
 
 #include <iostream>

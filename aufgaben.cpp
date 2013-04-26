@@ -33,6 +33,7 @@ void aufgabe2() {
 void aufgabe4() {
 	double lower = -2.;
 	double upper = 1.;
+	int max_iter = 1000;
 
 	double result;
 
@@ -41,10 +42,13 @@ void aufgabe4() {
 
 	std::ofstream file;
 	file.open("out-4.csv");
-	for (int n = 1; n < 1000; n++) {
+	for (int n = 1; n < max_iter; n++) {
 		result = nume::integrate_simpson(f2, lower, upper, n);
 		file << n << " " << result << std::endl;
 	}
+	std::cout << "Ergebnis bei " << max_iter << " Durchläufen: " << result <<
+		std::endl;
+	std::cout << "Siehe den Plot." << std::endl;
 	file.close();
 }
 
@@ -60,6 +64,7 @@ void aufgabe5() {
 	for (double phi0 = 0.0; phi0 <= 1.5; phi0 += 0.05) {
 		file << phi0 << " " << t(k2(phi0), l, g) << std::endl;
 	}
+	std::cout << "Siehe den Plot." << std::endl;
 }
 
 double f1(double x) {
