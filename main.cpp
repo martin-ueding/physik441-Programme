@@ -68,7 +68,7 @@
 
  Im Plot ist der Fehler zu sehen. Interessanterweise gibt es bei bestimmten
  Durchlaufzahlen keinen Fehler sondern ein exaktes Ergebnis. Diese habe ich in
- einer anderen Farbe geplottet:
+ beim Fitten weggelassen:
 
  \image html out-4.png
 
