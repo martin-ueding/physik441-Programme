@@ -2,7 +2,7 @@
 // Abgabe zusammen mit Jan Weber
 
 /*
- @file
+ \file
  Main file for testing.
  */
 

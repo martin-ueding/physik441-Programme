@@ -1,7 +1,7 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 
 /**
- @file
+ \file
  Functions for each problem.
  */
 
@@ -44,27 +44,27 @@ void aufgabe4();
 void aufgabe5();
 
 /**
- @returns @f$ 0.2x^2 + 0.1 x - 5 @f$
+ \returns \f$ 0.2x^2 + 0.1 x - 5 \f$
  */
 double f1(double x);
 
 /**
- @returns @f$ x^3 + 2x^2 + \frac 12 x + 2 @f$
+ \returns \f$ x^3 + 2x^2 + \frac 12 x + 2 \f$
  */
 double f2(double x);
 
 /**
- Function @f$ F(x_1, x_2) @f$ from the problem set.
+ Function \f$ F(x_1, x_2) \f$ from the problem set.
  */
 ublas::vector<double> f3(ublas::vector<double> x);
 
 /**
- Inverse Jacobian for the function @f$ F @f$.
+ Inverse Jacobian for the function \f$ F \f$.
  */
 ublas::matrix<double> inverse_jacobian(ublas::vector<double> x);
 
 /**
- @f$ k^2 @f$
+ \f$ k^2 \f$
  */
 double k2(double phi0);
 
@@ -72,20 +72,20 @@ double k2(double phi0);
  Period of a physical pendulum.
 
  The period is calculated with the given formula:
- @f[
+ \f[
 	T(k^2, l, g) = 4 \sqrt{\frac lg} \int_0^{\pi/2}
 	\frac{\mathrm d\phi}{\sqrt{1-k^2 \sin^2(\phi)}}
- @f]
+ \f]
 
- And @f$ k @f$ is given by:
- @f[
+ And \f$ k \f$ is given by:
+ \f[
 	k^2 = \sin^2\left(\frac{\phi_0}2\right)
- @f]
+ \f]
 
- @param[in] k2 Value of k, already squared
- @param[in] l Length of the pendulum
- @param[in] g Gravitational acceleration
- @returns @f$ T(k^2, l, g) @f$
+ \param[in] k2 Value of k, already squared
+ \param[in] l Length of the pendulum
+ \param[in] g Gravitational acceleration
+ \returns \f$ T(k^2, l, g) \f$
  */
 double t(double k2, double l, double g);
 
