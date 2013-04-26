@@ -59,6 +59,13 @@ double f2(double x) {
 	return x3 + 2. * x2 + 0.5 * x + 2;
 }
 
+ublas::vector<double> f3(ublas::vector<double> x) {
+	ublas::vector<double> result(2);
+	result(0) = std::pow(x(0), 3) + x(1) - .5;
+	result(1) = x(0)*x(0) - x(1)*x(1);
+	return result;
+}
+
 double integrand(double phi, double k2) {
 	double s = std::sin(phi);
 	return 1. / std::sqrt(1. - k2 * s * s);

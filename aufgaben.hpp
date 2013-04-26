@@ -16,6 +16,8 @@
 #include "integration.hpp"
 #include "roots.hpp"
 
+namespace ublas = boost::numeric::ublas;
+
 /**
  Problem 1.
  */
@@ -50,6 +52,8 @@ double f1(double x);
  @returns @f$ x^3 + 2x^2 + \frac 12 x + 2 @f$
  */
 double f2(double x);
+
+ublas::vector<double> f3(ublas::vector<double> x);
 
 double k2(double phi0);
 
