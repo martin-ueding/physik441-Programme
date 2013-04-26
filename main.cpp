@@ -6,6 +6,8 @@
  \author Martin Ueding <dev@martin-ueding.de>
  \author Jan Weber
 
+ \tableofcontents
+
  \section kompilieren Kompilieren und Ausführen
 
  Wie immer, mit <tt>make dep && make -j4</tt> werden alle Programmteile
