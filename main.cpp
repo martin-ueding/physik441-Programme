@@ -11,7 +11,7 @@
  Wie immer, mit <tt>make dep && make -j4</tt> werden alle Programmteile
  kompiliert und ausgeführt. Mit <tt>make dep && make -j4 test</tt>.
 
- Abhängigkeiten:
+ \subsection abhängigkeiten Abhängigkeiten
 
  - g++
  - Boost (uBLAS)
@@ -36,7 +36,7 @@
 
  In Aufgabe 2 liefert das Newton-Rhapson Verfahren als Fixpunkt:
  \f[
-	\vec x = \begin{pmatrix} 0.423854 \\ 0.423854 \end{pmatrix}
+	\vec x = (0.423854 \quad 0.423854)^T
  \f]
 
  Dies ist definitiv eine Nullstelle der Funktion, wie wir mit Mathematica erhalten haben:
