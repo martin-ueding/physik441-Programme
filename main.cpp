@@ -66,7 +66,24 @@
 
  Nach 1000 Durchläufen ist das Ergebnis von 7.49451 erreicht.
 
+ Im Plot ist der Fehler zu sehen. Interessanterweise gibt es bei bestimmten
+ Durchlaufzahlen keinen Fehler sondern ein exaktes Ergebnis. Diese habe ich in
+ einer anderen Farbe geplottet:
+
  \image html out-4.png
+
+ Daran fittet das \c plot Programm die Funktion, wobei die ersten 50
+ Datenpunkte ausgelassen werden:
+ \f[
+     f(n) = c n^e
+ \f]
+
+ Mit Fitparametern erhalten wir:
+ \f[
+     5.18894594057 n^{-0.991231680783}
+ \f]
+
+ Somit ist die Abhängigkeit wohl \f$ n^{-1} \f$.
 
  \subsection aufgabe5 Aufgabe 5
 

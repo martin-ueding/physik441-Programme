@@ -10,6 +10,7 @@ Generates plots for the given data.
 import argparse
 import matplotlib.pyplot as pl
 import numpy as np
+import scipy.optimize as op
 
 __docformat__ = "restructuredtext en"
 
@@ -35,11 +36,27 @@ def main():
     data = np.genfromtxt("out-4.csv")
     x = data[:,0]
     y = np.abs(data[:,1] - 7.5)
-    pl.plot(x, y, linestyle="none", marker="+")
+
+    unequal = np.array([(a, b) for a, b in zip(x, y) if b != 0])
+
+    def fit(x, c, exp):
+        return c * x**(-exp)
+
+    fit_x = unequal[50:,0]
+    fit_y = unequal[50:,1]
+
+    popt, pconv = op.curve_fit(fit, fit_x, fit_y)
+    print "{} * x^({})".format(popt[0], -popt[1])
+    plot_x = np.linspace(np.min(fit_x), np.max(fit_x), 1000)
+    plot_y = fit(plot_x, *popt)
+    pl.plot(x, y, linestyle="none", marker=".", markersize=4, color='blue', label=ur"Daten")
+    pl.plot(plot_x, plot_y, label=ur"Fit", color='red')
+    pl.ylim(np.min(y), np.max(y))
     pl.title(ur"Fehler bei Integration nach Simpson")
     pl.xlabel(ur"Unterteilungszahl $n$")
     pl.ylabel(ur"Fehler $\left|\int_{-2}^1 \mathrm{d}x \, f(x) - S(n)\right|$")
     pl.grid(True)
+    pl.legend(loc="best")
     pl.savefig("out-4.pdf")
     pl.savefig("out-4.png")
     pl.clf()
