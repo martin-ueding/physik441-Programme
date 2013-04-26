@@ -53,10 +53,19 @@ double f1(double x);
  */
 double f2(double x);
 
+/**
+ Function @f$ F(x_1, x_2) @f$ from the problem set.
+ */
 ublas::vector<double> f3(ublas::vector<double> x);
 
+/**
+ Inverse Jacobian for the function @f$ F @f$.
+ */
 ublas::matrix<double> inverse_jacobian(ublas::vector<double> x);
 
+/**
+ @f$ k^2 @f$
+ */
 double k2(double phi0);
 
 /**
