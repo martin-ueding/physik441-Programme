@@ -5,6 +5,7 @@
 const double half_pi = std::atan(1.) * 2;
 
 void aufgabe1() {
+	std::cout << std::endl;
 	std::cout << "Aufgabe 1" << std::endl;
 
 	std::ofstream file;
@@ -20,11 +21,13 @@ void aufgabe1() {
 }
 
 void aufgabe2() {
+	std::cout << std::endl;
 	std::cout << "Aufgabe 2" << std::endl;
 
 	ublas::vector<double> x(2);
 	x(0) = x(1) = .5;
 	x = nume::newton_rhapson(f3, inverse_jacobian, x, 10);
+	std::cout << "Fixpunkt: " << x(0) << " " << x(1) << std::endl;
 }
 
 void aufgabe4() {
@@ -33,6 +36,7 @@ void aufgabe4() {
 
 	double result;
 
+	std::cout << std::endl;
 	std::cout << "Aufgabe 4" << std::endl;
 
 	std::ofstream file;
@@ -48,6 +52,7 @@ void aufgabe5() {
 	double l = 1.;
 	double g = 9.81;
 
+	std::cout << std::endl;
 	std::cout << "Aufgabe 5" << std::endl;
 
 	std::ofstream file;

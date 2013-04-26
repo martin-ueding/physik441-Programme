@@ -16,7 +16,6 @@ ublas::vector<double> nume::newton_rhapson(
 		inverse_jacobian, ublas::vector<double> x, int max_iter) {
 	for (int iter = 0; iter < max_iter; ++iter) {
 		x = x - ublas::prod(inverse_jacobian(x), f(x));
-		std::cout << x << std::endl;
 	}
 	return x;
 }
