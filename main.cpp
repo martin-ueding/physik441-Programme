@@ -68,7 +68,7 @@
 
  \subsection aufgabe4 Aufgabe 4
 
- Das zu bestimmende Integral ist:
+ Das zu bestimmende Integral ist das Integral der Funktion f2():
  \f[
 	\int_{-2}^1 \mathrm dx \, \left( x^3 + 2 x^2 + \frac 12 x + 2 \right) = 7.5
  \f]

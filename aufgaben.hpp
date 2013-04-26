@@ -29,11 +29,6 @@ void aufgabe1();
 void aufgabe2();
 
 /**
- Problem 3.
- */
-void aufgabe3();
-
-/**
  Problem 4.
  */
 void aufgabe4();
