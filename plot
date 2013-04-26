@@ -25,6 +25,7 @@ def main():
     pl.grid(True)
     pl.legend(loc="best")
     pl.savefig("out-1.pdf")
+    pl.savefig("out-1.png")
     pl.clf()
 
     data = np.genfromtxt("out-4.csv")
@@ -36,6 +37,7 @@ def main():
     pl.ylabel(ur"Fehler $\left|\int_{-2}^1 \mathrm{d}x \, f(x) - S(n)\right|$")
     pl.grid(True)
     pl.savefig("out-4.pdf")
+    pl.savefig("out-4.png")
     pl.clf()
 
     data = np.genfromtxt("out-5.csv")
@@ -45,9 +47,10 @@ def main():
     pl.plot(x, y, linestyle="none", marker="+")
     pl.title(ur"Abweichung von der harmonischen Oszillation")
     pl.xlabel(ur"Startwinkel $\phi_0 / \mathrm{rad}$")
-    pl.ylabel(ur"Fehler $\left|T\left(k^2, l, g\right) - 2\pi \sqrt{\frac{l}{g}} \right| / mathrm{s}$")
+    pl.ylabel(ur"Fehler $\left|T\left(k^2, l, g\right) - 2\pi \sqrt{\frac{l}{g}} \right| / \mathrm{s}$")
     pl.grid(True)
     pl.savefig("out-5.pdf")
+    pl.savefig("out-5.png")
     pl.clf()
 
 def _parse_args():

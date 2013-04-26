@@ -62,6 +62,12 @@
  \f]
 
  Nach 1000 Durchläufen ist das Ergebnis von 7.49451 erreicht.
+
+ \image html out-4.png
+
+ \subsection aufgabe5 Aufgabe 5
+
+ \image html out-5.png
  */
 
 #include <iostream>
