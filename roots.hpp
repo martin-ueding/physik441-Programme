@@ -29,11 +29,12 @@ namespace nume {
 	 This functions uses the <tt>boost::numeric::ublas</tt> <tt>vector</tt> and
 	 <tt>matrix</tt> classes to represent the mathematical structures.
 
-	 The user has to give a function \f$ f: R^n \mapsto R^n \f$
-	 and the inverse Jacobian \f$ 1/(\mathrm Df) \f$.
+	 The user has to give a function \f$ f \colon \mathbb R^n \mapsto \mathbb
+	 R^n \f$ and the inverse Jacobian \f$ 1/(\mathrm Df) \f$.
 
 	 \param[in] f Input function
-	 \param[in] inverse_jacobian A function, that gives the inverse jacobian at the given point.
+	 \param[in] inverse_jacobian A function, that gives the inverse jacobian at
+	 the given point.
 	 \param[in] x Start value
 	 \param[in] max_iter Number of iterations
 	 \returns Position of root

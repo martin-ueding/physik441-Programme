@@ -33,7 +33,8 @@
      {{x -> -3.23293}, {x -> 7.73293}}
 
  Das Programm liefert für den Startwert 0 ab einem gewissen Iterationsindex die
- Werte -5 und 0.5 im Wechsel. Nach 30 Iterationen ist meist 0.5 erreicht.
+ Werte \f$ -5 \f$ und \f$ 0.5 \f$ im Wechsel. Nach 30 Iterationen ist meist \f$
+ 0.5 \f$ erreicht.
 
  \image html out-1.png
 
@@ -45,7 +46,7 @@
  In Aufgabe 2 liefert das Newton-Rhapson Verfahren für die Funktion f3() als
  Fixpunkt:
  \f[
-	\vec x = (0.423854 \quad 0.423854)^T
+	\vec x = \begin{pmatrix} 0.423854 \\ 0.423854 \end{pmatrix}
  \f]
 
  Dies ist definitiv eine Nullstelle der Funktion, wie wir mit Mathematica
@@ -102,7 +103,7 @@
  Daran fittet das \c plot Programm die Funktion, wobei die ersten 50
  Datenpunkte ausgelassen werden:
  \f[
-     f(n) = c n^e
+     n \mapsto c n^e
  \f]
 
  Mit Fitparametern erhalten wir:
