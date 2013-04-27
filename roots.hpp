@@ -1,5 +1,13 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 
+/**
+ \file
+ Functions for finding roots of functions.
+
+ Note that the namespace \c boost::numeric::ublas has been aliased to \c ublas
+ in this file.
+ */
+
 #ifndef ROOTS_H
 #define ROOTS_H
 
@@ -12,6 +20,7 @@ namespace ublas = boost::numeric::ublas;
 
 /**
  Stuff written in the physik441 “Numerische Methoden der Physik” course.
+
  */
 namespace nume {
 	/**
