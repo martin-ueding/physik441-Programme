@@ -79,8 +79,6 @@
      P = \frac{x_3 - x_1}{6} \left( f(x_1) + 4 f(x_2) + f(x_3) \right)
  \f]
 
- \todo Es fehlt die Herleitung.
-
  Mit Mathematica ist schnell zu sehen, dass das Polynom korrekt ist:
 
      In:= l1[x_] := (x - x2) (x - x3)/((x1 - x2) (x1 - x3))
@@ -93,6 +91,39 @@
      Out= 1/3 h (y1 + 4 y2 + y3)
 
  Dabei ist \f$ x_3 - x_1 = 2h \f$.
+
+ Nun die Herleitung per Hand: Dazu betrachte ich den ersten Summanden:
+ \f{align*}{
+	     f(x_1) L_1(x)
+			 &= f(x_1) \frac{(x-x_2)(x-x_3)}{(x_1-x_2)(x_1-x_3)} \\
+	     \int_{x_1}^{x_3} \mathrm dx \, f(x_1) L_1(x)
+			 &= \int_{x_1}^{x_3} \mathrm dx \, f(x_1) \frac{(x-x_2)(x-x_3)}{(x_1-x_2)(x_1-x_3)} \\
+			 &= \frac{1}{2h^2} f(x_1) \int_{x_1}^{x_3} \mathrm dx \, (x-x_2)(x-x_3) \\
+ \f}
+ Darauf wende ich partielle Integration an:
+ \f{align*}{
+			 &= \frac{1}{2h^2} f(x_1) \left( \left. \frac 12(x-x_2)(x-x_3) \right|_{x_1}^{x_3} - \frac12 \int_{x_1}^{x_3} \mathrm dx \, (x-x_3)^2 \right) \\
+			 &= \frac{1}{2h^2} f(x_1) \left( 2 h^3 - \frac16 \left. (x-x_3)^2 \right|_{x_1}^{x_3} \right) \\
+			 &= \frac{1}{2h^2} f(x_1) \left( 2 h^3 - \frac 86 h^3 \right) \\
+			 &= \frac 13 h f(x_1)
+ \f}
+
+ So ähnlich gehe ich für den zweiten Summanden vor. Dort erhalte ich:
+ \f[
+	 \int_{x_1}^{x_3} \mathrm dx \, f(x_2) L_2(x) = \frac 43 h f(x_2)
+ \f]
+
+ Und für den letzten Summanden wie beim Ersten auch:
+ \f[
+	 \int_{x_1}^{x_3} \mathrm dx \, f(x_3) L_3(x) = \frac 13 h f(x_3)
+ \f]
+
+ Alles zusammen also:
+ \f[
+	\frac 13 h \left( f(x_1) + 4 f(x_2) + f(x_3) \right)
+	= 
+	\frac{x_3 - x_1}6 \left( f(x_1) + 4 f(x_2) + f(x_3) \right)
+ \f]
 
  \subsection aufgabe4 Aufgabe 4
 
