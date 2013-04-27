@@ -45,8 +45,15 @@
 
  \image html out-1.png
 
- \todo Es fehlt die Fehlerabschätzung mit der in der Vorlesung angegebenen
- Formel.
+ \subsubsection fehlerabschätzung Fehlerabschätzung
+
+ Damit die Lipschitzkonstante \f$ L < 1 \f$ erreicht ist, forme ich \f$ L >
+ \max |f'(x)| \f$ um und erhalte \f$ -2.75 < x < 2.25 \f$. Allerdings liegen
+ die beiden Fixpunkte außerhalb, womit dieses Verfahren eigentlich gar nicht
+ anwendbar ist. Das erklärt auch, warum es nicht zur Konvergenz kommt.
+
+ Sollte vielleicht mit der Fixpunktmethode die Nullstellen der Funktion f1()
+ bestimmt werden, und gar nicht die Fixpunkte der Funktion selbst?
 
  \subsection aufgabe2 Aufgabe 2
 
