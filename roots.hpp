@@ -30,7 +30,7 @@ namespace nume {
 	 \param[in] start Start value
 	 \param[in] max_iter Maximal number of iterations
 	 */
-	double banach_fix(double(*f)(double), double start, int max_iter);
+	double banach_fix(std::function<double(double)> f, double start, int max_iter);
 
 	/**
 	 Newton-Rhapson root finding algorithmn in multiple dimensions.
