@@ -37,8 +37,7 @@
      {{x -> -3.23293}, {x -> 7.73293}}
 
  Das Programm liefert für den Startwert 0 ab einem gewissen Iterationsindex die
- Werte \f$ -5 \f$ und \f$ 0.5 \f$ im Wechsel. Nach 30 Iterationen ist meist \f$
- 0.5 \f$ erreicht.
+ Werte −5 und 0.5 im Wechsel. Nach 30 Iterationen ist meist 0.5 erreicht.
 
  \image html out-1.png
 
@@ -88,6 +87,8 @@
      In:= x3 := x1 + 2 h
      In:= Integrate[p[x], {x, x1, x3}] // Factor
      Out= 1/3 h (y1 + 4 y2 + y3)
+
+ Dabei ist \f$ x_3 - x_1 = 2h \f$.
 
  \subsection aufgabe4 Aufgabe 4
 
