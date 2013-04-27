@@ -8,6 +8,10 @@
 
  \tableofcontents
 
+ Diese Dokumentation ist auch unter
+ http://martin-ueding.de/apidoc/physik441-03/ zu finden. Das git Repository ist
+ unter https://github.com/martin-ueding/physik441-03 zu finden.
+
  \section kompilieren Kompilieren und Ausführen
 
  Wie immer, mit <tt>make dep && make -j4</tt> werden alle Programmteile
