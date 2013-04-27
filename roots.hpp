@@ -49,9 +49,9 @@ namespace nume {
 	 \returns Position of root
 	 */
 	ublas::vector<double> newton_rhapson(
-			std::function<ublas::vector<double>(ublas::vector<double>)> f,
-			std::function<ublas::matrix<double>(ublas::vector<double>)>
-			inverse_jacobian, ublas::vector<double> x, int max_iter);
+	    std::function<ublas::vector<double>(ublas::vector<double>)> f,
+	    std::function<ublas::matrix<double>(ublas::vector<double>)>
+	    inverse_jacobian, ublas::vector<double> x, int max_iter);
 
 }
 

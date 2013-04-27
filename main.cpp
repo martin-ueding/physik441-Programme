@@ -121,7 +121,7 @@
  Alles zusammen also:
  \f[
 	\frac 13 h \left( f(x_1) + 4 f(x_2) + f(x_3) \right)
-	= 
+	=
 	\frac{x_3 - x_1}6 \left( f(x_1) + 4 f(x_2) + f(x_3) \right)
  \f]
 

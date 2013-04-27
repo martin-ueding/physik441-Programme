@@ -11,9 +11,9 @@ double nume::banach_fix(std::function<double(double)> f, double start, int max_i
 }
 
 ublas::vector<double> nume::newton_rhapson(
-		std::function<ublas::vector<double>(ublas::vector<double>)> f,
-		std::function<ublas::matrix<double>(ublas::vector<double>)>
-		inverse_jacobian, ublas::vector<double> x, int max_iter) {
+    std::function<ublas::vector<double>(ublas::vector<double>)> f,
+    std::function<ublas::matrix<double>(ublas::vector<double>)>
+    inverse_jacobian, ublas::vector<double> x, int max_iter) {
 	for (int iter = 0; iter < max_iter; ++iter) {
 		x = x - ublas::prod(inverse_jacobian(x), f(x));
 	}

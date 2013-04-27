@@ -16,7 +16,7 @@ namespace nume {
 	 \returns Integral \f$ \int_a^b \mathrm dx \, f(x) \f$
 	 */
 	double integrate_simpson(std::function<double(double)> f, double lower,
-			double upper, int section_count);
+	        double upper, int section_count);
 }
 
 #endif /* end of include guard: INTEGRATION_H */

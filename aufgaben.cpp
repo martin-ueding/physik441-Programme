@@ -47,7 +47,7 @@ void aufgabe4() {
 		file << n << " " << result << std::endl;
 	}
 	std::cout << "Ergebnis bei " << max_iter << " Durchläufen: " << result <<
-		std::endl;
+	          std::endl;
 	std::cout << "Siehe den Plot." << std::endl;
 	file.close();
 }
@@ -80,7 +80,7 @@ double f2(double x) {
 ublas::vector<double> f3(ublas::vector<double> x) {
 	ublas::vector<double> result(2);
 	result(0) = std::pow(x(0), 3) + x(1) - .5;
-	result(1) = x(0)*x(0) - x(1)*x(1);
+	result(1) = x(0) * x(0) - x(1) * x(1);
 	return result;
 }
 
@@ -91,7 +91,7 @@ double integrand(double phi, double k2) {
 
 ublas::matrix<double> inverse_jacobian(ublas::vector<double> x) {
 	ublas::matrix<double> result(2, 2);
-	double x12 = x(0)*x(0);
+	double x12 = x(0) * x(0);
 	double determinant = -6. * x12 * x(1) - 2 * x(0);
 	result(0, 0) = - 2. * x(1);
 	result(0, 1) = - 1.;
@@ -102,11 +102,11 @@ ublas::matrix<double> inverse_jacobian(ublas::vector<double> x) {
 }
 
 double k2(double phi0) {
-	double s = std::sin(phi0/2.);
+	double s = std::sin(phi0 / 2.);
 	return s * s;
 }
 
 double t(double k2, double l, double g) {
 	std::function<double(double)> i = std::bind(integrand, std::placeholders::_1, k2);
-	return 4. * std::sqrt(l/g) * nume::integrate_simpson(i, 0, half_pi, 1000);
+	return 4. * std::sqrt(l / g) * nume::integrate_simpson(i, 0, half_pi, 1000);
 }
