@@ -115,7 +115,12 @@
 
  \subsection aufgabe5 Aufgabe 5
 
- Hier der Plot der Funktion t():
+ Die zu erwartende Periode bei einer reinen harmonischen Oszillation ist:
+ \f[
+	T = \frac{2\pi}{\omega} = 2 \pi \sqrt{\frac lg}
+ \f]
+
+ Hier der Plot des Abstandes der Funktion t() zur obigen Periode \f$ T \f$:
 
  \image html out-5.png
  */
