@@ -53,6 +53,7 @@ clean:
 	$(RM) -r html
 	$(RM) dep.makefile
 	$(RM) main
+	$(RM) output.txt
 	$(RM) plot*.pdf
 	$(RM) tags
 	$(RM) type_main
