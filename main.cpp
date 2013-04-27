@@ -22,6 +22,10 @@
  - \c python-matplolib
  - CppUnit (allerdings nur für <tt>make test</tt>)
 
+ \subsection ausgabe Ausgabe
+
+ \include output.txt
+
  \section aufgaben Aufgaben
 
  \subsection aufgabe1 Aufgabe 1

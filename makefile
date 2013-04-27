@@ -26,7 +26,8 @@ dep:
 	gcc -MM $(c_files) > dep.makefile
 	cat dep.makefile
 
-doc:
+doc: main
+	./$< > output.txt
 	doxygen
 
 main: $(program_o_files)
