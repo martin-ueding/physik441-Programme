@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+# Abgabe mit Jan Weber
 
 """
 Generates plots for the given data.

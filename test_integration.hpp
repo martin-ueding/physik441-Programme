@@ -1,4 +1,5 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+// Abgabe mit Jan Weber
 
 #ifndef TEST_INTEGRATION_H
 #define TEST_INTEGRATION_H
