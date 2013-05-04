@@ -40,7 +40,7 @@ void aufgabe4();
 void aufgabe5();
 
 /**
- \returns \f$ 0.2x^2 + 0.1 x - 5 \f$
+ \returns \f$ 0.1x^2 + 0.2 x - 5 \f$
  */
 double f1(double x);
 

@@ -22,8 +22,6 @@ def main():
     x = data[:,0]
     y = data[:,1]
     plot_x = np.linspace(np.min(x), np.max(x), 2)
-    pl.plot(plot_x, np.ones(plot_x.size) * (-3.23293), label=ur"erster Fixpunkt")
-    pl.plot(plot_x, np.ones(plot_x.size) * 7.73293, label=ur"zweiter Fixpunkt")
     pl.plot(x, y, linestyle="none", marker="+", label=ur"Daten")
     pl.title(ur"Fehler bei Banach'schen Fixpunktverfahren")
     pl.xlabel(ur"Iterationszahl $n$")

@@ -35,26 +35,13 @@
 
  \subsection aufgabe1 Aufgabe 1
 
- Die Fixpunkte der Funktion f1() liegen bei \f$ x = -3.23293 \f$ und \f$ x =
- 7.73293 \f$. Dies haben wir mit Mathematica bestimmt:
-
-     Solve[0.2 x^2 + 0.1 x - 5 == x, x]
-     {{x -> -3.23293}, {x -> 7.73293}}
-
- Das Programm liefert für den Startwert 0 ab einem gewissen Iterationsindex die
- Werte −5 und 0.5 im Wechsel. Nach 30 Iterationen ist meist 0.5 erreicht.
+ Mit der neuen Funktion f1() konvergiert das ganze sehr schön:
 
  \image html out-1.png
 
  \subsubsection fehlerabschätzung Fehlerabschätzung
 
- Damit die Lipschitzkonstante \f$ L < 1 \f$ erreicht ist, forme ich \f$ L >
- \max |f'(x)| \f$ um und erhalte \f$ -2.75 < x < 2.25 \f$. Allerdings liegen
- die beiden Fixpunkte außerhalb, womit dieses Verfahren eigentlich gar nicht
- anwendbar ist. Das erklärt auch, warum es nicht zur Konvergenz kommt.
-
- Sollte vielleicht mit der Fixpunktmethode die Nullstellen der Funktion f1()
- bestimmt werden, und gar nicht die Fixpunkte der Funktion selbst?
+ \todo Fehlerabschätzung fehlt
 
  \subsection aufgabe2 Aufgabe 2
 

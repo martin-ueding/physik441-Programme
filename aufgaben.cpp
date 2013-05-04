@@ -69,7 +69,7 @@ void aufgabe5() {
 }
 
 double f1(double x) {
-	return 0.2 * x * x + 0.1 * x - 5;
+	return 0.1 * x * x + 0.2 * x - 5;
 }
 
 double f2(double x) {
