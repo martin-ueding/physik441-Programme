@@ -32,7 +32,7 @@ doc: main
 
 main: $(program_o_files)
 
-physik441-02-Ueding_Weber.tar: doc
+physik441-03-Ueding_Weber.tar: doc
 	git archive --output "$@" master
 	tar --append -f "$@" html
 
