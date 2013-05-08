@@ -73,13 +73,14 @@ void aufgabe1() {
 
 std::mutex mutex;
 
-void task(unsigned int max_iter, std::vector<unsigned int> *results, std::vector<unsigned int>::iterator start) {
+void task(unsigned int max_iter, std::vector<unsigned int> *results, std::vector<unsigned int>::iterator iterator) {
 	for (unsigned int n = 0; n < max_iter; ++n) {
 		nume::Album album(535);
 		unsigned int steps = album.fill_up();
 		mutex.lock();
-		results->insert(start, steps);
+		*iterator = steps;
 		mutex.unlock();
+		++iterator;
 	}
 }
 
@@ -88,7 +89,7 @@ void aufgabe2() {
 
 	unsigned int max_iter = 10000;
 
-	unsigned int thread_count = 2;
+	unsigned int thread_count = 4;
 
 	std::vector<std::thread> threads(thread_count);
 	std::vector<unsigned int> results(max_iter);
@@ -96,6 +97,7 @@ void aufgabe2() {
 	int i = 0;
 	for (std::thread &thread: threads) {
 		std::vector<unsigned int>::iterator start = results.begin() + max_iter/thread_count * i;
+		std::cout << *start << std::endl;
 		thread = std::thread(task, max_iter/thread_count, &results, start);
 		i++;
 	}
