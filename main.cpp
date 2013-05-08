@@ -8,8 +8,8 @@
 
  \section comile Komilieren und Ausführen
 
- Das Programm kann mit <tt>make dep && make</tt> kompiliert und ausgeführt
- werden. Die Ausgabe ist:
+ Das Programm kann mit <tt>make dep && make</tt> kompiliert und mit \c ./main
+ ausgeführt werden. Die Ausgabe ist:
 
  \include output.txt
 
@@ -19,7 +19,9 @@
 
  \image html out-1.png
 
- Die Abhängigkeit ist anscheinend \f$ n^{-1} \f$.
+ Vom Plot lese ich ab: Damit sich der Fehler um drei Zehnerpotenzen reduziert,
+ muss die Iterationszahl um 5 Größenordnungen erhöhen. Die Abhängigkeit von \f$
+ n \f$ ist dann in der Ecke von \f$ n^{-3/5} \f$.
 
  \subsection aufgabe2 Aufgabe 2
 
@@ -65,6 +67,8 @@ void concurrent_print(std::string s) {
 	mutex.unlock();
 }
 
+const unsigned int max_iter = 1000;
+
 void aufgabe1() {
 	concurrent_print("Aufgabe 1 start");
 
@@ -104,8 +108,6 @@ void aufgabe1() {
 void aufgabe2a() {
 	concurrent_print("Aufgabe 2a start");
 
-	unsigned int max_iter = 10000;
-
 	int bin_count = 2000;
 	std::vector<int> bins(bin_count, 0);
 
@@ -131,7 +133,6 @@ void aufgabe2a() {
 
 void aufgabe2b() {
 	concurrent_print("Aufgabe 2b start");
-	unsigned int max_iter = 10000;
 
 	int bin_count = 2000;
 	std::vector<int> bins(bin_count, 0);
@@ -186,7 +187,6 @@ void aufgabe2b() {
 
 void aufgabe2c() {
 	concurrent_print("Aufgabe 2c start");
-	unsigned int max_iter = 10000;
 
 	int bin_count = 2000;
 	std::vector<int> bins(bin_count, 0);
