@@ -26,6 +26,10 @@
 
  \image html out-2a.png
 
+ \subsubsection aufgabe2b Aufgabe 2b
+
+ \image html out-2b.png
+
  \todo Fehlt
  */
 
@@ -123,9 +127,14 @@ void aufgabe2a() {
 	panini_run<nume::Album>("out-2a.csv");
 }
 
+void aufgabe2b() {
+	panini_run<nume::AlbumDouble>("out-2b.csv");
+}
+
 int main() {
 	aufgabe1();
 	aufgabe2a();
+	aufgabe2b();
 
 	return 0;
 }

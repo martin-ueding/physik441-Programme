@@ -42,3 +42,32 @@ unsigned int nume::Album::fill_up() {
 bool nume::Album::is_full() {
 	return empty_slots == 0;
 }
+
+void nume::AlbumDouble::add_card(int id) {
+	if (slots_filled[id] == 0) {
+		--empty_slots;
+	}
+
+	slots_filled[id]++;
+}
+
+nume::AlbumDouble::AlbumDouble(int slots): Album(slots) {
+	card_count = slots;
+	slots_filled = std::vector<unsigned int>(card_count);
+
+	for (unsigned int i = 0; i < slots_filled.size(); ++i) {
+		slots_filled[i] = 0;
+	}
+
+	empty_slots = card_count;
+}
+
+bool nume::AlbumDouble::is_full() {
+	for (unsigned int count: slots_filled) {
+		if (count < 2) {
+			return false;
+		}
+	}
+
+	return true;
+}

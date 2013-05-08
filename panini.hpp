@@ -20,6 +20,16 @@ namespace nume {
 			std::vector<bool> slots_filled;
 			int empty_slots;
 	};
+
+	class AlbumDouble: public Album {
+		public:
+			void add_card(int id);
+			AlbumDouble(int slots);
+			bool is_full();
+		private:
+			std::vector<unsigned int> slots_filled;
+			int empty_slots;
+	};
 }
 
 #endif /* end of include guard: PANINI_H */
