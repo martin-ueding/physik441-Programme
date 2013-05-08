@@ -18,7 +18,7 @@
 
  \image html out-1.png
 
- Die Abhängigkeit ist anscheinend \f$ n^{-2} \f$.
+ Die Abhängigkeit ist anscheinend \f$ n^{-1} \f$.
 
  \subsection aufgabe2 Aufgabe 2
 
@@ -69,9 +69,26 @@ void aufgabe1() {
 }
 
 void aufgabe2() {
-	nume::Album album(535);
+	std::cout << "\nAufgabe 2\n";
 
-	std::cout << album.fill_up() << std::endl;
+	unsigned int max_iter = 100000;
+
+	std::vector<unsigned int> results(0);
+
+	for (int n = 0; n < max_iter; ++n) {
+		nume::Album album(535);
+		unsigned int steps = album.fill_up();
+		results.push_back(steps);
+	}
+
+	std::ofstream out;
+	out.open("out-2a.csv");
+	for (unsigned int count: results) {
+		out << count << std::endl;
+	}
+	out.close();
+
+	std::cout << "Siehe Plot" << std::endl;
 }
 
 int main() {

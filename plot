@@ -31,6 +31,16 @@ def main():
     pl.savefig("out-1.png")
     pl.clf()
 
+    data = np.genfromtxt("out-2a.csv")
+    pl.hist(data, bins=100)
+    pl.title(ur"Anzahl der Päckchen für ein volles Panini-Album")
+    pl.xlabel(ur"Anzahl Päckchen")
+    pl.ylabel(ur"Häufigkeit")
+    pl.grid(True)
+    pl.savefig("out-2a.pdf")
+    pl.savefig("out-2a.png")
+    pl.clf()
+
 def _parse_args():
     """
     Parses the command line arguments.
