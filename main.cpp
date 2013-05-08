@@ -67,7 +67,7 @@ void concurrent_print(std::string s) {
 	mutex.unlock();
 }
 
-const unsigned int max_iter = 1000;
+const unsigned int max_iter = 10000;
 
 void aufgabe1() {
 	concurrent_print("Aufgabe 1 start");
@@ -86,11 +86,11 @@ void aufgabe1() {
 	std::ofstream out;
 	out.open("out-1.csv");
 
-	for (n = 0; n < max_iter/10; ++n) {
-		x = ((double) std::rand() / (RAND_MAX)) * (max-min) + min;
-		y = ((double) std::rand() / (RAND_MAX)) * (max-min) + min;
+	for (n = 0; n < max_iter / 10; ++n) {
+		x = ((double) std::rand() / (RAND_MAX)) * (max - min) + min;
+		y = ((double) std::rand() / (RAND_MAX)) * (max - min) + min;
 
-		if (x*x + y*y <= 1) {
+		if (x *x + y *y <= 1) {
 			++in_circle;
 		}
 
@@ -145,7 +145,7 @@ void aufgabe2b() {
 			steps++;
 
 			std::vector<unsigned int> pack = mine.generate_pack();
-			for (unsigned int &card: pack) {
+for (unsigned int & card: pack) {
 
 				if (!mine.has_card(card)) {
 					mine.add_card(card);
@@ -156,7 +156,7 @@ void aufgabe2b() {
 			}
 
 			pack = other.generate_pack();
-			for (unsigned int &card: pack) {
+for (unsigned int & card: pack) {
 
 				if (!other.has_card(card)) {
 					other.add_card(card);
@@ -210,11 +210,27 @@ void aufgabe2c() {
 	concurrent_print("Aufgabe 2c fertig");
 }
 
-int main() {
+void no_parallel() {
 	aufgabe1();
 	aufgabe2a();
 	aufgabe2b();
 	aufgabe2c();
+}
+
+void parallel() {
+	std::thread t1(aufgabe1);
+	std::thread t2(aufgabe2a);
+	std::thread t3(aufgabe2b);
+	std::thread t4(aufgabe2c);
+
+	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
+}
+
+int main() {
+	no_parallel();
 
 	return 0;
 }
