@@ -2,7 +2,7 @@
 # Abgabe zusammen mit Jan Weber
 
 CC = g++
-CPPFLAGS = -g -pedantic -std=c++11 -Wall
+CPPFLAGS = -O3 -pedantic -std=c++11 -Wall
 LOADLIBES = -lpthread
 
 c_files := $(wildcard *.cpp)
