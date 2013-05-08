@@ -77,9 +77,9 @@ void aufgabe1() {
 	double pi;
 	double x;
 	double y;
-	int n = 0;
+	unsigned int n = 0;
 
-	int in_circle = 0;
+	unsigned int in_circle = 0;
 
 	std::srand(std::time(NULL));
 
