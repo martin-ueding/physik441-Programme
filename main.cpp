@@ -85,7 +85,7 @@ void aufgabe2() {
 
 	unsigned int max_iter = 10000;
 
-	unsigned int thread_count = 4;
+	unsigned int thread_count = 1;
 
 	std::vector<std::thread> threads(thread_count);
 	std::vector<unsigned int> results(max_iter);
