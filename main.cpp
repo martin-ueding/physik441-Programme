@@ -1,20 +1,43 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 
+/**
+ \mainpage physik441-04
+
+ \tableofcontents
+
+ \section aufgaben Aufgaben
+
+ \subsection aufgabe1 Aufgabe 1
+
+ \image html out-1.png
+
+ Die Abhängigkeit ist anscheinend \f$ n^{-2} \f$.
+
+ \subsection aufgabe2 Aufgabe 2
+
+ \todo Fehlt
+ */
+
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 #include <iostream>
 
 void aufgabe1() {
 	double max = 1.;
 	double min = -1.;
-	int max_iter = 10000;
-	int n = 0;
+	double pi;
 	double x;
 	double y;
+	int max_iter = 10000;
+	int n = 0;
 
 	int in_circle = 0;
 
 	std::srand(std::time(NULL));
+
+	std::ofstream out;
+	out.open("out-1.csv");
 
 	for (n = 0; n < max_iter; ++n) {
 		x = ((double) std::rand() / (RAND_MAX)) * (max-min) + min;
@@ -25,10 +48,13 @@ void aufgabe1() {
 		if (x*x + y*y <= 1) {
 			++in_circle;
 		}
+
+		pi = 4. * in_circle / max_iter;
+
+		out << n << " " << pi << "\n";
 	}
 
-	std::cout << 4. * in_circle / max_iter << std::endl;
-
+	out.close();
 }
 
 int main() {
