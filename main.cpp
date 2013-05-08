@@ -22,6 +22,10 @@
 
  \subsection aufgabe2 Aufgabe 2
 
+ \subsubsection aufgabe2a Aufgabe 2a
+
+ \image html out-2a.png
+
  \todo Fehlt
  */
 
