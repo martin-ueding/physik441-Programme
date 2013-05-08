@@ -14,20 +14,15 @@ program_o_files := $(program_c_files:.cpp=.o)
 test_c_files := $(filter test_%, $(c_files))
 test_o_files := $(test_c_files:.cpp=.o)
 
-all: main plot
-	@echo
-	@echo "Ausgabe Programm"
-	@echo
-	time ./$<
-	@echo
-	./plot
+all: main
 
 dep:
 	gcc -MM $(c_files) > dep.makefile
 	cat dep.makefile
 
-html: main
+html: main plot
 	./$< > output.txt
+	./plot
 	doxygen
 
 main: $(program_o_files)

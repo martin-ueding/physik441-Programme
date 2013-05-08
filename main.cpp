@@ -30,6 +30,8 @@
 #include <fstream>
 #include <iostream>
 
+#include "panini.hpp"
+
 void aufgabe1() {
 	double max = 1.;
 	double min = -1.;
@@ -66,8 +68,15 @@ void aufgabe1() {
 	std::cout << "Aufgabe 1\nSiehe Plot" << std::endl;
 }
 
+void aufgabe2() {
+	nume::Album album(535);
+
+	std::cout << album.fill_up() << std::endl;
+}
+
 int main() {
 	aufgabe1();
+	aufgabe2();
 
 	return 0;
 }
