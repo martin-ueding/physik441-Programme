@@ -21,7 +21,6 @@ dep:
 	cat dep.makefile
 
 html: output.txt plot
-	./plot
 	doxygen
 
 output.txt: main plot
