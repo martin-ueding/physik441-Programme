@@ -2,3 +2,6 @@
 html/
 main
 out-*
+dep.makefile
+out.txt
+output.txt
