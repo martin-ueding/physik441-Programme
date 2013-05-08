@@ -8,8 +8,8 @@
 
  \section comile Komilieren und Ausführen
 
- Das Programm kann mit <tt>make dep && make</tt> kompiliert und mit \c ./main
- ausgeführt werden. Die Ausgabe ist:
+ Das Programm kann mit <tt>make dep && make</tt> kompiliert und mit
+ <tt>./main</tt> ausgeführt werden. Die Ausgabe ist:
 
  \include output.txt
 
@@ -35,7 +35,7 @@
 
  \subsubsection aufgabe2b Aufgabe 2b
 
- Wenn zwei Sammler zusammen arbeiten, werden pro Person weniger Alben
+ Wenn zwei Sammler zusammen arbeiten, werden pro Person weniger Päckchen
  gebraucht.
 
  \image html out-2b.png
@@ -67,7 +67,8 @@ void concurrent_print(std::string s) {
 	mutex.unlock();
 }
 
-const unsigned int max_iter = 1000000;
+// Set down to 100K, so speed up calculation.
+const unsigned int max_iter = 100000;
 
 void aufgabe1() {
 	concurrent_print("Aufgabe 1 start");
