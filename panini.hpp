@@ -10,25 +10,20 @@
 namespace nume {
 	class Album {
 		public:
+			Album(int slots);
+
 			void add_card(int id);
 			void add_pack();
-			Album(int slots);
 			unsigned int fill_up();
-			unsigned int card_count;
+			std::vector<unsigned int> generate_pack();
+			bool has_card(int id);
 			bool is_full();
-		private:
-			std::vector<bool> slots_filled;
-			int empty_slots;
-	};
 
-	class AlbumDouble: public Album {
-		public:
-			void add_card(int id);
-			AlbumDouble(int slots);
-			bool is_full();
+			unsigned int card_count;
+
 		private:
-			std::vector<unsigned int> slots_filled;
 			int empty_slots;
+			std::vector<bool> slots_filled;
 	};
 }
 
