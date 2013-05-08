@@ -90,7 +90,7 @@ void aufgabe1() {
 }
 
 void aufgabe2a() {
-	std::cout << "\nAufgabe 2a\n";
+	std::cout << "\nAufgabe 2a" << std::endl;
 
 	unsigned int max_iter = 1000000;
 
@@ -107,7 +107,7 @@ void aufgabe2a() {
 }
 
 void aufgabe2b() {
-	std::cout << "\nAufgabe 2b\n";
+	std::cout << "\nAufgabe 2b" << std::endl;
 	unsigned int max_iter = 1000000;
 
 	std::ofstream out;
@@ -152,7 +152,7 @@ void aufgabe2b() {
 }
 
 void aufgabe2c() {
-	std::cout << "\nAufgabe 2c\n";
+	std::cout << "\nAufgabe 2c" << std::endl;
 	unsigned int max_iter = 1000000;
 
 	std::ofstream out;
