@@ -73,7 +73,7 @@ void aufgabe1() {
 	double pi;
 	double x;
 	double y;
-	int max_iter = 1000000;
+	int max_iter = 100000;
 	int n = 0;
 
 	int in_circle = 0;
@@ -91,7 +91,7 @@ void aufgabe1() {
 			++in_circle;
 		}
 
-		pi = 4. * in_circle / max_iter;
+		pi = 4. * in_circle / n;
 
 		out << n << " " << pi << "\n";
 	}
@@ -104,14 +104,25 @@ void aufgabe1() {
 void aufgabe2a() {
 	concurrent_print("Aufgabe 2a start");
 
-	unsigned int max_iter = 1000000;
+	unsigned int max_iter = 10000;
+
+	int bin_count = 2000;
+	std::vector<int> bins(bin_count, 0);
+
+	for (unsigned int n = 0; n < max_iter; ++n) {
+		nume::Album album(535);
+		int steps = album.fill_up();
+		if (steps < bin_count) {
+			bins[steps]++;
+		}
+	}
 
 	std::ofstream out;
 	out.open("out-2a.csv");
-	for (unsigned int n = 0; n < max_iter; ++n) {
-		nume::Album album(535);
-		unsigned int steps = album.fill_up();
-		out << steps << std::endl;
+	for (int i = 0; i < bin_count; ++i) {
+		if (bins[i] != 0) {
+			out << i << " " << bins[i] << std::endl;
+		}
 	}
 	out.close();
 
@@ -120,10 +131,10 @@ void aufgabe2a() {
 
 void aufgabe2b() {
 	concurrent_print("Aufgabe 2b start");
-	unsigned int max_iter = 1000000;
+	unsigned int max_iter = 10000;
 
-	std::ofstream out;
-	out.open("out-2b.csv");
+	int bin_count = 2000;
+	std::vector<int> bins(bin_count, 0);
 
 	for (unsigned int n = 0; n < max_iter; ++n) {
 		nume::Album mine(535), other(535);
@@ -156,7 +167,17 @@ void aufgabe2b() {
 			}
 		}
 
-		out << steps << std::endl;
+		if (steps < bin_count) {
+			bins[steps]++;
+		}
+	}
+
+	std::ofstream out;
+	out.open("out-2b.csv");
+	for (int i = 0; i < bin_count; ++i) {
+		if (bins[i] != 0) {
+			out << i << " " << bins[i] << std::endl;
+		}
 	}
 	out.close();
 
@@ -165,29 +186,36 @@ void aufgabe2b() {
 
 void aufgabe2c() {
 	concurrent_print("Aufgabe 2c start");
-	unsigned int max_iter = 1000000;
+	unsigned int max_iter = 10000;
+
+	int bin_count = 2000;
+	std::vector<int> bins(bin_count, 0);
+
+	for (unsigned int n = 0; n < max_iter; ++n) {
+		nume::AlbumSkewed album(535);
+		int steps = album.fill_up();
+		if (steps < bin_count) {
+			bins[steps]++;
+		}
+	}
 
 	std::ofstream out;
 	out.open("out-2c.csv");
-	for (unsigned int n = 0; n < max_iter; ++n) {
-		nume::AlbumSkewed album(535);
-		unsigned int steps = album.fill_up();
-		out << steps << std::endl;
+	for (int i = 0; i < bin_count; ++i) {
+		if (bins[i] != 0) {
+			out << i << " " << bins[i] << std::endl;
+		}
 	}
 	out.close();
+
 	concurrent_print("Aufgabe 2c fertig");
 }
 
 int main() {
-	std::thread t1(aufgabe1);
-	std::thread t2(aufgabe2a);
-	std::thread t3(aufgabe2b);
-	std::thread t4(aufgabe2c);
-
-	t1.join();
-	t2.join();
-	t3.join();
-	t4.join();
+	aufgabe1();
+	aufgabe2a();
+	aufgabe2b();
+	aufgabe2c();
 
 	return 0;
 }

@@ -24,8 +24,9 @@ html: output.txt plot
 	./plot
 	doxygen
 
-output.txt: main
-	./$< | tee $@
+output.txt: main plot
+	./main | tee $@
+	./plot | tee -a $@
 
 main: $(program_o_files)
 
