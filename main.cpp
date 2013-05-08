@@ -85,7 +85,8 @@ void task(unsigned int max_iter, std::vector<unsigned int> *results, std::vector
 	}
 }
 
-void aufgabe2() {
+template <class T>
+void panini_run(std::string outfile) {
 	std::cout << "\nAufgabe 2\n";
 
 	unsigned int max_iter = 10000;
@@ -100,7 +101,7 @@ void aufgabe2() {
 	int i = 0;
 	for (std::thread &thread: threads) {
 		std::vector<unsigned int>::iterator start = results.begin() + max_iter/thread_count * i;
-		thread = std::thread(task<nume::Album>, max_iter/thread_count, &results, start);
+		thread = std::thread(task<T>, max_iter/thread_count, &results, start);
 		i++;
 	}
 
@@ -109,7 +110,7 @@ void aufgabe2() {
 	}
 
 	std::ofstream out;
-	out.open("out-2a.csv");
+	out.open(outfile);
 	for (unsigned int count: results) {
 		out << count << std::endl;
 	}
@@ -118,9 +119,13 @@ void aufgabe2() {
 	std::cout << "Siehe Plot" << std::endl;
 }
 
+void aufgabe2a() {
+	panini_run<nume::Album>("out-2a.csv");
+}
+
 int main() {
 	aufgabe1();
-	aufgabe2();
+	aufgabe2a();
 
 	return 0;
 }
