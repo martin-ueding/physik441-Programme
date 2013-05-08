@@ -46,7 +46,7 @@ def main():
     y = data[:,1]
     pl.plot(x, y, **plotargs)
     popt, pconv = op.curve_fit(gauss, x, y, p0=[400, 500, 100])
-    print u"μ = {}, σ = {}".format(*popt)
+    print u"Erwartungswert: = {}, Standardabweichung: = {}".format(*popt)
     plot_x = np.linspace(np.min(x), np.max(x), 1000)
     plot_y = gauss(plot_x, *popt)
     pl.plot(plot_x, plot_y, label="Fit")
@@ -64,7 +64,7 @@ def main():
     y = data[:,1]
     pl.plot(x, y, **plotargs)
     popt, pconv = op.curve_fit(gauss, x, y, p0=[400, 500, 100])
-    print u"μ = {}, σ = {}".format(*popt)
+    print u"Erwartungswert: = {}, Standardabweichung: = {}".format(*popt)
     plot_x = np.linspace(np.min(x), np.max(x), 1000)
     plot_y = gauss(plot_x, *popt)
     pl.plot(plot_x, plot_y, label="Fit")
@@ -82,7 +82,7 @@ def main():
     y = data[:,1]
     pl.plot(x, y, **plotargs)
     popt, pconv = op.curve_fit(gauss, x, y, p0=[400, 500, 100])
-    print u"μ = {}, σ = {}".format(*popt)
+    print u"Erwartungswert: = {}, Standardabweichung: = {}".format(*popt)
     plot_x = np.linspace(np.min(x), np.max(x), 1000)
     plot_y = gauss(plot_x, *popt)
     pl.plot(plot_x, plot_y, label="Fit")
