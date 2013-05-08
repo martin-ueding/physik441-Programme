@@ -75,9 +75,10 @@ void aufgabe1() {
 }
 
 
+template <class T>
 void task(unsigned int max_iter, std::vector<unsigned int> *results, std::vector<unsigned int>::iterator iterator) {
 	for (unsigned int n = 0; n < max_iter; ++n) {
-		nume::Album album(535);
+		T album(535);
 		unsigned int steps = album.fill_up();
 		*iterator = steps;
 		++iterator;
@@ -99,7 +100,7 @@ void aufgabe2() {
 	int i = 0;
 	for (std::thread &thread: threads) {
 		std::vector<unsigned int>::iterator start = results.begin() + max_iter/thread_count * i;
-		thread = std::thread(task, max_iter/thread_count, &results, start);
+		thread = std::thread(task<nume::Album>, max_iter/thread_count, &results, start);
 		i++;
 	}
 
