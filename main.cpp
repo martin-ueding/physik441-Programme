@@ -61,7 +61,7 @@ void aufgabe1() {
 	double pi;
 	double x;
 	double y;
-	int max_iter = 10000;
+	int max_iter = 1000000;
 	int n = 0;
 
 	int in_circle = 0;
@@ -90,9 +90,9 @@ void aufgabe1() {
 }
 
 void aufgabe2a() {
-	std::cout << "\nAufgabe 2\n";
+	std::cout << "\nAufgabe 2a\n";
 
-	unsigned int max_iter = 1000;
+	unsigned int max_iter = 1000000;
 
 	std::ofstream out;
 	out.open("out-2a.csv");
@@ -107,7 +107,8 @@ void aufgabe2a() {
 }
 
 void aufgabe2b() {
-	unsigned int max_iter = 10000;
+	std::cout << "\nAufgabe 2b\n";
+	unsigned int max_iter = 1000000;
 
 	std::ofstream out;
 	out.open("out-2b.csv");
@@ -151,7 +152,8 @@ void aufgabe2b() {
 }
 
 void aufgabe2c() {
-	unsigned int max_iter = 1000;
+	std::cout << "\nAufgabe 2c\n";
+	unsigned int max_iter = 1000000;
 
 	std::ofstream out;
 	out.open("out-2c.csv");
