@@ -20,10 +20,12 @@ dep:
 	gcc -MM $(c_files) > dep.makefile
 	cat dep.makefile
 
-html: main plot
-	./$< > output.txt
+html: output.txt plot
 	./plot
 	doxygen
+
+output.txt: main
+	./$< > $@
 
 main: $(program_o_files)
 
