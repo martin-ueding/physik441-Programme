@@ -3,7 +3,7 @@
 
 CC = g++
 CPPFLAGS = -O3 -pedantic -std=c++11 -Wall
-LOADLIBES =
+LOADLIBES = -pthread
 
 c_files := $(wildcard *.cpp)
 o_files := $(c_files:.cpp=.o)
@@ -25,7 +25,7 @@ html: output.txt plot
 	doxygen
 
 output.txt: main
-	./$< > $@
+	./$< | tee $@
 
 main: $(program_o_files)
 

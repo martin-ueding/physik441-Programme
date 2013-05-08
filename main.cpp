@@ -51,11 +51,23 @@
 #include <ctime>
 #include <fstream>
 #include <iostream>
+#include <mutex>
+#include <thread>
 #include <vector>
 
 #include "panini.hpp"
 
+std::mutex mutex;
+
+void concurrent_print(std::string s) {
+	mutex.lock();
+	std::cout << s << std::endl;
+	mutex.unlock();
+}
+
 void aufgabe1() {
+	concurrent_print("Aufgabe 1 start");
+
 	double max = 1.;
 	double min = -1.;
 	double pi;
@@ -86,11 +98,11 @@ void aufgabe1() {
 
 	out.close();
 
-	std::cout << "Aufgabe 1\nSiehe Plot" << std::endl;
+	concurrent_print("Aufgabe 1 fertig");
 }
 
 void aufgabe2a() {
-	std::cout << "\nAufgabe 2a" << std::endl;
+	concurrent_print("Aufgabe 2a start");
 
 	unsigned int max_iter = 1000000;
 
@@ -103,11 +115,11 @@ void aufgabe2a() {
 	}
 	out.close();
 
-	std::cout << "Siehe Plot" << std::endl;
+	concurrent_print("Aufgabe 1a fertig");
 }
 
 void aufgabe2b() {
-	std::cout << "\nAufgabe 2b" << std::endl;
+	concurrent_print("Aufgabe 2b start");
 	unsigned int max_iter = 1000000;
 
 	std::ofstream out;
@@ -148,11 +160,11 @@ void aufgabe2b() {
 	}
 	out.close();
 
-	std::cout << "Siehe Plot" << std::endl;
+	concurrent_print("Aufgabe 2b fertig");
 }
 
 void aufgabe2c() {
-	std::cout << "\nAufgabe 2c" << std::endl;
+	concurrent_print("Aufgabe 2c start");
 	unsigned int max_iter = 1000000;
 
 	std::ofstream out;
@@ -163,15 +175,19 @@ void aufgabe2c() {
 		out << steps << std::endl;
 	}
 	out.close();
-
-	std::cout << "Siehe Plot" << std::endl;
+	concurrent_print("Aufgabe 2c fertig");
 }
 
 int main() {
-	aufgabe1();
-	aufgabe2a();
-	aufgabe2b();
-	aufgabe2c();
+	std::thread t1(aufgabe1);
+	std::thread t2(aufgabe2a);
+	std::thread t3(aufgabe2b);
+	std::thread t4(aufgabe2c);
+
+	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
 
 	return 0;
 }
