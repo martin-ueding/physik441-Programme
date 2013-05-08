@@ -12,14 +12,14 @@ void nume::Album::add_card(int id) {
 
 void nume::Album::add_pack() {
 	std::vector<unsigned int> pack = generate_pack();
-	for (unsigned int &card: pack) {
+for (unsigned int & card: pack) {
 		add_card(card);
 	}
 }
 
 std::vector<unsigned int> nume::Album::generate_pack() {
 	std::vector<unsigned int> pack(5);
-	for (unsigned int &card: pack) {
+for (unsigned int & card: pack) {
 		card = ((double) std::rand() / (RAND_MAX)) * card_count;
 	}
 	return pack;
@@ -42,7 +42,8 @@ unsigned int nume::Album::fill_up() {
 	do {
 		add_pack();
 		++n;
-	} while (!is_full());
+	}
+	while (!is_full());
 
 	return n;
 }
@@ -57,9 +58,9 @@ bool nume::Album::is_full() {
 
 std::vector<unsigned int> nume::AlbumSkewed::generate_pack() {
 	std::vector<unsigned int> pack(5);
-	for (unsigned int &card: pack) {
+for (unsigned int & card: pack) {
 		card = ((double) std::rand() / (RAND_MAX)) * card_count;
-		if (208 <= card && card <= 227 && std::rand() > RAND_MAX/2) {
+		if (208 <= card && card <= 227 && std::rand() > RAND_MAX / 2) {
 			card = ((double) std::rand() / (RAND_MAX)) * card_count;
 		}
 	}
