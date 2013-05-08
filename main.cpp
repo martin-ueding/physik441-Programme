@@ -24,6 +24,10 @@
 
  \subsubsection aufgabe2a Aufgabe 2a
 
+ In der Klasse nume::Album ist das Album implementiert. Es kann mit der Methode
+ nume::Album::fill_up() solange Päckchen ziehen, bis dieses voll ist.
+ Rückgabewert ist die Anzahl der Päckchen.
+
  \image html out-2a.png
 
  \subsubsection aufgabe2b Aufgabe 2b
