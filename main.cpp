@@ -77,7 +77,6 @@ void aufgabe1() {
 	double pi;
 	double x;
 	double y;
-	int max_iter = 100000;
 	int n = 0;
 
 	int in_circle = 0;
@@ -87,7 +86,7 @@ void aufgabe1() {
 	std::ofstream out;
 	out.open("out-1.csv");
 
-	for (n = 0; n < max_iter; ++n) {
+	for (n = 0; n < max_iter/10; ++n) {
 		x = ((double) std::rand() / (RAND_MAX)) * (max-min) + min;
 		y = ((double) std::rand() / (RAND_MAX)) * (max-min) + min;
 
