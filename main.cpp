@@ -67,7 +67,7 @@ void concurrent_print(std::string s) {
 	mutex.unlock();
 }
 
-const unsigned int max_iter = 10000;
+const unsigned int max_iter = 100000;
 
 void aufgabe1() {
 	concurrent_print("Aufgabe 1 start");
