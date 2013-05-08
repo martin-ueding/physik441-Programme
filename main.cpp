@@ -29,6 +29,9 @@
 #include <ctime>
 #include <fstream>
 #include <iostream>
+#include <mutex>
+#include <thread>
+#include <vector>
 
 #include "panini.hpp"
 
@@ -68,18 +71,41 @@ void aufgabe1() {
 	std::cout << "Aufgabe 1\nSiehe Plot" << std::endl;
 }
 
+std::mutex mutex;
+
+void task(unsigned int max_iter, std::vector<unsigned int> *results, std::vector<unsigned int>::iterator start) {
+	for (unsigned int n = 0; n < max_iter; ++n) {
+		nume::Album album(535);
+		unsigned int steps = album.fill_up();
+		mutex.lock();
+		results->insert(start, steps);
+		mutex.unlock();
+	}
+}
+
 void aufgabe2() {
 	std::cout << "\nAufgabe 2\n";
 
-	unsigned int max_iter = 100000;
+	unsigned int max_iter = 10000;
 
-	std::vector<unsigned int> results(0);
+	unsigned int thread_count = 2;
 
-	for (int n = 0; n < max_iter; ++n) {
-		nume::Album album(535);
-		unsigned int steps = album.fill_up();
-		results.push_back(steps);
+	std::vector<std::thread> threads(thread_count);
+	std::vector<unsigned int> results(max_iter);
+
+	int i = 0;
+	for (std::thread &thread: threads) {
+		std::vector<unsigned int>::iterator start = results.begin() + max_iter/thread_count * i;
+		thread = std::thread(task, max_iter/thread_count, &results, start);
+		i++;
 	}
+
+
+	for (std::thread &thread: threads) {
+		thread.join();
+	}
+
+	std::cout << results.size() << std::endl;
 
 	std::ofstream out;
 	out.open("out-2a.csv");

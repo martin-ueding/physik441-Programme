@@ -3,7 +3,7 @@
 
 CC = g++
 CPPFLAGS = -O3 -pedantic -std=c++11 -Wall
-LOADLIBES = -lcppunit
+LOADLIBES = -lpthread
 
 c_files := $(wildcard *.cpp)
 o_files := $(c_files:.cpp=.o)
