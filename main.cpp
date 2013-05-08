@@ -5,6 +5,13 @@
 
  \tableofcontents
 
+ \section comile Komilieren und Ausführen
+
+ Das Programm kann mit <tt>make dep && make</tt> kompiliert und ausgeführt
+ werden. Die Ausgabe ist:
+
+ \include output.txt
+
  \section aufgaben Aufgaben
 
  \subsection aufgabe1 Aufgabe 1
@@ -55,6 +62,8 @@ void aufgabe1() {
 	}
 
 	out.close();
+
+	std::cout << "Aufgabe 1\nSiehe Plot" << std::endl;
 }
 
 int main() {
