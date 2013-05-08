@@ -43,12 +43,22 @@ def main():
 
     data = np.genfromtxt("out-2b.csv")
     pl.hist(data, bins=100)
-    pl.title(ur"Anzahl der Päckchen für zwei volle Panini-Albumen")
+    pl.title(ur"Anzahl der Päckchen für ein volles Panini-Album")
     pl.xlabel(ur"Anzahl Päckchen")
     pl.ylabel(ur"Häufigkeit")
     pl.grid(True)
     pl.savefig("out-2b.pdf")
     pl.savefig("out-2b.png")
+    pl.clf()
+
+    data = np.genfromtxt("out-2c.csv")
+    pl.hist(data, bins=100)
+    pl.title(ur"Anzahl der gezinkten Päckchen für ein volles Panini-Album")
+    pl.xlabel(ur"Anzahl Päckchen")
+    pl.ylabel(ur"Häufigkeit")
+    pl.grid(True)
+    pl.savefig("out-2c.pdf")
+    pl.savefig("out-2c.png")
     pl.clf()
 
 def _parse_args():

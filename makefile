@@ -51,6 +51,6 @@ clean:
 	$(RM) dep.makefile
 	$(RM) main
 	$(RM) output.txt
-	$(RM) plot*.pdf
+	$(RM) out-*
 	$(RM) tags
 	$(RM) type_main

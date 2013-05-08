@@ -1,4 +1,5 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+// Abgabe mit Jan Weber
 
 #include "panini.hpp"
 
@@ -52,4 +53,15 @@ bool nume::Album::has_card(int id) {
 
 bool nume::Album::is_full() {
 	return empty_slots == 0;
+}
+
+std::vector<unsigned int> nume::AlbumSkewed::generate_pack() {
+	std::vector<unsigned int> pack(5);
+	for (unsigned int &card: pack) {
+		card = ((double) std::rand() / (RAND_MAX)) * card_count;
+		if (208 <= card && card <= 227 && std::rand() > RAND_MAX/2) {
+			card = ((double) std::rand() / (RAND_MAX)) * card_count;
+		}
+	}
+	return pack;
 }

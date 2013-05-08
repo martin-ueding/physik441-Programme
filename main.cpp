@@ -1,4 +1,5 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+// Abgabe mit Jan Weber
 
 /**
  \mainpage physik441-04
@@ -32,9 +33,18 @@
 
  \subsubsection aufgabe2b Aufgabe 2b
 
+ Wenn zwei Sammler zusammen arbeiten, werden pro Person weniger Alben
+ gebraucht.
+
  \image html out-2b.png
 
- \todo Fehlt
+ \subsubsection aufgabe2c Aufgabe 2c
+
+ Da nur einige der Karten halb so oft vorkommen sollen, wird wenn so eine Karte
+ mit einem deutschen Spieler gezogen worde ist, mit einer Wahrscheinlichkeit
+ von 0,5 erneut gezogen.
+
+ \image html out-2c.png
  */
 
 #include <cstdlib>
@@ -82,7 +92,7 @@ void aufgabe1() {
 void aufgabe2a() {
 	std::cout << "\nAufgabe 2\n";
 
-	unsigned int max_iter = 10000;
+	unsigned int max_iter = 1000;
 
 	std::ofstream out;
 	out.open("out-2a.csv");
@@ -97,12 +107,69 @@ void aufgabe2a() {
 }
 
 void aufgabe2b() {
+	unsigned int max_iter = 10000;
+
+	std::ofstream out;
+	out.open("out-2b.csv");
+
+	for (unsigned int n = 0; n < max_iter; ++n) {
+		nume::Album mine(535), other(535);
+
+		int steps = 0;
+
+		while (!mine.is_full() && !other.is_full()) {
+			steps++;
+
+			std::vector<unsigned int> pack = mine.generate_pack();
+			for (unsigned int &card: pack) {
+
+				if (!mine.has_card(card)) {
+					mine.add_card(card);
+				}
+				else {
+					other.add_card(card);
+				}
+			}
+
+			pack = other.generate_pack();
+			for (unsigned int &card: pack) {
+
+				if (!other.has_card(card)) {
+					other.add_card(card);
+				}
+				else {
+					mine.add_card(card);
+				}
+			}
+		}
+
+		out << steps << std::endl;
+	}
+	out.close();
+
+	std::cout << "Siehe Plot" << std::endl;
+}
+
+void aufgabe2c() {
+	unsigned int max_iter = 1000;
+
+	std::ofstream out;
+	out.open("out-2c.csv");
+	for (unsigned int n = 0; n < max_iter; ++n) {
+		nume::AlbumSkewed album(535);
+		unsigned int steps = album.fill_up();
+		out << steps << std::endl;
+	}
+	out.close();
+
+	std::cout << "Siehe Plot" << std::endl;
 }
 
 int main() {
 	aufgabe1();
 	aufgabe2a();
 	aufgabe2b();
+	aufgabe2c();
 
 	return 0;
 }
