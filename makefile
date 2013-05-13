@@ -29,7 +29,7 @@ output.txt: main plot
 
 main: $(program_o_files)
 
-physik441-04-Ueding_Weber.tar: doc
+physik441-04-Ueding_Weber.tar: html
 	git archive --output "$@" master
 	tar --append -f "$@" html
 
