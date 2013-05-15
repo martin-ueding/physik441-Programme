@@ -13,12 +13,12 @@ namespace nume {
 		public:
 			Album(int slots);
 
-			void add_card(int id);
-			void add_pack();
-			unsigned int fill_up();
-			std::vector<unsigned int> generate_pack();
-			bool has_card(int id);
-			bool is_full();
+			virtual void add_card(int id);
+			virtual void add_pack();
+			virtual unsigned int fill_up();
+			virtual std::vector<unsigned int> generate_pack();
+			virtual bool has_card(int id);
+			virtual bool is_full();
 
 			unsigned int card_count;
 
@@ -30,7 +30,8 @@ namespace nume {
 	class AlbumSkewed: public Album {
 		public:
 			AlbumSkewed(int slots): Album(slots) {};
-			std::vector<unsigned int> generate_pack();
+
+			virtual std::vector<unsigned int> generate_pack();
 	};
 }
 
