@@ -6,6 +6,8 @@
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/vector.hpp>
+#include <boost/bind.hpp>
+#include <boost/function.hpp>
 #include <functional>
 #include <fstream>
 #include <iostream>
@@ -21,14 +23,14 @@ namespace nume {
 	  \param[in] data 3D data
 	  \param[in] outfilename Filename to write transformed data to
 	  */
-	void hammer_aitov_transformation(std::vector<ublas::vector<double>> &data, const std::string &outfilename);
+	void hammer_aitov_transformation(std::vector< ublas::vector<double> > &data, const std::string &outfilename);
 
 	/**
 	  Draws a point from the unit sphere.
 
 	  \param[out] result Unit vector
 	  */
-	void sphere_draw(std::function<double()> &dice, ublas::vector<double> &result);
+	void sphere_draw(boost::function<double()> &dice, ublas::vector<double> &result);
 
 	void test_sphere_draw();
 }

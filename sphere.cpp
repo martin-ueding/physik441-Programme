@@ -2,7 +2,7 @@
 
 #include "sphere.hpp"
 
-void nume::sphere_draw(std::function<double()> &dice, ublas::vector<double> &result) {
+void nume::sphere_draw(boost::function<double()> &dice, ublas::vector<double> &result) {
 	for (double &x: result) {
 		x = dice();
 		//std::cout << x << std::endl;
@@ -18,16 +18,16 @@ void nume::test_sphere_draw() {
 
 	std::vector<ublas::vector<double>> data(steps);
 
-	for (ublas::vector<double> &row: data) {
-		row = ublas::vector<double>(3);
-		nume::sphere_draw(dice, row);
+	for (iterator it = data.begin(); begin != data.end(); it++) {
+		*it = ublas::vector<double>(3);
+		nume::sphere_draw(dice, *it);
 	}
 
 	std::ofstream out;
 	out.open("out-3a.txt");
-	for (ublas::vector<double> row: data) {
+	for (iterator it = data.begin(); begin != data.end(); it++) {
 		for (double &coordinate: row) {
-		out << coordinate << " ";
+			out << coordinate << " ";
 		}
 		out << "\n";
 	}
