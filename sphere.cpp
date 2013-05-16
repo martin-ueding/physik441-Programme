@@ -14,10 +14,6 @@ void nume::test_sphere_draw() {
 	std::uniform_real_distribution<double> distribution(0, 2 * std::atan(1) * 4);
 	std::function<double()> dice = std::bind(distribution, generator);
 
-	for (int i = 0; i < 10; ++i) {
-		std::cout << dice() << std::endl;
-	}
-
 	int steps = 10;
 
 	std::vector<ublas::vector<double>> data(steps);
@@ -30,7 +26,10 @@ void nume::test_sphere_draw() {
 	std::ofstream out;
 	out.open("out-3a.txt");
 	for (ublas::vector<double> row: data) {
-		out << row << "\n";
+		for (double &coordinate: row) {
+		out << coordinate << " ";
+		}
+		out << "\n";
 	}
 	out.close();
 }
