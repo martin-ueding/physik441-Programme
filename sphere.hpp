@@ -28,7 +28,7 @@ namespace nume {
 
 	  \param[out] result Unit vector
 	  */
-	void sphere_draw(std::function<double()> dice, ublas::vector<double> &result);
+	void sphere_draw(std::function<double()> &dice, ublas::vector<double> &result);
 
 	void test_sphere_draw();
 }

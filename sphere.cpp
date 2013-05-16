@@ -2,14 +2,21 @@
 
 #include "sphere.hpp"
 
-void nume::sphere_draw(std::function<double()> dice, ublas::vector<double> &result) {
-
+void nume::sphere_draw(std::function<double()> &dice, ublas::vector<double> &result) {
+	for (double &x: result) {
+		x = dice();
+		//std::cout << x << std::endl;
+	}
 }
 
 void nume::test_sphere_draw() {
 	std::default_random_engine generator;
 	std::uniform_real_distribution<double> distribution(0, 2 * std::atan(1) * 4);
 	std::function<double()> dice = std::bind(distribution, generator);
+
+	for (int i = 0; i < 10; ++i) {
+		std::cout << dice() << std::endl;
+	}
 
 	int steps = 10;
 
