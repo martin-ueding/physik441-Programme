@@ -16,22 +16,26 @@ void nume::test_sphere_draw() {
 
 	int steps = 10;
 
-	std::vector< ublas::vector<double> > data(steps);
+	std::vector< ublas::vector<double>* > *data = new std::vector< ublas::vector<double> >(steps);
 
-	for (std::vector< ublas::vector<double> >::iterator row = data.begin();
-			row != data.end(); row++) {
-		*row = ublas::vector<double>(3);
+	for (std::vector< ublas::vector<double>* >::iterator row = data->begin();
+			row != data->end(); row++) {
+		row = new ublas::vector<double>(3);
 		nume::sphere_draw(buf, *row);
 	}
 
+	std::cout << "Hier" << std::endl;
 	std::ofstream out;
+	std::cout << "Dort" << std::endl;
 	out.open("out-3a.txt");
-	for (std::vector< ublas::vector<double> >::iterator row = data.begin();
-			row != data.end(); row++) {
+	for (std::vector< ublas::vector<double> >::iterator row = data->begin();
+			row != data->end(); row++) {
 		for (ublas::vector<double>::iterator coordinate = row->begin(); coordinate != row->end(); coordinate++) {
 			out << *coordinate << " ";
 		}
 		out << "\n";
 	}
 	out.close();
+
+	delete data;
 }
