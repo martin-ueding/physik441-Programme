@@ -21,7 +21,8 @@ namespace nume {
 	  \param[in] data 3D data
 	  \param[in] outfilename Filename to write transformed data to
 	  */
-	void hammer_aitov_transformation(std::vector< ublas::vector<double> > &data, const std::string &outfilename);
+	void hammer_aitov_transformation(std::vector< ublas::vector<double> >
+			&data, const std::string &outfilename);
 
 	/**
 	  Draws a point from the unit sphere.
