@@ -6,9 +6,7 @@
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/vector.hpp>
-#include <boost/bind.hpp>
-#include <boost/function.hpp>
-#include <functional>
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 
@@ -30,7 +28,7 @@ namespace nume {
 
 	  \param[out] result Unit vector
 	  */
-	void sphere_draw(boost::function<double()> &dice, ublas::vector<double> &result);
+	void sphere_draw(struct random_data &buf, ublas::vector<double> &result);
 
 	void test_sphere_draw();
 }
