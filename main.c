@@ -9,7 +9,7 @@
 
  \section kompilieren Kompilieren und Ausführen
 
- Diese Abgabe ist in C 99 geschrieben und kann, wie immer, mit
+ Diese Abgabe ist in <em>C 99</em> geschrieben und kann, wie immer, mit
 
 	 make dep
      make
@@ -17,6 +17,16 @@
 	 ./plot
 
  kompiliert, ausgeführt und geplottet werden.
+
+ Dazu wird gebraucht:
+
+ - gcc
+ - python
+ - python-matplotlib
+ - python-numpy
+ - python-scipy
+
+ \subsection Ausgabe
 
  Ausgabe des Programms:
 
@@ -42,6 +52,12 @@
  Und erhält in der Tat mit vielen Schritten einen Wert, der nahe am
  analytischen Ergebnis liegt.
 
+ \subsection aufgabe2 Aufgabe 2
+
+ \subsubsection aufgabe2a Aufgabe 2a
+
+ \image html out-2a.png
+
  \subsection aufgabe3 Aufgabe 3
 
  \subsubsection aufgabe3a Aufgabe 3a
@@ -59,6 +75,9 @@
  \subsubsection aufgabe3b Aufgabe 3b
 
  \image html out-3b.png
+
+ Die Schrittzahl für den wirklichen \f$ R_\text{rad} \f$ steht oben in der
+ Ausgabe.
  */
 
 #include <stdio.h>
