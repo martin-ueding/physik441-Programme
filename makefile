@@ -2,8 +2,8 @@
 # Abgabe zusammen mit Jan Weber
 
 CC = gcc
-CPPFLAGS = -g -pedantic -std=c++03 -Wall
-LOADLIBES = -pthread
+CPPFLAGS = -g -pedantic -std=c99 -Wall
+LOADLIBES = -lm
 
 c_files := $(wildcard *.c)
 o_files := $(c_files:.c=.o)
