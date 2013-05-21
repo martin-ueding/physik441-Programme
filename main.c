@@ -65,11 +65,13 @@
 #include <stdlib.h>
 
 #include "1.h"
+#include "2.h"
 #include "3.h"
 #include "sphere.h"
 
 int main(int argc, char **argv) {
-	problem1();
+	//problem1();
+	problem2();
 	//test_sphere_draw();
 	//problem3b();
 

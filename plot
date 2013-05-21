@@ -24,6 +24,19 @@ def main():
         "marker": ".", 
     }
 
+    data = np.genfromtxt("out-2a.csv")
+    x = data
+    pl.hist(x, bins=100)
+    pl.xlim(0, 4.)
+    pl.title(ur"Zufallszahlen aus der Sinusverteilung")
+    pl.xlabel(ur"$x$")
+    pl.ylabel(ur"Anzahl")
+    pl.grid(True)
+    pl.savefig("out-2a.pdf")
+    pl.savefig("out-2a.png")
+    pl.clf()
+
+
     data = np.genfromtxt("out-3a-data.csv")
     x = data[:,0]
     y = data[:,1]
@@ -57,7 +70,7 @@ def main():
     popt, pconv = op.curve_fit(linear, x, y)
     plot_x = np.linspace(np.min(x), np.max(x), 4)
     plot_y = linear(plot_x, *popt)
-    print "Schritte bei normalem Radius:", 10**linear(np.log10(5e5), *popt)
+    print "3b| Schritte bei normalem Radius:", 10**linear(np.log10(5e5), *popt)
     pl.plot(x, y, **plotargs)
     pl.plot(plot_x, plot_y)
     pl.title(ur"Random Walk in der Strahlungszone")
