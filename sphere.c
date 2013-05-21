@@ -12,9 +12,11 @@ void hammer_aitov(double *input, double *output) {
 		double x = input[3*i];
 		double y = input[3*i + 1];
 		double z = input[3*i + 2];
-		double rho = sqrt(x*x + y*y);
+
+		double r = sqrt(x*x + y*y + z*z);
 		double phi = atan2(y, x);
-		double theta = atan2(rho, z);
+		double theta = acos(z/r);
+
 		double b = pi/2 - theta;
 		double l = phi <= pi ? phi : - pi + phi - pi;
 

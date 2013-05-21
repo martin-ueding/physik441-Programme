@@ -28,7 +28,7 @@ def main():
     x = data[:,0]
     y = data[:,1]
     pl.plot(x, y, **plotargs)
-    pl.title(ur"Zufallszahlen aus der Einheitssphäre")
+    pl.title(ur"Zufallszahlen aus der Einheitssphäre, $z$-Projektion")
     pl.xlabel(ur"$x$")
     pl.ylabel(ur"$y$")
     pl.grid(True)
@@ -41,13 +41,34 @@ def main():
     x = data[:,0]
     y = data[:,1]
     pl.plot(x, y, **plotargs)
-    pl.title(ur"Zufallszahlen aus der Einheitssphäre")
+    pl.title(ur"Zufallszahlen aus der Einheitssphäre, Hammer-Aitov-Projektion")
     pl.xlabel(ur"$x$")
     pl.ylabel(ur"$y$")
     pl.grid(True)
     pl.savefig("out-3a-transformed.pdf")
     pl.savefig("out-3a-transformed.png")
     pl.clf()
+
+    data = np.genfromtxt("out-3b.csv")
+    x = np.log10(data[:,0])
+    y = np.log10(data[:,2])
+    def linear(x, a, b):
+        return a * x + b
+    popt, pconv = op.curve_fit(linear, x, y)
+    plot_x = np.linspace(np.min(x), np.max(x), 4)
+    plot_y = linear(plot_x, *popt)
+    print popt
+    print "Schritte bei normalem Radius:", 10**linear(np.log10(5e5), *popt)
+    pl.plot(x, y, **plotargs)
+    pl.plot(plot_x, plot_y)
+    pl.title(ur"Random Walk in der Strahlungszone")
+    pl.xlabel(ur"Strahlungsradius $\lg(R_\mathrm{rad})$")
+    pl.ylabel(ur"Mittlere Entweichschrittzahl $\lg(\bar n_\mathrm{esc})$")
+    pl.grid(True)
+    pl.savefig("out-3b.pdf")
+    pl.savefig("out-3b.png")
+    pl.clf()
+
 
 
 def _parse_args():
