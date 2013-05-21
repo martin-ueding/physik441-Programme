@@ -24,6 +24,24 @@
 
  \section aufgaben Aufgaben
 
+ \subsection aufgabe1 Aufgabe 1
+
+ \subsubsection aufgabe1a Aufgabe 1a
+
+ Laut Mathematica sollte das Integral ergeben:
+
+     Integrate[1/(1 + x^2)^(4/3), {x, 0, Infinity}] // N
+	 1.12025
+ 
+ \image html 1-f.png
+
+ Das Programm rechnet:
+
+ \include out-1a.txt
+
+ Und erhält in der Tat mit vielen Schritten einen Wert, der nahe am
+ analytischen Ergebnis liegt.
+
  \subsection aufgabe3 Aufgabe 3
 
  \subsubsection aufgabe3a Aufgabe 3a
@@ -46,12 +64,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "1.h"
 #include "3.h"
 #include "sphere.h"
 
 int main(int argc, char **argv) {
-	test_sphere_draw();
-	problem3b();
+	problem1();
+	//test_sphere_draw();
+	//problem3b();
 
 	return 0;
 }

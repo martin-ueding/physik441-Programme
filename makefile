@@ -2,7 +2,7 @@
 # Abgabe zusammen mit Jan Weber
 
 CC = gcc
-CPPFLAGS = -g -pedantic -std=c99 -Wall
+CFLAGS = -O3 -pedantic -std=c99 -Wall
 LOADLIBES = -lm
 
 c_files := $(wildcard *.c)
