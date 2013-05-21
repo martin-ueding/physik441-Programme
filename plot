@@ -57,7 +57,6 @@ def main():
     popt, pconv = op.curve_fit(linear, x, y)
     plot_x = np.linspace(np.min(x), np.max(x), 4)
     plot_y = linear(plot_x, *popt)
-    print popt
     print "Schritte bei normalem Radius:", 10**linear(np.log10(5e5), *popt)
     pl.plot(x, y, **plotargs)
     pl.plot(plot_x, plot_y)
