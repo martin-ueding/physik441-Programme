@@ -1,18 +1,12 @@
 # Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 # Abgabe zusammen mit Jan Weber
 
-CC = g++
+CC = gcc
 CPPFLAGS = -g -pedantic -std=c++03 -Wall
 LOADLIBES = -pthread
 
-c_files := $(wildcard *.cpp)
-o_files := $(c_files:.cpp=.o)
-
-program_c_files := $(filter-out test_%, $(c_files))
-program_o_files := $(program_c_files:.cpp=.o)
-
-test_c_files := $(filter test_%, $(c_files))
-test_o_files := $(test_c_files:.cpp=.o)
+c_files := $(wildcard *.c)
+o_files := $(c_files:.c=.o)
 
 all: main
 
@@ -27,16 +21,11 @@ output.txt: main plot
 	./main | tee $@
 	./plot | tee -a $@
 
-main: $(program_o_files)
+main: $(o_files)
 
-physik441-04-Ueding_Weber.tar: html
+physik441-05-Ueding_Weber.tar: html
 	git archive --output "$@" master
 	tar --append -f "$@" html
-
-test: test_main
-	./$<
-
-test_main: $(filter-out main.o,$(o_files))
 
 -include dep.makefile
 
