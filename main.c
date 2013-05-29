@@ -142,9 +142,17 @@
 
  Die gezogenen Punkte, als \f$ z \f$-Projektion:
 
- \image html out-3a-data.png
+ \image html out-3a-z.png
+
+ Die gezogenen Punkte, als \f$ y \f$-Projektion:
+
+ \image html out-3a-y.png
+
+ \bug Dies sollte kein Quadrat sein.
  
  \image html out-3a-3D.png
+
+ \bug Dies ist eher ein Zylinder, als eine Kugeloberfläche.
 
  Die gleichen Punkte nach der Hammer-Aitov-Projektion:
 
