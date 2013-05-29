@@ -1,6 +1,10 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 // Abgabe mit Jan Weber
 
+/**
+ * \file
+ */
+
 #ifndef P2_H
 #define P2_H
 
@@ -10,6 +14,10 @@
 #include <time.h>
 
 double dist(double x);
+
+/**
+ * Inverse CDF.
+ */
 double inverse_cdf(double z);
 
 void problem2();
