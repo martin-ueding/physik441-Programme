@@ -15,7 +15,7 @@ double inverse_cdf(double z) {
 		return 2.92855 * sqrt(z);
 	}
 	else if (.5 < z && z <= 1.) {
-		return 4.14159 - 1.86667e-15 * sqrt(2.46133e30 - 2.46133e30 * z);
+		return 4.14159 - 2.92855 * sqrt(1 - z);
 	}
 	else {
 		return 1.;
