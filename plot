@@ -59,19 +59,27 @@ def main():
     pl.xlabel(ur"$x$")
     pl.ylabel(ur"$y$")
     pl.grid(True)
-    pl.savefig("out-3a-data.pdf")
-    pl.savefig("out-3a-data.png")
+    pl.savefig("out-3a-z.pdf")
+    pl.savefig("out-3a-z.png")
     pl.clf()
 
     x = data[:,0]
-    y = data[:,1]
     z = data[:,2]
+    pl.plot(x, z, **plotargs)
+    pl.title(ur"Zufallszahlen aus der Einheitssphäre, $y$-Projektion")
+    pl.xlabel(ur"$x$")
+    pl.ylabel(ur"$z$")
+    pl.grid(True)
+    pl.savefig("out-3a-y.pdf")
+    pl.savefig("out-3a-y.png")
+    pl.clf()
+
     fig = pl.figure()
     ax = p3.Axes3D(fig)
     ax.scatter(x, y, z, marker="x")
     ax.set_xlabel(u"$x$")
     ax.set_ylabel(u"$y$")
-    pl.title(u"Verteilung")
+    pl.title(ur"Zufallszahlen aus der Einheitssphäre, 3D")
     ax.set_zlabel(u"$z$")
     pl.savefig("out-3a-3D.pdf")
     pl.savefig("out-3a-3D.png")
