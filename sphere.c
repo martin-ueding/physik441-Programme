@@ -31,12 +31,16 @@ void hammer_aitov(double *input, double *output) {
 }
 
 void sphere_draw(double *x, double *y, double *z) {
-	double theta = acos((double) rand() / RAND_MAX * 2. - 1.);
-	double phi = (double) rand() / RAND_MAX * 2. * pi;
+	double w = rand() / (RAND_MAX + 1.) * 2. - 1.;
+	double theta = acos(w);
+	double phi = rand() / (RAND_MAX + 1.) * 2. * pi;
 
 	*x = sin(theta) * cos(phi);
 	*y = sin(theta) * sin(phi);
 	*z = cos(theta);
+
+	//double r = sqrt(*x * *x + *y * *y + *z * *z);
+	//printf("%g\n", r);
 }
 
 void test_sphere_draw() {

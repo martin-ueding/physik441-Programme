@@ -143,6 +143,8 @@
  Die gezogenen Punkte, als \f$ z \f$-Projektion:
 
  \image html out-3a-data.png
+ 
+ \image html out-3a-3D.png
 
  Die gleichen Punkte nach der Hammer-Aitov-Projektion:
 
