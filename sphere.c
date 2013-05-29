@@ -52,7 +52,7 @@ void test_sphere_draw() {
 	FILE *out;
 	out = fopen("out-3a-data.csv", "w");
 	for (int i = 0; i < TESTMAX; i++) {
-		fprintf(out, "%f %f\n", data[3*i], data[3*i + 2]);
+		fprintf(out, "%f %f %f\n", data[3*i], data[3*i + 2], data[3*i + 3]);
 	}
 	fclose(out);
 

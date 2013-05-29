@@ -168,8 +168,8 @@
 
 int main(int argc, char **argv) {
 	//problem1();
-	problem2();
-	//test_sphere_draw();
+	//problem2();
+	test_sphere_draw();
 	//problem3b();
 
 	return 0;

@@ -10,6 +10,7 @@ Generates plots for the given data.
 
 import argparse
 import matplotlib.pyplot as pl
+import mpl_toolkits.mplot3d.axes3d as p3
 import numpy as np
 import scipy.optimize as op
 
@@ -61,6 +62,22 @@ def main():
     pl.savefig("out-3a-data.pdf")
     pl.savefig("out-3a-data.png")
     pl.clf()
+
+    x = data[:,0]
+    y = data[:,1]
+    z = data[:,2]
+    fig = pl.figure()
+    ax = p3.Axes3D(fig)
+    ax.scatter(x, y, z, marker="x")
+    ax.set_xlabel(u"$x$")
+    ax.set_ylabel(u"$y$")
+    pl.title(u"Verteilung")
+    ax.set_zlabel(u"$z$")
+    pl.savefig("out-3a-3D.pdf")
+    pl.savefig("out-3a-3D.png")
+    #pl.show()
+    pl.clf()
+    
 
 
     data = np.genfromtxt("out-3a-transformed.csv")
