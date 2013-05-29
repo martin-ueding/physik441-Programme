@@ -36,6 +36,19 @@ def main():
     pl.savefig("out-2a.png")
     pl.clf()
 
+    data = np.genfromtxt("out-2b.csv")
+    x = data
+    pl.hist(x, bins=100)
+    pl.xlim(0, 4.)
+    pl.title(ur"Zufallszahlen aus der Sinusverteilung mit Dreieck")
+    pl.xlabel(ur"$x$")
+    pl.ylabel(ur"Anzahl")
+    pl.grid(True)
+    pl.savefig("out-2b.pdf")
+    pl.savefig("out-2b.png")
+    pl.clf()
+
+
 
     data = np.genfromtxt("out-3a-data.csv")
     x = data[:,0]

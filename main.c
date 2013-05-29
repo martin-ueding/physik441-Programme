@@ -11,10 +11,12 @@
 
  Diese Abgabe ist in <em>C 99</em> geschrieben und kann, wie immer, mit
 
-	 make dep
-     make
-	 ./main
-	 ./plot
+ \code
+ make dep
+ make
+ ./main
+ ./plot
+ \endcode
 
  kompiliert, ausgeführt und geplottet werden.
 
@@ -40,8 +42,10 @@
 
  Laut Mathematica sollte das Integral ergeben:
 
-     Integrate[1/(1 + x^2)^(4/3), {x, 0, Infinity}] // N
-	 1.12025
+ \code
+ Integrate[1/(1 + x^2)^(4/3), {x, 0, Infinity}] // N
+ 1.12025
+ \endcode
  
  \image html 1-f.png
 
@@ -52,11 +56,85 @@
  Und erhält in der Tat mit vielen Schritten einen Wert, der nahe am
  analytischen Ergebnis liegt.
 
+ \subsubsection aufgabe1a Aufgabe 1a
+
+ \todo Dieser Aufgabenteil fehlt.
+
  \subsection aufgabe2 Aufgabe 2
 
  \subsubsection aufgabe2a Aufgabe 2a
 
  \image html out-2a.png
+
+ \subsubsection aufgabe2b Aufgabe 2b
+
+ Die Funktion habe ich eingehüllt mit:
+ \f[
+ e(x) =
+ \begin{cases}
+ 0 & 0 \leq x \leq 2.0708 \\
+ 1.24248 - 0.3x & 2.0708 < x < 1 + \pi \\
+ 0 & \text{sonst}
+ \end{cases}
+ \f]
+
+ \code
+ e[x_] = Piecewise[{{.3 x, 0 <= x && x <= .5 + Pi/2}, {-.3 x + (Pi + 1)*.3, x >
+     .5 + Pi/2 && x <= Pi + 1}}]
+ \endcode
+
+ Zusammen mit der Sinusverteilung sieht dies so aus:
+
+ \code
+ Plot[{.5 Sin[x - .5], e[x]}, {x, 0, Pi + 1}, PlotRange -> Full]
+ \endcode
+
+ \image html 2-einhuellende.png
+
+ Nun integriere ich diese Funktion von \f$ 0 \f$ bis \f$ 1 + \pi \f$, um die
+ Normierung zu erhalten. Dabei erhalte ich den Wert \f$ \alpha := 1.28646 \f$.
+ Ich integriere die Funktion \f$ e(x)/\alpha \f$ ohne Grenzen nach \f$ x \f$
+ und erhalte folgende CDF:
+ \f[
+ E(x) =
+ \begin{cases}
+ 0 & x \leq 0 \\
+ 0.116599 x^2 & 0 \leq x \leq 2.0708 \\
+ -1. - 0.233198 (-4.14159 x + 0.5 x^2) & 2.0708 < x \leq 4.14159 \\
+ 1 & \text{sonst}
+ \end{cases}
+ \f]
+
+ An den Randwerten \f$ x = 0 \f$ und \f$ x = 1 + \pi \f$ nimmt die Funktion die
+ erforderten Werte 0 und 1 an. Diese CDF ist hier geplottet:
+
+ \image html 2-cdf.png
+
+ Ich bestimme die Umkehrfunktion:
+ \f[
+ E^{-1}(z) =
+ \begin{cases}
+ 2.92855 \sqrt z & 0 \leq z \leq 0.5 \\
+ 4.14159 - 2.92855 \sqrt{1 - z} & 0.5 < z \leq 1 \\
+ \end{cases}
+ \f]
+
+ Wenn ich nun \f$ z \f$ gleichmäßig zwischen 0 und 1 ziehe, kann ich mit \f$
+ E^{-1}(z) \f$ eine Zahl finden, die aus der Dreiecksverteilung gezogen worden
+ ist.
+
+ In dieser Abgabe ist diese Funktion als inverse_cdf() implementiert.
+
+ Die Akzeptanzrate ist in der Programmausgabe weiter oben. Das Histogram ist
+ hier:
+
+ \image html out-2b.png
+
+ \bug Diese Verteilung ist ein wenig schief.
+
+ \subsubsection aufgabe2c Aufgabe 2c
+
+ Die Laufzeiten sind oben in der Ausgabe.
 
  \subsection aufgabe3 Aufgabe 3
 
