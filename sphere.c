@@ -3,7 +3,7 @@
 
 #include "sphere.h"
 
-#define TESTMAX 1000
+#define TESTMAX 10000
 
 double pi = 3.141593;
 
@@ -17,13 +17,19 @@ void hammer_aitov(double *input, double *output) {
 		double phi = atan2(y, x);
 		double theta = acos(z/r);
 
-		double b = pi/2 - theta;
+		double b = pi/2. - theta;
 		double l = phi <= pi ? phi : - pi + phi - pi;
 
-		double denominator = sqrt(1 + cos(b) * sin(l/2));
+		assert(fabs(b) <= pi/2.);
+		assert(fabs(l) <= pi);
 
-		double xx = 2 * sqrt(2) * cos(b) * sin(l/2) / denominator;
-		double yy = sqrt(2) * sin(b) / denominator;
+		double denominator = sqrt(1. + cos(b) * cos(l/2.));
+
+		double xx = 2. * sqrt(2.) * cos(b) * sin(l/2.) / denominator;
+		double yy = sqrt(2.) * sin(b) / denominator;
+
+		assert(fabs(xx) <= sqrt(8));
+		assert(fabs(yy) <= sqrt(2));
 
 		output[2*i] = xx;
 		output[2*i + 1] = yy;
@@ -56,7 +62,7 @@ void test_sphere_draw() {
 	FILE *out;
 	out = fopen("out-3a-data.csv", "w");
 	for (int i = 0; i < TESTMAX; i++) {
-		fprintf(out, "%f %f %f\n", data[3*i], data[3*i + 2], data[3*i + 3]);
+		fprintf(out, "%f %f %f\n", data[3*i], data[3*i + 1], data[3*i + 2]);
 	}
 	fclose(out);
 

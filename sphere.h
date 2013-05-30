@@ -4,9 +4,10 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 
+#include <assert.h>
 #include <math.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * Transforms the data.

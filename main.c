@@ -4,6 +4,10 @@
  \mainpage physik441-05
  \tableofcontents
 
+ Abgabe für den 5. Zettel aus <a
+ href="http://www.astro.uni-bonn.de/~jpflamm/nmp_ss13.html">Numerische Methoden
+ der Physik (SS 2013)</a>.
+
  \author Martin Ueding <dev@martin-ueding.de>
  \author Jan Weber
 
@@ -28,7 +32,7 @@
  - python-numpy
  - python-scipy
 
- \subsection Ausgabe
+ \subsection ausgabe Ausgabe
 
  Ausgabe des Programms:
 
@@ -125,8 +129,7 @@
 
  In dieser Abgabe ist diese Funktion als inverse_cdf() implementiert.
 
- Die Akzeptanzrate ist in der Programmausgabe weiter oben. Das Histogram ist
- hier:
+ Die Akzeptanzrate ist in \ref ausgabe. Das Histogram ist hier:
 
  \image html out-2b.png
 
@@ -134,7 +137,7 @@
 
  \subsubsection aufgabe2c Aufgabe 2c
 
- Die Laufzeiten sind oben in der Ausgabe.
+ Die Laufzeiten sind oben in der \ref ausgabe.
 
  \subsection aufgabe3 Aufgabe 3
 
@@ -148,24 +151,18 @@
 
  \image html out-3a-y.png
 
- \bug Dies sollte kein Quadrat sein.
- 
  \image html out-3a-3D.png
-
- \bug Dies ist eher ein Zylinder, als eine Kugeloberfläche.
 
  Die gleichen Punkte nach der Hammer-Aitov-Projektion:
 
  \image html out-3a-transformed.png
-
- \bug Das sollte eigentlich eine gleichmäßig dichte Ellipse werden.
 
  \subsubsection aufgabe3b Aufgabe 3b
 
  \image html out-3b.png
 
  Die Schrittzahl für den wirklichen \f$ R_\text{rad} \f$ steht oben in der
- Ausgabe.
+ \ref ausgabe.
  */
 
 #include <stdio.h>
@@ -177,10 +174,10 @@
 #include "sphere.h"
 
 int main(int argc, char **argv) {
-	//problem1();
-	//problem2();
+	problem1();
+	problem2();
 	test_sphere_draw();
-	//problem3b();
+	problem3b();
 
 	return 0;
 }

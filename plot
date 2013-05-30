@@ -54,7 +54,8 @@ def main():
     data = np.genfromtxt("out-3a-data.csv")
     x = data[:,0]
     y = data[:,1]
-    pl.plot(x, y, **plotargs)
+    z = data[:,2]
+    pl.plot(x, y, markersize=4, **plotargs)
     pl.title(ur"Zufallszahlen aus der Einheitssphäre, $z$-Projektion")
     pl.xlabel(ur"$x$")
     pl.ylabel(ur"$y$")
@@ -63,9 +64,7 @@ def main():
     pl.savefig("out-3a-z.png")
     pl.clf()
 
-    x = data[:,0]
-    z = data[:,2]
-    pl.plot(x, z, **plotargs)
+    pl.plot(x, z, markersize=4, **plotargs)
     pl.title(ur"Zufallszahlen aus der Einheitssphäre, $y$-Projektion")
     pl.xlabel(ur"$x$")
     pl.ylabel(ur"$z$")
@@ -76,7 +75,7 @@ def main():
 
     fig = pl.figure()
     ax = p3.Axes3D(fig)
-    ax.scatter(x, y, z, marker="x")
+    ax.scatter(x, y, z, marker=".")
     ax.set_xlabel(u"$x$")
     ax.set_ylabel(u"$y$")
     pl.title(ur"Zufallszahlen aus der Einheitssphäre, 3D")
@@ -91,7 +90,7 @@ def main():
     data = np.genfromtxt("out-3a-transformed.csv")
     x = data[:,0]
     y = data[:,1]
-    pl.plot(x, y, **plotargs)
+    pl.plot(x, y, markersize=4, **plotargs)
     pl.title(ur"Zufallszahlen aus der Einheitssphäre, Hammer-Aitov-Projektion")
     pl.xlabel(ur"$x$")
     pl.ylabel(ur"$y$")
