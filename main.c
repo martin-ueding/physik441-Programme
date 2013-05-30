@@ -60,7 +60,7 @@
  Und erhält in der Tat mit vielen Schritten einen Wert, der nahe am
  analytischen Ergebnis liegt.
 
- \subsubsection aufgabe1a Aufgabe 1a
+ \subsubsection aufgabe1b Aufgabe 1b
 
  \todo Dieser Aufgabenteil fehlt.
 
