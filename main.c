@@ -139,6 +139,10 @@
 
  Die Laufzeiten sind oben in der \ref ausgabe.
 
+ Anscheinend ist die Akzeptanzrate mit der einhüllenden Funktion kleiner, dies
+ sollte so nicht sein. Daher ist auch die Laufzeit größer, um eine Million
+ Punkte zu erhalten.
+
  \subsection aufgabe3 Aufgabe 3
 
  \subsubsection aufgabe3a Aufgabe 3a
