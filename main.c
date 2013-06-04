@@ -133,15 +133,12 @@
 
  \image html out-2b.png
 
- \bug Diese Verteilung ist ein wenig schief.
-
  \subsubsection aufgabe2c Aufgabe 2c
 
  Die Laufzeiten sind oben in der \ref ausgabe.
 
- Anscheinend ist die Akzeptanzrate mit der einhüllenden Funktion kleiner, dies
- sollte so nicht sein. Daher ist auch die Laufzeit größer, um eine Million
- Punkte zu erhalten.
+ Mit der einhüllenden Funktion steigt die Akzeptanzrate, und obwohl das Ziehen
+ aufwändiger ist, spart dies Zeit.
 
  \subsection aufgabe3 Aufgabe 3
 

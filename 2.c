@@ -7,6 +7,20 @@ double dist(double x) {
 	return 0.5 * sin(x - 0.5);
 }
 
+double envelope(double x) {
+	double pi = 3.141593;
+
+	if (0 <= x && x <= 2.0708) {
+		return .3 * x;
+	}
+	else if (2.0708 <= x && x < 1 + pi) {
+		return 1.24248 - .3 * x;
+	}
+	else {
+		return 0.;
+	}
+}
+
 double inverse_cdf(double z) {
 	if (z <= 0.) {
 		return 0.;
@@ -66,7 +80,7 @@ void problem2b() {
 
 	for (iter = 0; used < max_used; iter++) {
 		double x = inverse_cdf(rand() / (RAND_MAX + 1.));
-		double y = rand() / (RAND_MAX + 1.) * x;
+		double y = rand() / (RAND_MAX + 1.) * envelope(x);
 
 		if (y > dist(x)) {
 			continue;
