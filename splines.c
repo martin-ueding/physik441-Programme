@@ -15,31 +15,34 @@ double cubic_spline_eval(double x, double x0, double *coefficients) {
 	return result;
 }
 
-void cubic_spline_interpolate(double *x, double *y, int data_count, double **coefficients) {
+void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coefficients)[4]) {
 	double *A;
+	double *B2;
 	double *B;
 	double *C;
-	double *D;
-	double *B2;
 	double *D2;
+	double *D;
 	double *h;
-	double *y_xx;
 	double *X;
+	double *y_xx;
+
+	// XXX Variable `x` might not be needed at all.
+	// XXX Variable `C` might not be needed at all.
 
 	A = malloc(sizeof(*A) * data_count);
 	B = malloc(sizeof(*B) * data_count);
+	B2 = malloc(sizeof(*B2) * data_count);
 	C = malloc(sizeof(*C) * data_count);
 	D = malloc(sizeof(*D) * data_count);
-	h = malloc(sizeof(*h) * data_count);
-	B2 = malloc(sizeof(*B2) * data_count);
 	D2 = malloc(sizeof(*D2) * data_count);
+	h = malloc(sizeof(*h) * data_count);
 	y_xx = malloc(sizeof(*y_xx) * data_count);
 
 	assert(A);
 	assert(B);
+	assert(B2);
 	assert(C);
 	assert(D);
-	assert(B2);
 	assert(D2);
 	assert(h);
 	assert(y_xx);
@@ -72,8 +75,13 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double **coe
 	}
 
 	// Calculate the X.
-	for (int i = 0; i > 0; i--) {
+	X[data_count-1] = D2[data_count-1]/B2[data_count-1];
+	for (int i = data_count-2; i >= 0; i--) {
 		X[i] = D2[i] / B2[i] - C[i] / B2[i] * X[i + 1];
+	}
+
+	for (int i = 0; i < data_count - 1; i++) {
+		y_xx[i] = X[i];
 	}
 
 	// Calculate the final coefficients.
@@ -84,11 +92,20 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double **coe
 		coefficients[i][3] = y[i];
 	}
 
+	assert(A);
+	assert(B);
+	assert(B2);
+	assert(C);
+	assert(D);
+	assert(D2);
+	assert(h);
+	assert(y_xx);
+
 	free(A);
 	free(B);
+	free(B2);
 	free(C);
 	free(D);
-	free(B2);
 	free(D2);
 	free(h);
 	free(y_xx);

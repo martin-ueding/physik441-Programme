@@ -29,6 +29,6 @@ double cubic_spline_eval(double x, double x0, double *coefficients);
  \param[in] data_count Number of entries on the x and y arrays
  \param[out] coefficients Calculates coeffcients
  */
-void cubic_spline_interpolate(double *x, double *y, int data_count, double **coefficients);
+void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coefficients)[4]);
 
 #endif /* end of include guard: SPLINES_H */
