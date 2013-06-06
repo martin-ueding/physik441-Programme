@@ -2,8 +2,8 @@
 
 #include "splines.h"
 
-void cubic_spline_eval_linspace(double min, double max, int steps, double *x, double (*coefficients)[4], int data_count, double *out_x, double *out_y) {
-	double step_size = (max-min)/steps;
+void cubic_spline_eval_linspace(double min, double max, int steps, double *x, double(*coefficients)[4], int data_count, double *out_x, double *out_y) {
+	double step_size = (max - min) / steps;
 	double cur;
 	int spline_id = 0;
 
@@ -28,7 +28,7 @@ void cubic_spline_eval_linspace(double min, double max, int steps, double *x, do
 	}
 }
 
-void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coefficients)[4]) {
+void cubic_spline_interpolate(double *x, double *y, int data_count, double(*coefficients)[4]) {
 	double A[data_count];
 	double B2[data_count];
 	double B[data_count];
@@ -48,7 +48,7 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coe
 	}
 
 	// Calculate A, B, C, D.
-	for (int i = 1; i < data_count - 1; i++) {
+	for (int i = 1; i < data_count; i++) {
 		A[i] = h[i - 1];
 	}
 	for (int i = 1; i < data_count - 1; i++) {

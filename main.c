@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
 	double x[count];
 	double y[count];
 	for (int i = 0; i < count; i++) {
-		fscanf(in, "%lf %lf\n", x+i, y+i);
+		fscanf(in, "%lf %lf\n", x + i, y + i);
 	}
 	fclose(in);
 

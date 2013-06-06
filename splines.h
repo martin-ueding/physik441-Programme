@@ -24,7 +24,7 @@
  \param[out] out_x Computed x values
  \param[out] out_y Computed y values
  */
-void cubic_spline_eval_linspace(double min, double max, int steps, double *x, double (*coefficients)[4], int data_count, double *out_x, double *out_y);
+void cubic_spline_eval_linspace(double min, double max, int steps, double *x, double(*coefficients)[4], int data_count, double *out_x, double *out_y);
 
 /**
  Calculates the coefficients for the given data.
@@ -34,6 +34,6 @@ void cubic_spline_eval_linspace(double min, double max, int steps, double *x, do
  \param[in] data_count Number of entries on the x and y arrays
  \param[out] coefficients Calculates coeffcients
  */
-void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coefficients)[4]);
+void cubic_spline_interpolate(double *x, double *y, int data_count, double(*coefficients)[4]);
 
 #endif /* end of include guard: SPLINES_H */
