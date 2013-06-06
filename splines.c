@@ -70,11 +70,15 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coe
 	}
 
 	// Calculate the X.
-	X[data_count - 1] = D2[data_count - 1] / B2[data_count - 1];
-	for (int i = data_count-2; i >= 1; i--) {
+	X[data_count - 2] = D2[data_count - 1] / B2[data_count - 1];
+	for (int i = data_count-3; i >= 1; i--) {
 		X[i] = D2[i] / B2[i] - C[i] / B2[i] * X[i + 1];
 	}
 
+	// Set the `X` to zero at the border, since there should be vanishing
+	// curvature there.
+	X[0] = 0.;
+	X[data_count -1] = 0.;
 
 	for (int i = 0; i < data_count - 1; i++) {
 		y_xx[i] = X[i];
