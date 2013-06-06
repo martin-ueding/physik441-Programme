@@ -2,17 +2,30 @@
 
 #include "splines.h"
 
-double cubic_spline_eval(double x, double x0, double *coefficients) {
-	double result = 0.;
-	double difference = x - x0;
-	double parenteses = 1.;
+void cubic_spline_eval_linspace(double min, double max, int steps, double *x, double (*coefficients)[4], int data_count, double *out_x, double *out_y) {
+	double step_size = (max-min)/steps;
+	double cur;
+	int spline_id = 0;
 
-	for (int i = 0; i < N; i++) {
-		result += coefficients[N - i] * parenteses;
-		parenteses *= difference;
+	for (int step = 0; step < steps; step++) {
+		cur = min + step_size * step;
+		out_x[step] = cur;
+		out_y[step] = 0;
+
+		// Advance to the next `spline_id` until `cur` lies on the right of it.
+		// `cur` then should lie within this and the next `spline_id`.
+		while (cur > x[spline_id]) {
+			spline_id++;
+		}
+
+		double difference = cur - x[spline_id];
+		double parenteses = 1.;
+
+		for (int i = 0; i < N; i++) {
+			out_y[step] += coefficients[spline_id][N - i] * parenteses;
+			parenteses *= difference;
+		}
 	}
-
-	return result;
 }
 
 void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coefficients)[4]) {
@@ -38,27 +51,27 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coe
 	for (int i = 1; i < data_count - 1; i++) {
 		A[i] = h[i - 1];
 	}
-	for (int i = 0; i < data_count; i++) {
+	for (int i = 1; i < data_count - 1; i++) {
 		B[i] = 2. * (h[i - 1] + h[i]);
 	}
-	for (int i = 0; i < data_count - 2; i++) {
+	for (int i = 0; i < data_count - 1; i++) {
 		C[i] = h[i];
 	}
-	for (int i = 0; i < data_count - 1; i++) {
+	for (int i = 1; i < data_count - 1; i++) {
 		D[i] = 6. / h[i] * (y[i + 1] - y[i]) - 6. / h[i - 1] * (y[i] - y[i - 1]);
 	}
 
 	// Transform B, C, D
 	B2[0] = B[0];
 	D2[0] = D[0];
-	for (int i = 1; i < data_count; i++) {
+	for (int i = 1; i < data_count - 1; i++) {
 		B2[i] = B[i] - C[i - 1] * A[i] / B[i - 1];
 		D2[i] = D[i] - D[i - 1] * A[i] / B[i - 1];
 	}
 
 	// Calculate the X.
 	X[data_count - 1] = D2[data_count - 1] / B2[data_count - 1];
-	for (int i = data_count-2; i >= 0; i--) {
+	for (int i = data_count-2; i >= 1; i--) {
 		X[i] = D2[i] / B2[i] - C[i] / B2[i] * X[i + 1];
 	}
 

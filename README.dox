@@ -34,6 +34,9 @@
 
  \include out/coefficients.csv
 
+ Mit cubic_spline_eval_linspace() werden viele Punkte in die Splines
+ eingesetzt. Die Messdaten und die interpolierten Daten werden dann geplottet:
+
  \image html out/plot.png
  \image latex out/plot.pdf
 

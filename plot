@@ -24,7 +24,9 @@ def main():
     }
 
     data = np.genfromtxt("out/points.csv")
+    interpolated = np.genfromtxt("out/interpolated.csv")
     pl.plot(data[:,0], data[:,1], **plotargs)
+    pl.plot(interpolated[:,0], interpolated[:,1], label="Interpoliert", linestyle="none", marker=".", markersize=4)
     pl.title(ur"Empfindlichkeit des menschlichen Auges")
     pl.xlabel(ur"$\lambda / \mathrm{nm}$")
     pl.ylabel(ur"Empfindlichkeit")

@@ -37,5 +37,17 @@ int main(int argc, char **argv) {
 	}
 	fclose(out);
 
+	int sample_steps = 1000;
+	double out_x[sample_steps];
+	double out_y[sample_steps];
+	cubic_spline_eval_linspace(400., 800., sample_steps, x, coefficients, count, out_x, out_y);
+
+	out = fopen("out/interpolated.csv", "w");
+	assert(out);
+	for (int i = 0; i < sample_steps; i++) {
+		fprintf(out, "%15f\t%15f\n", out_x[i], out_y[i]);
+	}
+	fclose(out);
+
 	return 0;
 }
