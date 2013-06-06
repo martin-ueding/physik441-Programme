@@ -1,7 +1,7 @@
 # Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 
 CC = gcc
-CFLAGS = -O3 -pedantic -std=c99 -Wall
+CFLAGS = -g -pedantic -std=c99 -Wall
 LOADLIBES = -lm
 
 c_files := $(wildcard *.c)
