@@ -88,7 +88,7 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coe
 	for (int i = 0; i < data_count - 1; i++) {
 		coefficients[i][0] = 1. / (6. * h[i]) * (y_xx[i + 1] - y_xx[i]);
 		coefficients[i][1] = 1. / 2. * y_xx[i];
-		coefficients[i][2] = 1. / h[i] * (y[i + 1] - y[1]) - 1. / 6. * h[i] * (y_xx[i + 1] + 2. * y[i]);
+		coefficients[i][2] = 1. / h[i] * (y[i + 1] - y[1]) - 1. / 6. * h[i] * (y_xx[i + 1] + 2. * y_xx[i]);
 		coefficients[i][3] = y[i];
 	}
 }
