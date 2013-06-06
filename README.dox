@@ -34,6 +34,9 @@
 
  \include out/coefficients.csv
 
+ \image html out/plot.png
+ \image latex out/plot.pdf
+
  */
 
 // vim: ft=c
