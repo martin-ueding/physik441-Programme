@@ -16,39 +16,18 @@ double cubic_spline_eval(double x, double x0, double *coefficients) {
 }
 
 void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coefficients)[4]) {
-	double *A;
-	double *B2;
-	double *B;
-	double *C;
-	double *D2;
-	double *D;
-	double *h;
-	double *X;
-	double *y_xx;
+	double A[data_count];
+	double B2[data_count];
+	double B[data_count];
+	double C[data_count];
+	double D2[data_count];
+	double D[data_count];
+	double h[data_count];
+	double X[data_count];
+	double y_xx[data_count];
 
 	// XXX Variable `x` might not be needed at all.
 	// XXX Variable `C` might not be needed at all.
-
-	A = malloc(sizeof(*A) * data_count);
-	B = malloc(sizeof(*B) * data_count);
-	B2 = malloc(sizeof(*B2) * data_count);
-	C = malloc(sizeof(*C) * data_count);
-	D = malloc(sizeof(*D) * data_count);
-	D2 = malloc(sizeof(*D2) * data_count);
-	h = malloc(sizeof(*h) * data_count);
-	X = malloc(sizeof(*X) * data_count);
-	y_xx = malloc(sizeof(*y_xx) * data_count);
-
-	assert(A);
-	assert(B);
-	assert(B2);
-	assert(C);
-	assert(D);
-	assert(D2);
-	assert(h);
-	assert(X);
-	assert(y_xx);
-
 
 	// Calculate h.
 	for (int i = 0; i < data_count - 1; i++) {
@@ -95,24 +74,4 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double (*coe
 		coefficients[i][2] = 1. / h[i] * (y[i + 1] - y[1]) - 1. / 6. * h[i] * (y_xx[i + 1] + 2. * y[i]);
 		coefficients[i][3] = y[i];
 	}
-
-	assert(A);
-	assert(B);
-	assert(B2);
-	assert(C);
-	assert(D);
-	assert(D2);
-	assert(h);
-	assert(X);
-	assert(y_xx);
-
-	free(A);
-	free(B);
-	free(B2);
-	free(C);
-	free(D);
-	free(D2);
-	free(h);
-	free(X);
-	free(y_xx);
 }

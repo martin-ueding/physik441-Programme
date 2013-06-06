@@ -11,10 +11,8 @@ int main(int argc, char **argv) {
 	int count;
 	fscanf(in, "%d\n", &count);
 
-	double *x, *y;
-	x = malloc(sizeof(*x) * count);
-	y = malloc(sizeof(*y) * count);
-
+	double x[count];
+	double y[count];
 	for (int i = 0; i < count; i++) {
 		fscanf(in, "%lf %lf\n", x+i, y+i);
 	}
