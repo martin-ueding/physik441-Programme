@@ -39,8 +39,8 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double(*coef
 	double X[data_count];
 	double y_xx[data_count];
 
-	// XXX Variable `x` might not be needed at all.
 	// XXX Variable `C` might not be needed at all.
+	// XXX Variable `X` might not be needed at all.
 
 	// Calculate h.
 	for (int i = 0; i < data_count - 1; i++) {
@@ -69,16 +69,16 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double(*coef
 		D2[i] = D[i] - D[i - 1] * A[i] / B[i - 1];
 	}
 
-	// Calculate the X.
+	// Calculate the X. The second last element needs to be treated
+	// individually, since it is the first one in the system of equations.  Set
+	// the `X` to zero at the border, since there should be vanishing curvature
+	// there.
+	X[0] = 0.;
+	X[data_count - 1] = 0.;
 	X[data_count - 2] = D2[data_count - 1] / B2[data_count - 1];
-	for (int i = data_count-3; i >= 1; i--) {
+	for (int i = data_count - 3; i >= 1; i--) {
 		X[i] = D2[i] / B2[i] - C[i] / B2[i] * X[i + 1];
 	}
-
-	// Set the `X` to zero at the border, since there should be vanishing
-	// curvature there.
-	X[0] = 0.;
-	X[data_count -1] = 0.;
 
 	for (int i = 0; i < data_count - 1; i++) {
 		y_xx[i] = X[i];
