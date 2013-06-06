@@ -1,5 +1,4 @@
 # Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
-# Abgabe zusammen mit Jan Weber
 
 CC = gcc
 CFLAGS = -O3 -pedantic -std=c99 -Wall
