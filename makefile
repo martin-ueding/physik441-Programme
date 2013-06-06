@@ -14,7 +14,7 @@ dep:
 	cat dep.makefile
 
 out:
-	mkdir "$@"
+	mkdir -p "$@"
 
 html: output.txt plot
 	doxygen
