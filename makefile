@@ -16,10 +16,10 @@ dep:
 out:
 	mkdir -p "$@"
 
-html: output.txt plot
+html: out/output.txt plot
 	doxygen
 
-output.txt: main plot
+out/output.txt: main plot
 	./main | tee $@
 	./plot | tee -a $@
 
