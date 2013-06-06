@@ -20,6 +20,8 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double **coe
 	double *B;
 	double *C;
 	double *D;
+	double *B2;
+	double *D2;
 	double *h;
 	double *y_xx;
 	double *X;
@@ -29,12 +31,16 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double **coe
 	C = malloc(sizeof(*C) * data_count);
 	D = malloc(sizeof(*D) * data_count);
 	h = malloc(sizeof(*h) * data_count);
+	B2 = malloc(sizeof(*B2) * data_count);
+	D2 = malloc(sizeof(*D2) * data_count);
 	y_xx = malloc(sizeof(*y_xx) * data_count);
 
 	assert(A);
 	assert(B);
 	assert(C);
 	assert(D);
+	assert(B2);
+	assert(D2);
 	assert(h);
 	assert(y_xx);
 
@@ -57,9 +63,17 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double **coe
 		D[i] = 6. / h[i] * (y[i + 1] - y[i]) - 6. / h[i - 1] * (y[i] - y[i - 1]);
 	}
 
+	// Transform B, C, D
+	B2[0] = B[0];
+	D2[0] = D[0];
+	for (int i = 1; i < data_count; i++) {
+		B2[i] = B[i] - C[i-1] * A[i] / B[i-1];
+		D2[i] = D[i] - D[i-1] * A[i] / B[i-1];
+	}
+
 	// Calculate the X.
 	for (int i = 0; i > 0; i--) {
-		X[i] = D2[i] / B2[i] - C2[i] / B2[i] * X[i + 1];
+		X[i] = D2[i] / B2[i] - C[i] / B2[i] * X[i + 1];
 	}
 
 	// Calculate the final coefficients.
@@ -74,6 +88,8 @@ void cubic_spline_interpolate(double *x, double *y, int data_count, double **coe
 	free(B);
 	free(C);
 	free(D);
+	free(B2);
+	free(D2);
 	free(h);
 	free(y_xx);
 }
