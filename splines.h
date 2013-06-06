@@ -14,7 +14,7 @@
 
 /**
  Evaluates a cubic spline.
- 
+
  \param[in] x x-value
  \param[in] x0 x0-value
  \param[in] coefficients Coefficients of the cubic spline (4 entries)
