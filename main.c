@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 	FILE *out = fopen("out/points.csv", "w");
 	assert(out);
 	for (int i = 0; i < count; i++) {
-		fprintf(out, "%f\t%f\n", x[i], y[i]);
+		fprintf(out, "%15f\t%15f\n", x[i], y[i]);
 	}
 	fclose(out);
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv) {
 	assert(out);
 	for (int i = 0; i < count; i++) {
 		for (int j = 0; j < 4; j++) {
-			fprintf(out, "%f\t", coefficients[i][j]);
+			fprintf(out, "%15f\t", coefficients[i][j]);
 		}
 		fprintf(out, "\n");
 	}
