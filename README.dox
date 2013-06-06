@@ -2,4 +2,38 @@
 
 /**
  \mainpage physik441-06
+
+ \section kompilieren Kompilieren und Ausführen
+
+ Dieses Programm ist in C 99 geschrieben und kann mit folgenden Kommandos kompiliert und ausgeführt werden:
+ \code
+ make dep
+ make
+ ./main
+ \endcode
+
+ \section aufgaben Aufgaben
+
+ \subsection aufgabe1 Aufgabe 1
+
+ Siehe cubic_spline_interpolate().
+
+ \subsection aufgabe2 Aufgabe 2
+
+ Gegeben ist folgende Datei mit Punkten:
+
+ \include daten06.dat
+
+ Diese liest das Programm ein und speichert sie noch einmal ohne Angabe der
+ Zeilenzahl ab:
+
+ \include out/points.csv
+
+ Dann werden die Koeffizienten mit der Funktion cubic_spline_interpolate()
+ bestimmt und gespeichert:
+
+ \include out/coefficients.csv
+
  */
+
+// vim: ft=c
