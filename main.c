@@ -48,12 +48,11 @@ void runge_kutta_2d(double omega, char *filename) {
 		phi += (k[0][0] + 2.*k[1][0] + 2.*k[2][0] + k[3][0])* h/6.;
 		omega += (k[0][1] + 2.*k[1][1] + 2.*k[2][1] + k[3][1])* h/6.;
 
-		e = .5 * omega * omega + sin(phi);
+		e = .5 * omega * omega - cos(phi);
 
 		fprintf(fp, "%g\t%g\t%g\t%g\n", t, phi, omega, e);
 
 	}
-	assert(fp);
 	fclose(fp);
 }
 

@@ -15,6 +15,10 @@
  ./main
  \endcode
 
+ \section ausgabe Ausgabe
+
+ \include out/output.txt
+
  \section aufgaben Aufgaben
  \subsection aufgabe1 Aufgabe 1
  \subsubsection aufgabe1a Aufgabe 1a
@@ -43,14 +47,17 @@
  immer größer, allerdings ist es noch sehr nah an einem Sinus dran:
 
  \image html out/1b-1.png
+ \image latex out/1b-1.pdf
 
  Es ist zu erkennen, dass es nicht mehr sinusförmig ist.
 
  \image html out/1b-2.png
+ \image latex out/1b-2.pdf
 
  Noch deutlicher:
 
  \image html out/1b-3.png
+ \image latex out/1b-3.pdf
 
  Jetzt schlägt das Pendel oben über, so dass es sich immer weiter aufwickelt.
 
@@ -67,7 +74,9 @@
  harmonischen Fall gerade null, weil es sich um einen Wendepunkt handelt. Somit
  mache ich auch keinen allzu großen Fehler.
 
- Mit Python \c plot fitte ich daran eine lineare Funktion \f$ y(t) = mt + b \f$ und erhalte die Fitparameter aus \ref Ausgabe. Die Nullstelle dieser Funktion liegt bei:
+ Mit dem Python 2 Programm \c plot fitte ich daran eine lineare Funktion \f$
+ y(t) = mt + b \f$ und erhalte die Fitparameter aus \ref ausgabe. Die
+ Nullstelle dieser Funktion liegt bei:
  \f[
  t = - \frac bm
  \f]
@@ -76,6 +85,16 @@
  sollte die Periode auch gerade \f$ 2\pi \f$ sein, dies kommt einigermaßen hin.
 
  \subsubsection aufgabe1d Aufgabe 1d
+
+ Die Energie im Pendel ist gegeben durch:
+ \f[
+ E = \frac 12 m r^2 \omega^2 - mgr \cos(\varphi)
+ \f]
+
+ In den Plots aus \ref aufgabe1b ist zu erkennen, dass für kleine initiale
+ Geschwindigkeiten die Energie erhalten bleibt, bei größeren initialen
+ Geschwindigkeiten die Energie vom Startwert abweicht.
+
  \subsubsection aufgabe1e Aufgabe 1e
  */
 
