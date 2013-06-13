@@ -21,6 +21,7 @@ html: out/output.txt plot
 
 out/output.txt: main plot
 	./main | tee $@
+	echo >> $@
 	./plot | tee -a $@
 
 main: $(o_files)
