@@ -1,0 +1,61 @@
+// Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+/**
+ \mainpage physik441 Übungsblatt 7
+
+ \tableofcontents
+
+ \section kompilieren Kompilieren und Ausführen
+
+ Dieses Programm ist in C 99 geschrieben und kann mit folgenden Kommandos
+ kompiliert und ausgeführt werden:
+ \code
+ make dep
+ make
+ ./main
+ \endcode
+
+ \section aufgaben Aufgaben
+ \subsection aufgabe1 Aufgabe 1
+ \subsubsection aufgabe1a Aufgabe 1a
+
+ Gegeben ist die Bewegungsgleichung:
+ \f[
+ \ddot \varphi + \omega0^2 \sin(\varphi) = 0
+ \f]
+
+ Da \f$ \omega = 1 \f$ gilt, und ich \f$ \omega \f$ lieber als
+ Winkelgeschwindigkeit und nicht als Eigenfrequenz benutzen möchte, führe ich
+ jetzt \f$ \omega \f$ als Winkelgeschwindigkeit ein.
+
+ Dies überführe ich in zwei explizite, gewöhnliche Differentialgleichungen
+ erster Ordnung:
+ \f{align}{
+ \dot \varphi &= \omega \\
+ \dot \omega &= - \sin(\varphi)
+ \f}
+
+ Für verschiedene \f$ \omega(0) \f$ die Plots. Hier wird die Amplitude zwar
+ immer größer, allerdings ist es noch sehr nah an einem Sinus dran:
+
+ \image html out/1b-1.png
+
+ Es ist zu erkennen, dass es nicht mehr sinusförmig ist.
+
+ \image html out/1b-2.png
+
+ Noch deutlicher:
+
+ \image html out/1b-3.png
+
+ Jetzt schlägt das Pendel oben über, so dass es sich immer weiter aufwickelt.
+
+ \image html out/1b-4.png
+
+ \subsubsection aufgabe1b Aufgabe 1b
+ \subsubsection aufgabe1c Aufgabe 1c
+ \subsubsection aufgabe1d Aufgabe 1d
+ \subsubsection aufgabe1e Aufgabe 1e
+ */
+
+// vim: ft=c
