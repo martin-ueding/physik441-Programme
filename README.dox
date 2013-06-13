@@ -96,6 +96,31 @@
  Geschwindigkeiten die Energie vom Startwert abweicht.
 
  \subsubsection aufgabe1e Aufgabe 1e
+
+ Mit einer Toleranz von \f$ 10^0 \f$ sind die Sinuskurven nicht mehr wirklich
+ als solche zu erkennen:
+
+ \image html out/1e-0.png
+
+ Bei \f$ 10^{-1} \f$ wird es schon besser:
+
+ \image html out/1e-1.png
+
+ \image html out/1e-2.png
+
+ Bei \f$ 10^{-3} \f$ ist kein Fehler mehr zu erkennen.
+ 
+ \image html out/1e-3.png
+
+ Die Anzahl der Schritte steigt mit der Potenz der geforderten Toleranz.
+
+ \image html out/1e-steps.png
+
+ Mit jedem Schritt muss die Funktion viermal ausgewertet werden. Wenn \f$ h \f$
+ halbiert wird, so muss sie achtmal ausgewertet werden. Der Fehler sinkt
+ allerdings mit \f$ 2^{-p} \f$, in diesem Fall mit \f$ 2^{-4} \f$. Also sollte
+ eine Halbierung der Schrittweite eine Verdopplung der Schritte, allerdings
+ einen Genauigkeitsgewinn von Faktor \f$ 16 \f$ bringen.
  */
 
-// vim: ft=c
+// vim: ft=c spell spelllang=de

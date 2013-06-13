@@ -63,7 +63,7 @@ void runge_kutta_2d(double omega, char *filename,
 	fclose(fp);
 }
 
-void runge_kutta_2d_tolerance(double omega, char *filename,
+int runge_kutta_2d_tolerance(double omega, char *filename,
         double(*dot_phi)(double, double, double),
         double(*dot_omega)(double, double, double), double tolerance) {
 	double h = 0.1;
@@ -95,6 +95,8 @@ void runge_kutta_2d_tolerance(double omega, char *filename,
 	fclose(fp);
 
 	printf("1e| Schritte bei Toleranz %6.4f: %4d\n", tolerance, steps);
+
+	return steps;
 }
 
 int main(int argc, char **argv) {
@@ -103,9 +105,15 @@ int main(int argc, char **argv) {
 	runge_kutta_2d(1.93, "out/1b-3.txt", dot_phi, dot_omega);
 	runge_kutta_2d(2.0, "out/1b-4.txt", dot_phi, dot_omega);
 
-	runge_kutta_2d_tolerance(1.0, "out/1d-0.txt", dot_phi, dot_omega_simple, 1.);
-	runge_kutta_2d_tolerance(1.0, "out/1d-1.txt", dot_phi, dot_omega_simple, .1);
-	runge_kutta_2d_tolerance(1.0, "out/1d-2.txt", dot_phi, dot_omega_simple, .01);
+	FILE *fp = fopen("out/1e-steps.txt", "w");
+	assert(fp);
+	char filename[100];
+	for (int power = 0; power < 5; power++) {
+		double tolerance = pow(10, -power);
+		sprintf(filename, "out/1e-%d.txt", power);
+		fprintf(fp, "%f\t%d\n", tolerance, runge_kutta_2d_tolerance(1.0, filename, dot_phi, dot_omega_simple, tolerance));
+	}
+	fclose(fp);
 
 	return 0;
 }

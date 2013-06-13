@@ -68,6 +68,30 @@ def main():
     print "Periode:", - 2 * popt[1] / popt[0]
     print "Erwartungswert:", 2 * np.pi
 
+    for power in range(4):
+        data = np.genfromtxt("out/1e-{}.txt".format(power))
+        pl.plot(data[:, 0], data[:, 1], label=ur"$\varphi(t)$", **plotargs)
+        pl.plot(data[:, 0], data[:, 2], label=ur"$\omega(t)$", **plotargs)
+        pl.plot(data[:, 0], data[:, 3], label=ur"$h$", **plotargs)
+        pl.title(ur"Integration mit Runge-Kutta, automatische Schrittweite, Toleranz $10^{{-{}}}$".format(power))
+        pl.xlabel(ur"Zeit $t$")
+        pl.ylabel(ur"$\varphi(t)$ und $\omega(t)$")
+        pl.legend(loc="best")
+        pl.grid(True)
+        pl.savefig("out/1e-{}.pdf".format(power))
+        pl.savefig("out/1e-{}.png".format(power))
+        pl.clf()
+
+    data = np.genfromtxt("out/1e-steps.txt")
+    pl.loglog(data[:, 0], data[:, 1], **plotargs)
+    pl.title(ur"Integration mit Runge-Kutta, automatische Schrittweite")
+    pl.xlabel(ur"Toleranz")
+    pl.ylabel(ur"Schrittzahl")
+    pl.grid(True)
+    pl.savefig("out/1e-steps.pdf")
+    pl.savefig("out/1e-steps.png")
+    pl.clf()
+
 def _parse_args():
     """
     Parses the command line arguments.
