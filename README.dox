@@ -21,7 +21,7 @@
 
  Gegeben ist die Bewegungsgleichung:
  \f[
- \ddot \varphi + \omega0^2 \sin(\varphi) = 0
+ \ddot \varphi + \omega^2 \sin(\varphi) = 0
  \f]
 
  Da \f$ \omega = 1 \f$ gilt, und ich \f$ \omega \f$ lieber als
@@ -34,6 +34,10 @@
  \dot \varphi &= \omega \\
  \dot \omega &= - \sin(\varphi)
  \f}
+
+ \subsubsection aufgabe1b Aufgabe 1b
+
+ Den Algorithmus habe ich so aus der Vorlesung übernommen.
 
  Für verschiedene \f$ \omega(0) \f$ die Plots. Hier wird die Amplitude zwar
  immer größer, allerdings ist es noch sehr nah an einem Sinus dran:
@@ -52,8 +56,24 @@
 
  \image html out/1b-4.png
 
- \subsubsection aufgabe1b Aufgabe 1b
  \subsubsection aufgabe1c Aufgabe 1c
+
+ Da ich nur diskrete Punkte erhalte, und die Schwingungsdauer sich durch
+ Rechenfehler leicht ändert, ist diese nicht direkt ein Vielfaches der
+ Schrittweite \f$ h \f$.
+
+ Ich kann allerdings die beiden Punkte, bei denen der Vorzeichenwechsel
+ passiert, mit einer linearen Funktion interpolieren. Die Krümmung ist im
+ harmonischen Fall gerade null, weil es sich um einen Wendepunkt handelt. Somit
+ mache ich auch keinen allzu großen Fehler.
+
+ Mit Python \c plot fitte ich daran eine lineare Funktion \f$ y(t) = mt + b \f$ und erhalte die Fitparameter aus \ref Ausgabe. Die Nullstelle dieser Funktion liegt bei:
+ \f[
+ t = - \frac bm
+ \f]
+
+ Dies ist auch gleich die halbe Periode.
+
  \subsubsection aufgabe1d Aufgabe 1d
  \subsubsection aufgabe1e Aufgabe 1e
  */

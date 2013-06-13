@@ -42,6 +42,30 @@ def main():
         pl.savefig("{}.png".format(filename))
         pl.clf()
 
+    # Period.
+
+    data = np.genfromtxt("out/1b-1.txt")
+    i = 0
+    for t, phi, omega in data:
+        if phi < 0:
+            break
+        i += 1
+
+    print "Nullstelle um folgende Punkte: (i, [t, phi, omega])"
+    print i-1, data[i-1, :]
+    print i, data[i, :]
+
+    def linear(t, m, b):
+        return t * m + b
+
+    popt, pconv = op.curve_fit(
+        linear,
+        np.array([data[i-1, 0], data[i, 0]]),
+        np.array([data[i-1, 1], data[i, 1]]),
+    )
+
+    print "Periode:", - 2 * popt[1] / popt[0]
+    print "Erwartungswert:", 2 * np.pi
 
 def _parse_args():
     """
