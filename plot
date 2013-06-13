@@ -33,6 +33,7 @@ def main():
         data = np.genfromtxt("{}.txt".format(filename))
         pl.plot(data[:, 0], data[:, 1], label=ur"$\varphi(t)$", **plotargs)
         pl.plot(data[:, 0], data[:, 2], label=ur"$\omega(t)$", **plotargs)
+        pl.plot(data[:, 0], data[:, 3], label=ur"$E(t)$", **plotargs)
         pl.title(ur"Integration mit Runge-Kutta, feste Schrittweite, $\omega(0) = {:.3f}$".format(omega))
         pl.xlabel(ur"Zeit $t$")
         pl.ylabel(ur"$\varphi(t)$ und $\omega(t)$")
@@ -46,7 +47,7 @@ def main():
 
     data = np.genfromtxt("out/1b-1.txt")
     i = 0
-    for t, phi, omega in data:
+    for t, phi, omega, e in data:
         if phi < 0:
             break
         i += 1

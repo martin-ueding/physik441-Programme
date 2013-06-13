@@ -72,7 +72,8 @@
  t = - \frac bm
  \f]
 
- Dies ist auch gleich die halbe Periode.
+ Dies ist auch gleich die halbe Periode. Mit einer Eigenfrequenz von \f$ 1 \f$
+ sollte die Periode auch gerade \f$ 2\pi \f$ sein, dies kommt einigermaßen hin.
 
  \subsubsection aufgabe1d Aufgabe 1d
  \subsubsection aufgabe1e Aufgabe 1e
