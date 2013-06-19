@@ -99,6 +99,25 @@ def main():
     pl.savefig("out/3-rk-auslenkung.png")
     pl.clf()
 
+    x1 = np.cos(data[:, 1] - np.pi/2)
+    y1 = np.sin(data[:, 1] - np.pi/2)
+    x2 = x1 + np.cos(data[:, 2] - np.pi/2)
+    y2 = y1 + np.sin(data[:, 2] - np.pi/2)
+    
+    steps = 100
+    items = len(x1)/steps
+    i = 0
+    for x1_, y1_, x2_, y2_ in zip(x1, y1, x2, y2)[::100]:
+        pl.plot(np.array([0, x1_, x2_]), np.array([0, y1_, y2_]), marker="o", color=str(float(i)/items), **plotargs)
+        i += 1
+    pl.title(ur"Doppelpendel mit Runge-Kutta – Trajektorie")
+    pl.xlabel(ur"$x$")
+    pl.ylabel(ur"$y$")
+    pl.grid(True)
+    pl.savefig("out/3-rk-trajektorie.pdf")
+    pl.savefig("out/3-rk-trajektorie.png")
+    pl.clf()
+
     data = np.genfromtxt("out/3-cc.txt")
     pl.plot(data[:, 0], data[:, 1], label=ur"$\phi_1$", color="blue", linestyle="-")
     pl.plot(data[:, 0], data[:, 2], label=ur"$\phi_2$", color="green", linestyle="-")
