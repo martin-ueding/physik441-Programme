@@ -40,7 +40,12 @@ void cash_carp(int n, double h, double *x, double *y, ode *f, double *a, struct 
 	}
 
 	for (i = 0; i < n; ++i) {
-		y[i] += (s->k1[i] + 2.*s->k2[i] + 2*s->k3[i] + s->k4[i])*h/6.;
+		y[i] += (
+				5179./57600 * s->k1[i]
+				+ 2.*s->k2[i]
+				+ 2*s->k3[i]
+				+ s->k4[i]
+				)*h;
 	}
 
 	*x = *x + h;
