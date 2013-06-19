@@ -53,14 +53,14 @@ double dotp2(double x, double *y, double *a) {
 void problem3_cash_carp() {
 	double h = .05;
 	double x = 0.;
-	double y[] = {1., 2., 3., 4.};
+	double y[] = {1., 1.1, 0., 0.};
 	ode f[] = {dotphi1, dotphi2, dotp1, dotp2};
 	int n = 4;
 	struct cash_carp_state ccs;
 	cash_carp_init_state(n, &ccs);
 	FILE *fp = fopen("out/3-cc.txt", "w");
 	assert(fp);
-	while (x <= 100) {
+	while (x <= 2) {
 		fprintf(fp, "%15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2], y[3]);
 		cash_carp(n, h, &x, y, f, aufgabe3_a, &ccs);
 	}
@@ -70,14 +70,14 @@ void problem3_cash_carp() {
 void problem3_runge_kutta() {
 	double h = .05;
 	double x = 0.;
-	double y[] = {1., 2., 3., 4.};
+	double y[] = {1., 1.1, 0., 0.};
 	ode f[] = {dotphi1, dotphi2, dotp1, dotp2};
 	int n = 4;
 	struct state ccs;
 	rk4_init_state(n, &ccs);
 	FILE *fp = fopen("out/3-rk.txt", "w");
 	assert(fp);
-	while (x <= 100) {
+	while (x <= 2) {
 		fprintf(fp, "%15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2], y[3]);
 		rk4(n, h, &x, y, f, aufgabe3_a, &ccs);
 	}
