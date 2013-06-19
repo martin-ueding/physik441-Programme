@@ -28,6 +28,18 @@ struct state {
 
 typedef double (*ode)(double, double*, double*);
 
+/**
+ Runge-Kutta ODE solver.
+
+ Solves a set of \c n ODE.
+
+ \param n[in] Numer of ODE
+ \param h[in] Step width
+ \param x[in, out] x-coodinate
+ \param y[in, out] y-coordinates
+ \param a[in] Parameters for the ODE
+ \param s[in, out] State of the ODE solver
+ */
 void rk4(int n, double h, double *x, double *y, ode *f, double *a, struct state *s);
 
 /**
