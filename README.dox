@@ -58,6 +58,32 @@
  Die Funktionen auf dem Aufgabenblatt habe ich implementiert in: dotphi1(),
  dotphi2(), dotp1() sowie dotp2(). Und die Hamiltonfunktion in hamiltonian().
 
+ Als Startwerte habe ich genommen:
+ \f[
+ \phi_1(0) = 0
+ ,\quad
+ \phi_2(0) = 0{,}2
+ ,\quad
+ p_1(0) = 0
+ ,\quad
+ p_2(0) = 0
+ \f]
+
+ Die Konstanten habe ich entfernt:
+ \f[
+ \frac{1}{mL^2} := 1
+ ,\quad
+ mgL := 1
+ \f]
+
+ Die Hamiltonfunktion hängt nicht explizit von der Zeit ab, somit ist sie eine
+ Erhaltungsgröße. Außerdem ist die Poissonklammer der Hamiltonfunktion mit sich
+ selbst auch gleich null.
+ \f[
+ \dot H = \underbrace{\{H, H\}_{p,q}}_{=0}
+ + \underbrace{\frac{\partial H}{\partial t}}_{=0}
+ \f]
+
  Auslenkung, Impuls und Energie gegen die Zeit aufgetragen:
 
  \image html out/3-rk-zeit.png
