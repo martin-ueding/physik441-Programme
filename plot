@@ -20,7 +20,6 @@ def main():
 
     plotargs = {
         "linestyle": "-",
-        "marker": ".",
     }
 
     data = np.genfromtxt("out/1.txt")

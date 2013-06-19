@@ -50,9 +50,13 @@
  \subsection aufgabe3 Aufgabe 3
 
  \image html out/3-rk-zeit.png
- \image html out/3-rk-phase.png
  \image html out/3-cc-zeit.png
+
+ \image html out/3-rk-phase.png
  \image html out/3-cc-phase.png
+
+ \image html out/3-rk-auslenkung.png
+ \image html out/3-cc-auslenkung.png
  */
 
 // vim: ft=c
