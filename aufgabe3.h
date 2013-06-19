@@ -1,3 +1,4 @@
+// Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 
 /**
  \file
@@ -16,25 +17,19 @@
 #ifndef AUFGABE3_H
 #define AUFGABE3_H
 
-
+#include <assert.h>
 #include <math.h>
+#include <stdio.h>
 
-/**
- The parameters for the functions.
-
- The indices are the following:
-
- \li 0: \f$ \frac{1}{m L^2} \f$
- \li 1:	\f$ m g L \f$
- */
-double aufgabe3_a[] = {
-	1.,
-	1.,
-};
+#include "aufgabe3.h"
+#include "cash-carp.h"
+#include "rk4.h"
 
 double dotphi1(double x, double *y, double *a);
 double dotphi2(double x, double *y, double *a);
 double dotp1(double x, double *y, double *a);
 double dotp2(double x, double *y, double *a);
+
+void problem3();
 
 #endif /* end of include guard: AUFGABE3_H */

@@ -59,6 +59,7 @@ void problem2() {
 int main(void) {
 	problem1();
 	problem2();
+	problem3();
 
 	return 0;
 }

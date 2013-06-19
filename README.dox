@@ -46,6 +46,13 @@
  \image html out/2-t-phi.png
 
  \image html out/2-phi-omega.png
+
+ \subsection aufgabe3 Aufgabe 3
+
+ \image html out/3-rk-zeit.png
+ \image html out/3-rk-phase.png
+ \image html out/3-cc-zeit.png
+ \image html out/3-cc-phase.png
  */
 
 // vim: ft=c
