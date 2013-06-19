@@ -6,11 +6,11 @@
 
 #include "rk4.h"
 
-double f0(double x, double *y, double *a) {
+double phi(double x, double *y, double *a) {
 	return y[1];
 }
 
-double f1(double x, double *y, double *a) {
+double omega(double x, double *y, double *a) {
 	return - a[0] * a[0] * y[0];
 }
 
@@ -19,7 +19,7 @@ int main(void) {
 	double x = 0.;
 	double y[2] = {0., 1.};
 	double a[1] = {1.};
-	ode f[2] = {f0, f1};
+	ode f[2] = {phi, omega};
 	int n = 2;
 
 	struct state s;

@@ -9,7 +9,16 @@
 
  \subsection aufgabe1 Aufgabe 1
 
- Ich habe den Quelltext aus der Vorlesung übernommen, allerdings die als \c static deklarierten Variablen in rk4() durch ein Struct \ref state ersetzt.
+ Ich habe den Quelltext aus der Vorlesung übernommen, allerdings die als \c
+ static deklarierten Variablen in rk4() durch ein Struct \ref state ersetzt.
+
+ Mit rk4() integriere ich die Funktionen phi() und omega() und erhalte eine
+ ansehnliche Lösung. Einmal die Zeitentwicklung des Ortes und der
+ Winkelgeschwindigkeit, sowie den Phasenraum:
+
+ \image html out/1-t-phi.png
+
+ \image html out/1-phi-omega.png
  */
 
 // vim: ft=c
