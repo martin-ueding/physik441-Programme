@@ -19,6 +19,16 @@
  \image html out/1-t-phi.png
 
  \image html out/1-phi-omega.png
+
+ \subsection aufgabe2 Aufgabe 2
+
+ Der Cash-Carp Algorithmus ist in cash_carp() implementiert. Dabei habe ich die
+ Funktion rk4() so angepasst, dass der Quelltxt nicht mehr doppelt ist (DRY –
+ Don't Repeat Yourself) und direkt das Butcher-Tableau benutzt werden kann.
+
+ \image html out/2-t-phi.png
+
+ \image html out/2-phi-omega.png
  */
 
 // vim: ft=c
