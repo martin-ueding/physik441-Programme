@@ -3,3 +3,5 @@ main.o
 out/
 rk4.o
 html/
+cash-carp.o
+dep.makefile
