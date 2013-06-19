@@ -49,6 +49,9 @@ double dotp2(double x, double *y, double *a) {
 		   * sin(y[0] - y[1]) * cos(y[0] - y[1]) - a[1] * sin(y[1]);
 }
 
+double hamiltonian(double *y, double *a) {
+	return a[0] / 2. * (y[2]*y[2]+2*y[3]*y[3]-2*y[2]*y[3]*cos(y[0]-y[1]))/(1+sin(y[0]-y[1])*sin(y[0]-y[1])) + a[1] * (4- 2*cos(y[0]) - cos(y[1]));
+}
 
 void problem3_cash_carp() {
 	double h = .05;
@@ -61,7 +64,7 @@ void problem3_cash_carp() {
 	FILE *fp = fopen("out/3-cc.txt", "w");
 	assert(fp);
 	while (x <= 2) {
-		fprintf(fp, "%15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2], y[3]);
+		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2], y[3], hamiltonian(y, aufgabe3_a));
 		cash_carp(n, h, &x, y, f, aufgabe3_a, &ccs);
 	}
 	fclose(fp);
@@ -78,7 +81,7 @@ void problem3_runge_kutta() {
 	FILE *fp = fopen("out/3-rk.txt", "w");
 	assert(fp);
 	while (x <= 2) {
-		fprintf(fp, "%15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2], y[3]);
+		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2], y[3], hamiltonian(y, aufgabe3_a));
 		rk4(n, h, &x, y, f, aufgabe3_a, &ccs);
 	}
 	fclose(fp);
