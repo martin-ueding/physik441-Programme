@@ -5,6 +5,23 @@
  \author Martin Ueding
  \copyright MIT License
 
+ \tableofcontents
+
+ \section kompilieren Kompilieren und Ausführen
+
+ Dieses Programm ist in C 99 geschrieben und kann mit folgenden Kommandos
+ kompiliert und ausgeführt werden:
+ \code
+ make dep
+ make
+ ./main
+ ./plot
+ \endcode
+
+ \section ausgabe Ausgabe
+
+ \include out/output.txt
+
  \section aufgaben Aufgaben
 
  \subsection aufgabe1 Aufgabe 1

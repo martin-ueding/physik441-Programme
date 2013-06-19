@@ -12,6 +12,16 @@ double cash_carp_a[7][5] = {
 	{1631. / 55296., 175. / 512., 575. / 13824, 44275. / 110592., 253. / 4096.}
 };
 
+double b[] = {
+	0.,
+	37. / 378.,
+	0.,
+	250. / 621.,
+	125. / 594.,
+	0.,
+	512. / 1771.
+};
+
 double c[] = {0., 1. / 5., 3. / 10., 3. / 5., 1., 7. / 8.};
 
 void cash_carp(int n, double h, double *x, double *y, ode *f, double *a, struct
@@ -38,12 +48,9 @@ void cash_carp(int n, double h, double *x, double *y, ode *f, double *a, struct
 	}
 
 	for (i = 0; i < n; ++i) {
-		y[i] += (
-		            37. / 378. * s->k[1][i]
-		            + 250. / 621. * s->k[3][i]
-		            + 125. / 594. * s->k[4][i]
-		            + 512. / 1771. * s->k[6][i]
-		        ) * h;
+		for (int j = 1; j < 7; ++j) {
+		y[i] += b[j] * s->k[j][i] * h;
+		}
 	}
 
 	*x = *x + h;
