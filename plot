@@ -22,11 +22,11 @@ def main():
         "linestyle": "-",
     }
 
-    print ur"Zeitentwicklung -- harmischer Oszillator mit Runge-Kutta" 
+    print ur"Zeitentwicklung -- harmonischer Oszillator mit Runge-Kutta" 
     data = np.genfromtxt("out/1.txt")
     pl.plot(data[:, 0], data[:, 1], label=ur"$\phi$", **plotargs)
     pl.plot(data[:, 0], data[:, 2], label=ur"$\dot{\phi}$", **plotargs)
-    pl.title(ur"Zeitentwicklung -- harmischer Oszillator mit Runge-Kutta")
+    pl.title(ur"Zeitentwicklung -- harmonischer Oszillator mit Runge-Kutta")
     pl.xlabel(ur"Zeit $t$")
     #pl.ylabel(ur"")
     pl.grid(True)
@@ -35,9 +35,9 @@ def main():
     pl.savefig("out/1-t-phi.png")
     pl.clf()
 
-    print ur"Phasenraum -- harmischer Oszillator mit Runge-Kutta" 
+    print ur"Phasenraum -- harmonischer Oszillator mit Runge-Kutta" 
     pl.plot(data[:, 1], data[:, 2], **plotargs)
-    pl.title(ur"Phasenraum -- harmischer Oszillator mit Runge-Kutta")
+    pl.title(ur"Phasenraum -- harmonischer Oszillator mit Runge-Kutta")
     pl.xlabel(ur"Auslenkung $\phi$")
     pl.ylabel(ur"Geschwindigkeit $\dot{\phi}$")
     pl.grid(True)
@@ -45,11 +45,11 @@ def main():
     pl.savefig("out/1-phi-omega.png")
     pl.clf()
 
-    print ur"Zeitentwicklung -- harmischer Oszillator mit Cash-Carp" 
+    print ur"Zeitentwicklung -- harmonischer Oszillator mit Cash-Carp" 
     data = np.genfromtxt("out/2.txt")
     pl.plot(data[:, 0], data[:, 1], label=ur"$\phi$", **plotargs)
     pl.plot(data[:, 0], data[:, 2], label=ur"$\dot{\phi}$", **plotargs)
-    pl.title(ur"Zeitentwicklung -- harmischer Oszillator mit Cash-Carp")
+    pl.title(ur"Zeitentwicklung -- harmonischer Oszillator mit Cash-Carp")
     pl.xlabel(ur"Zeit $t$")
     #pl.ylabel(ur"")
     pl.grid(True)
@@ -58,9 +58,9 @@ def main():
     pl.savefig("out/2-t-phi.png")
     pl.clf()
 
-    print ur"Phasenraum -- harmischer Oszillator mit Cash-Carp" 
+    print ur"Phasenraum -- harmonischer Oszillator mit Cash-Carp" 
     pl.plot(data[:, 1], data[:, 2], **plotargs)
-    pl.title(ur"Phasenraum -- harmischer Oszillator mit Cash-Carp")
+    pl.title(ur"Phasenraum -- harmonischer Oszillator mit Cash-Carp")
     pl.xlabel(ur"Auslenkung $\phi$")
     pl.ylabel(ur"Geschwindigkeit $\dot{\phi}$")
     pl.grid(True)

@@ -75,7 +75,8 @@ double dotp2(double x, double *y, double *a) {
  \f[ H = \ldots \f]
  */
 double hamiltonian(double *y, double *a) {
-	return a[0] / 2. * (y[2] * y[2] + 2 * y[3] * y[3] - 2 * y[2] * y[3] * cos(y[0] - y[1])) / (1 + sin(y[0] - y[1]) * sin(y[0] - y[1])) + a[1] * (4 - 2 * cos(y[0]) - cos(y[1]));
+	return a[0] / 2. * (y[2] * y[2] + 2 * y[3] * y[3] - 2 * y[2] * y[3] * cos(y[0] - y[1])) / (1 + sin(y[0] - y[1]) * sin(y[0] - y[1]))
+		+ a[1] * (4 - 2 * cos(y[0]) - cos(y[1]));
 }
 
 void problem3_runge_kutta() {
