@@ -111,13 +111,18 @@ def main():
     y1 = np.sin(data[:, 1] - np.pi/2)
     x2 = x1 + np.cos(data[:, 2] - np.pi/2)
     y2 = y1 + np.sin(data[:, 2] - np.pi/2)
-
-    items = 100
+    items = 300
     step = len(x1)/items
     i = 0
     for t_, x1_, y1_, x2_, y2_ in zip(data[:, 0], x1, y1, x2, y2)[::step]:
+        part = 1. - float(i) / items
+        if part > 1.:
+            part = 1.
+        elif part < 0.:
+            part = 0.
+        color = str(part)
         pl.plot(np.array([0, x1_, x2_]), np.array([0, y1_, y2_]), marker="o",
-                color=str(1.-float(i)/items), **plotargs)
+                color=color, **plotargs)
         i += 1
     pl.title(ur"Trajektorie -- Doppelpendel mit Runge-Kutta")
     pl.xlabel(ur"$x$")
@@ -163,6 +168,31 @@ def main():
     pl.grid(True)
     pl.savefig("out/3-cc-auslenkung.pdf")
     pl.savefig("out/3-cc-auslenkung.png")
+    pl.clf()
+
+    print ur"Trajektorie -- Doppelpendel mit Cash-Carp"
+    x1 = np.cos(data[:, 1] - np.pi/2)
+    y1 = np.sin(data[:, 1] - np.pi/2)
+    x2 = x1 + np.cos(data[:, 2] - np.pi/2)
+    y2 = y1 + np.sin(data[:, 2] - np.pi/2)
+    step = len(x1)/items
+    i = 0
+    for t_, x1_, y1_, x2_, y2_ in zip(data[:, 0], x1, y1, x2, y2)[::step]:
+        part = 1. - float(i) / items
+        if part > 1.:
+            part = 1.
+        elif part < 0.:
+            part = 0.
+        color = str(part)
+        pl.plot(np.array([0, x1_, x2_]), np.array([0, y1_, y2_]), marker="o",
+                color=color, **plotargs)
+        i += 1
+    pl.title(ur"Trajektorie -- Doppelpendel mit Cash-Carp")
+    pl.xlabel(ur"$x$")
+    pl.ylabel(ur"$y$")
+    pl.grid(True)
+    pl.savefig("out/3-cc-trajektorie.pdf")
+    pl.savefig("out/3-cc-trajektorie.png")
     pl.clf()
 
 def _parse_args():

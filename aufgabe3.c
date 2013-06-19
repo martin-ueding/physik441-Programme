@@ -14,10 +14,7 @@
  \li 0: \f$ \frac{1}{m L^2} \f$
  \li 1:	\f$ m g L \f$
  */
-double aufgabe3_a[] = {
-	1.,
-	1.,
-};
+double aufgabe3_a[2];
 
 /**
  First angular velocity.
@@ -90,7 +87,7 @@ void problem3_runge_kutta() {
 	rk4_init_state(n, &ccs);
 	FILE *fp = fopen("out/3-rk.txt", "w");
 	assert(fp);
-	while (x <= 10) {
+	while (x <= 5) {
 		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2],
 				y[3], hamiltonian(y, aufgabe3_a));
 		rk4(n, h, &x, y, f, aufgabe3_a, &ccs);
@@ -109,7 +106,7 @@ void problem3_cash_carp() {
 	cash_carp_init_state(n, &ccs);
 	FILE *fp = fopen("out/3-cc.txt", "w");
 	assert(fp);
-	while (x <= 10) {
+	while (x <= 5) {
 		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2],
 				y[3], hamiltonian(y, aufgabe3_a));
 		cash_carp(n, h, &x, y, f, aufgabe3_a, &ccs);
@@ -118,6 +115,15 @@ void problem3_cash_carp() {
 }
 
 void problem3() {
+	double m = .1;
+	double g = 9.81;
+	double L = .4;
+
+ 	aufgabe3_a[0] = 1. / (m * L * L);
+	aufgabe3_a[1] = m * g * L;
+
+	printf("Using a[0] = %3g, a[1] = %3g\n", aufgabe3_a[0], aufgabe3_a[1]);
+
 	problem3_runge_kutta();
 	problem3_cash_carp();
 }

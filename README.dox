@@ -103,6 +103,7 @@
  Schritte geplottet. Die helleren Bilder sind älter, als wären sie verblasst.
 
  \image html out/3-rk-trajektorie.png
+ \image html out/3-cc-trajektorie.png
  */
 
 // vim: ft=c
