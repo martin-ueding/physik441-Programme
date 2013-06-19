@@ -2,3 +2,4 @@ main
 main.o
 out/
 rk4.o
+html/
