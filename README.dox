@@ -1,0 +1,15 @@
+// Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+/**
+ \mainpage physik441-09
+ \author Martin Ueding
+ \copyright MIT License
+
+ \section aufgaben Aufgaben
+
+ \subsection aufgabe1 Aufgabe 1
+
+ Ich habe den Quelltext aus der Vorlesung übernommen, allerdings die als \c static deklarierten Variablen in rk4() durch ein Struct \ref state ersetzt.
+ */
+
+// vim: ft=c
