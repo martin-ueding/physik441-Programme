@@ -54,7 +54,8 @@ double hamiltonian(double *y, double *a) {
 }
 
 void problem3_runge_kutta() {
-	double h = .001;
+	puts("problem3_runge_kutta()");
+	double h = .01;
 	double x = 0.;
 	double y[] = {0., .2, 0., 0.};
 	ode f[] = {dotphi1, dotphi2, dotp1, dotp2};
@@ -71,7 +72,8 @@ void problem3_runge_kutta() {
 }
 
 void problem3_cash_carp() {
-	double h = .001;
+	puts("problem3_cash_carp()");
+	double h = .01;
 	double x = 0.;
 	double y[] = {.2, 0., 0., 0.};
 	ode f[] = {dotphi1, dotphi2, dotp1, dotp2};

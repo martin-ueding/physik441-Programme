@@ -17,7 +17,8 @@ double omega(double x, double *y, double *a) {
 }
 
 void problem1() {
-	double h = .05;
+	puts("problem1()");
+	double h = 1e-3;
 	double x = 0.;
 	double y[2] = {0., 1.};
 	double a[1] = {1.};
@@ -37,7 +38,8 @@ void problem1() {
 }
 
 void problem2() {
-	double h = .05;
+	puts("problem2()");
+	double h = 1e-3;
 	double x = 0.;
 	double y[2] = {0., 1.};
 	double a[1] = {1.};
