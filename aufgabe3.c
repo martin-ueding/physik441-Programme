@@ -21,7 +21,7 @@ double aufgabe3_a[] = {
 
 double dotphi1(double x, double *y, double *a) {
 	double s = sin(y[0] - y[1]);
-	return a[0] * (y[2] - 2*y[3] * cos(y[0] - y[1])) / (1 + s * s);
+	return a[0] * (y[2] - y[3] * cos(y[0] - y[1])) / (1 + s * s);
 }
 
 double dotphi2(double x, double *y, double *a) {
