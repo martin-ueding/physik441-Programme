@@ -4,20 +4,15 @@
  \file
  */
 
-#ifndef RK4_H
-#define RK4_H
+#ifndef CASH-CARP_H
+#define CASH-CARP_H
 
 #include <stdlib.h>
 
 #include "ode.h"
 
 /**
- State for the rk4() function.
-
- In the lecture notes, these member variables are declared as \c static inside rk4(). This is bad for the following reasons since the function has side effects. That can hinder:
-
- \li Unit Testing
- \li Multithreadings
+ State for the cash_carp() function.
  */
 struct state {
 	double *k1;
@@ -29,7 +24,7 @@ struct state {
 };
 
 /**
- Runge-Kutta ODE solver.
+ Cash-Carp ODE solver.
 
  Solves a set of \c n ODE.
 
@@ -40,7 +35,7 @@ struct state {
  \param a[in] Parameters for the ODE
  \param s[in, out] State of the ODE solver
  */
-void rk4(int n, double h, double *x, double *y, ode *f, double *a, struct state *s);
+void cash_carp(int n, double h, double *x, double *y, ode *f, double *a, struct state *s);
 
 /**
  Initializes the members of the \c struct \ref state.
@@ -48,6 +43,7 @@ void rk4(int n, double h, double *x, double *y, ode *f, double *a, struct state 
  \param[in] n Number of ODEs to solve
  \param[in, out] s State
  */
-void rk4_init_state(int n, struct state *s);
+void cash_carp_init_state(int n, struct state *s);
 
-#endif /* end of include guard: RK4_H */
+
+#endif /* end of include guard: CASH-CARP_H */
