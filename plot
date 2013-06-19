@@ -91,6 +91,15 @@ def main():
     pl.savefig("out/3-rk-phase.png")
     pl.clf()
 
+    pl.plot(data[:, 1], data[:, 2], **plotargs)
+    pl.title(ur"Doppelpendel mit Runge-Kutta")
+    pl.xlabel(ur"Auslenkung $\phi_1$")
+    pl.ylabel(ur"Auslenkung $\phi_2$")
+    pl.grid(True)
+    pl.savefig("out/3-rk-auslenkung.pdf")
+    pl.savefig("out/3-rk-auslenkung.png")
+    pl.clf()
+
     data = np.genfromtxt("out/3-cc.txt")
     pl.plot(data[:, 0], data[:, 1], label=ur"$\phi_1$", color="blue", linestyle="-")
     pl.plot(data[:, 0], data[:, 2], label=ur"$\phi_2$", color="green", linestyle="-")
@@ -115,6 +124,15 @@ def main():
     pl.legend(loc="best")
     pl.savefig("out/3-cc-phase.pdf")
     pl.savefig("out/3-cc-phase.png")
+    pl.clf()
+
+    pl.plot(data[:, 1], data[:, 2], **plotargs)
+    pl.title(ur"Doppelpendel mit Cash-Carp")
+    pl.xlabel(ur"Auslenkung $\phi_1$")
+    pl.ylabel(ur"Auslenkung $\phi_2$")
+    pl.grid(True)
+    pl.savefig("out/3-cc-auslenkung.pdf")
+    pl.savefig("out/3-cc-auslenkung.png")
     pl.clf()
 
 def _parse_args():
