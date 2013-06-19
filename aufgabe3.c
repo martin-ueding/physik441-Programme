@@ -19,16 +19,31 @@ double aufgabe3_a[] = {
 	1.,
 };
 
+/**
+ First angular velocity.
+
+ \f[ \dot \phi_1 = \ldots \f]
+ */
 double dotphi1(double x, double *y, double *a) {
 	double s = sin(y[0] - y[1]);
 	return a[0] * (y[2] - y[3] * cos(y[0] - y[1])) / (1 + s * s);
 }
 
+/**
+ Second angular velocity.
+
+ \f[ \dot \phi_2 = \ldots \f]
+ */
 double dotphi2(double x, double *y, double *a) {
 	double s = sin(y[0] - y[1]);
 	return a[0] * (2 * y[3] - y[2] * cos(y[0] - y[1])) / (1 + s * s);
 }
 
+/**
+ First momentum.
+
+ \f[ \dot p_1 = \ldots \f]
+ */
 double dotp1(double x, double *y, double *a) {
 	double s = sin(y[0] - y[1]);
 	double s2 = s * s;
@@ -39,6 +54,11 @@ double dotp1(double x, double *y, double *a) {
 	       * sin(y[0] - y[1]) * cos(y[0] - y[1]) - 2 * a[1] * sin(y[0]);
 }
 
+/**
+ Second momentum.
+
+ \f[ \dot p_2 = \ldots \f]
+ */
 double dotp2(double x, double *y, double *a) {
 	double s = sin(y[0] - y[1]);
 	double s2 = s * s;
@@ -49,13 +69,18 @@ double dotp2(double x, double *y, double *a) {
 	       * sin(y[0] - y[1]) * cos(y[0] - y[1]) - a[1] * sin(y[1]);
 }
 
+/**
+ Hamiltonian of the system.
+
+ \f[ H = \ldots \f]
+ */
 double hamiltonian(double *y, double *a) {
 	return a[0] / 2. * (y[2] * y[2] + 2 * y[3] * y[3] - 2 * y[2] * y[3] * cos(y[0] - y[1])) / (1 + sin(y[0] - y[1]) * sin(y[0] - y[1])) + a[1] * (4 - 2 * cos(y[0]) - cos(y[1]));
 }
 
 void problem3_runge_kutta() {
 	puts("problem3_runge_kutta()");
-	double h = .01;
+	double h = .001;
 	double x = 0.;
 	double y[] = {0., .2, 0., 0.};
 	ode f[] = {dotphi1, dotphi2, dotp1, dotp2};
@@ -73,9 +98,9 @@ void problem3_runge_kutta() {
 
 void problem3_cash_carp() {
 	puts("problem3_cash_carp()");
-	double h = .01;
+	double h = .001;
 	double x = 0.;
-	double y[] = {.2, 0., 0., 0.};
+	double y[] = {0., .2, 0., 0.};
 	ode f[] = {dotphi1, dotphi2, dotp1, dotp2};
 	int n = 4;
 	struct cash_carp_state ccs;

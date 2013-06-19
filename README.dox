@@ -2,7 +2,7 @@
 
 /**
  \mainpage physik441-09
- \author Martin Ueding
+ \author Martin Ueding <dev@martin-ueding.de>
  \copyright MIT License
 
  \tableofcontents
@@ -54,6 +54,9 @@
  \image html out/2-phi-omega.png
 
  \subsection aufgabe3 Aufgabe 3
+
+ Die Funktionen auf dem Aufgabenblatt habe ich implementiert in: dotphi1(),
+ dotphi2(), dotp1() sowie dotp2(). Und die Hamiltonfunktion in hamiltonian().
 
  Auslenkung, Impuls und Energie gegen die Zeit aufgetragen:
 
