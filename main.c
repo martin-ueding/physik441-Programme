@@ -4,8 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "rk4.h"
+#include "aufgabe3.h"
 #include "cash-carp.h"
+#include "rk4.h"
 
 double phi(double x, double *y, double *a) {
 	return y[1];
