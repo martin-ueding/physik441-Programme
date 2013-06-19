@@ -1,6 +1,6 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 
-#include "rk4.h"
+#include "cash-carp.h"
 
 double a[7][5] = {
 	{0., 0., 0., 0., 0.},
@@ -12,7 +12,7 @@ double a[7][5] = {
 	{1631./55296., 175./512., 575./13824, 44275./110592., 253./4096.}
 };
 
-void cash_carp(int n, double h, double *x, double *y, ode *f, double *a, struct state *s) {
+void cash_carp(int n, double h, double *x, double *y, ode *f, double *a, struct cash_carp_state *s) {
 	int i;
 
 	for (i = 0; i < n; ++i) {
@@ -51,22 +51,23 @@ void cash_carp(int n, double h, double *x, double *y, ode *f, double *a, struct 
 
 	for (i = 0; i < n; ++i) {
 		y[i] += (
-		            35. / 384. * s->k1[i]
-		            + 500. / 1113. * s->k3[i]
-		            + 125. / 192. * s->k4[i]
-		            - 2187. / 6784. * s->k5[i]
-		            + 11. / 84. * s->k6[i]
+		            37./378. * s->k1[i]
+		            + 250./621. * s->k3[i]
+		            + 125./594. * s->k4[i]
+		            + 512./1771. * s->k6[i]
 		        ) * h;
 	}
 
 	*x = *x + h;
 }
 
-void cash_carp_init_state(int n, struct state *s) {
+void cash_carp_init_state(int n, struct cash_carp_state *s) {
 	s->k1 = (double *) malloc(sizeof(double) * n);
 	s->k2 = (double *) malloc(sizeof(double) * n);
 	s->k3 = (double *) malloc(sizeof(double) * n);
 	s->k4 = (double *) malloc(sizeof(double) * n);
+	s->k5 = (double *) malloc(sizeof(double) * n);
+	s->k6 = (double *) malloc(sizeof(double) * n);
 	s->yy = (double *) malloc(sizeof(double) * n);
 }
 
