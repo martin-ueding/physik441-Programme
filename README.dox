@@ -20,7 +20,13 @@
 
  \section ausgabe Ausgabe
 
- \include out/output.txt
+ Ausgabe des Programms selbst (\c main):
+
+ \include out/output-main.txt
+
+ Ausgabe des Plottens (\c plot):
+
+ \include out/output-plot.txt
 
  \section aufgaben Aufgaben
 

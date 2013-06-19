@@ -16,13 +16,14 @@ dep:
 out:
 	mkdir -p "$@"
 
-html: out/output.txt plot
+html: out/output-main.txt out/output-plot.txt README.dox
 	doxygen
 
-out/output.txt: main plot
+out/output-main.txt: main
 	./main | tee $@
-	echo >> $@
-	./plot | tee -a $@
+
+out/output-plot.txt: out/output-main.txt plot
+	./plot | tee $@
 
 main: $(o_files)
 
