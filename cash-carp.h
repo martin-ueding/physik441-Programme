@@ -15,12 +15,7 @@
  State for the cash_carp() function.
  */
 struct cash_carp_state {
-	double *k1;
-	double *k2;
-	double *k3;
-	double *k4;
-	double *k5;
-	double *k6;
+	double **k;
 	double *yy;
 	double xx;
 };

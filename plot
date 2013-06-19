@@ -44,6 +44,27 @@ def main():
     pl.savefig("out/1-phi-omega.png")
     pl.clf()
 
+    data = np.genfromtxt("out/2.txt")
+    pl.plot(data[:, 0], data[:, 1], label=ur"$\phi$", **plotargs)
+    pl.plot(data[:, 0], data[:, 2], label=ur"$\dot{\phi}$", **plotargs)
+    pl.title(ur"harmischer Oszillator mit Cash-Carp")
+    pl.xlabel(ur"Zeit $t$")
+    #pl.ylabel(ur"")
+    pl.grid(True)
+    pl.legend(loc="best")
+    pl.savefig("out/2-t-phi.pdf")
+    pl.savefig("out/2-t-phi.png")
+    pl.clf()
+
+    pl.plot(data[:, 1], data[:, 2], **plotargs)
+    pl.title(ur"harmischer Oszillator mit Cash-Carp")
+    pl.xlabel(ur"Auslenkung $\phi$")
+    pl.ylabel(ur"Geschwindigkeit $\dot{\phi}$")
+    pl.grid(True)
+    pl.savefig("out/2-phi-omega.pdf")
+    pl.savefig("out/2-phi-omega.png")
+    pl.clf()
+
 def _parse_args():
     """
     Parses the command line arguments.

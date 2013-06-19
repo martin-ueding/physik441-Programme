@@ -2,7 +2,7 @@
 
 #include "cash-carp.h"
 
-double a[7][5] = {
+double cash_carp_a[7][5] = {
 	{0., 0., 0., 0., 0.},
 	{0., 0., 0., 0., 0.},
 	{1./5., 0., 0., 0., 0.},
@@ -12,49 +12,38 @@ double a[7][5] = {
 	{1631./55296., 175./512., 575./13824, 44275./110592., 253./4096.}
 };
 
+double c[] = {0., 1./5., 3./10., 3./5., 1., 7./8.};
+
 void cash_carp(int n, double h, double *x, double *y, ode *f, double *a, struct cash_carp_state *s) {
 	int i;
+	int step_id;
+	int ode_id;
 
-	for (i = 0; i < n; ++i) {
-		s->k1[i] = f[i](*x, y, a);
-	}
+	//////////////////
 
-	s->xx = *x + h / 2.;
+	for (step_id = 1; step_id < 6; ++step_id) {
+		for (ode_id = 0; ode_id < n; ++ode_id) {
+			s->k[step_id][ode_id] = f[ode_id](*x, y, a);
+		}
 
-	for (i = 0; i < n; ++i) {
-		s->yy[i] = y[i] + s->k1[i] * h / 2.;
-	}
+		s->xx = *x + c[step_id] * h ;
 
-	for (i = 0; i < n; ++i) {
-		s->k2[i] = f[i](s->xx, s->yy, a);
-	}
+		for (ode_id = 0; ode_id < n; ++ode_id) {
+			double y_shift = 0.;
+			for (int j = 0; j < step_id-1; j++) {
+				y_shift += cash_carp_a[step_id][j] * s->k[j][ode_id];
+			}
 
-	s->xx = *x + h / 2.;
-
-	for (i = 0; i < n; ++i) {
-		s->yy[i] = y[i] + s->k2[i] * h / 2.;
-	}
-
-	for (i = 0; i < n; ++i) {
-		s->k3[i] = f[i](s->xx, s->yy, a);
-	}
-
-	for (i = 0; i < n; ++i) {
-		s->yy[i] = y[i] + s->k3[i] * h / 2.;
-	}
-
-	s->xx = *x + h;
-
-	for (i = 0; i < n; ++i) {
-		s->k4[i] = f[i](s->xx, s->yy, a);
+			s->yy[ode_id] = y[ode_id] +  h * y_shift;
+		}
 	}
 
 	for (i = 0; i < n; ++i) {
 		y[i] += (
-		            37./378. * s->k1[i]
-		            + 250./621. * s->k3[i]
-		            + 125./594. * s->k4[i]
-		            + 512./1771. * s->k6[i]
+		            37./378. * s->k[1][i]
+		            + 250./621. * s->k[3][i]
+		            + 125./594. * s->k[4][i]
+		            + 512./1771. * s->k[6][i]
 		        ) * h;
 	}
 
@@ -62,12 +51,12 @@ void cash_carp(int n, double h, double *x, double *y, ode *f, double *a, struct 
 }
 
 void cash_carp_init_state(int n, struct cash_carp_state *s) {
-	s->k1 = (double *) malloc(sizeof(double) * n);
-	s->k2 = (double *) malloc(sizeof(double) * n);
-	s->k3 = (double *) malloc(sizeof(double) * n);
-	s->k4 = (double *) malloc(sizeof(double) * n);
-	s->k5 = (double *) malloc(sizeof(double) * n);
-	s->k6 = (double *) malloc(sizeof(double) * n);
+	s->k = (double**) calloc(7, sizeof(double*));
+
+	for (int i = 0; i < 7; ++i) {
+		s->k[i] = (double*) calloc(n, sizeof(double));
+	}
+
 	s->yy = (double *) malloc(sizeof(double) * n);
 }
 
