@@ -3,6 +3,6 @@
 #ifndef ODE_H
 #define ODE_H
 
-typedef double (*ode)(double, double*, double*);
+typedef double(*ode)(double, double *, double *);
 
 #endif /* end of include guard: ODE_H */
