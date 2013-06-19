@@ -1,5 +1,6 @@
 // Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
 
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,10 +25,13 @@ int main(void) {
 	struct state s;
 	rk4_init_state(n, &s);
 
+	FILE *fp = fopen("out/1.txt", "w");
+	assert(fp);
 	while (x <= 100) {
-		printf("%15g %15g %15g\n", x, y[0], y[1]);
+		fprintf(fp, "%15g %15g %15g\n", x, y[0], y[1]);
 		rk4(n, h, &x, y, f, a, &s);
 	}
+	fclose(fp);
 
 	return 0;
 }
