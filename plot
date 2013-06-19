@@ -107,8 +107,8 @@ def main():
     steps = 100
     items = len(x1)/steps
     i = 0
-    for x1_, y1_, x2_, y2_ in zip(x1, y1, x2, y2)[::100]:
-        pl.plot(np.array([0, x1_, x2_]), np.array([0, y1_, y2_]), marker="o", color=str(float(i)/items), **plotargs)
+    for t_, x1_, y1_, x2_, y2_ in zip(data[:, 0], x1, y1, x2, y2)[::100]:
+        pl.plot(np.array([0, x1_, x2_]), np.array([0, y1_, y2_]), marker="o", color=str(1.-float(i)/items), **plotargs)
         i += 1
     pl.title(ur"Doppelpendel mit Runge-Kutta – Trajektorie")
     pl.xlabel(ur"$x$")

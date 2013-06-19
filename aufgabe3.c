@@ -53,27 +53,10 @@ double hamiltonian(double *y, double *a) {
 	return a[0] / 2. * (y[2]*y[2]+2*y[3]*y[3]-2*y[2]*y[3]*cos(y[0]-y[1]))/(1+sin(y[0]-y[1])*sin(y[0]-y[1])) + a[1] * (4- 2*cos(y[0]) - cos(y[1]));
 }
 
-void problem3_cash_carp() {
-	double h = .001;
-	double x = 0.;
-	double y[] = {1., 1.1, 0., 0.};
-	ode f[] = {dotphi1, dotphi2, dotp1, dotp2};
-	int n = 4;
-	struct cash_carp_state ccs;
-	cash_carp_init_state(n, &ccs);
-	FILE *fp = fopen("out/3-cc.txt", "w");
-	assert(fp);
-	while (x <= 10) {
-		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2], y[3], hamiltonian(y, aufgabe3_a));
-		cash_carp(n, h, &x, y, f, aufgabe3_a, &ccs);
-	}
-	fclose(fp);
-}
-
 void problem3_runge_kutta() {
 	double h = .001;
 	double x = 0.;
-	double y[] = {0., .1, 0., 0.};
+	double y[] = {0., .2, 0., 0.};
 	ode f[] = {dotphi1, dotphi2, dotp1, dotp2};
 	int n = 4;
 	struct state ccs;
@@ -83,6 +66,23 @@ void problem3_runge_kutta() {
 	while (x <= 10) {
 		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2], y[3], hamiltonian(y, aufgabe3_a));
 		rk4(n, h, &x, y, f, aufgabe3_a, &ccs);
+	}
+	fclose(fp);
+}
+
+void problem3_cash_carp() {
+	double h = .001;
+	double x = 0.;
+	double y[] = {.2, 0., 0., 0.};
+	ode f[] = {dotphi1, dotphi2, dotp1, dotp2};
+	int n = 4;
+	struct cash_carp_state ccs;
+	cash_carp_init_state(n, &ccs);
+	FILE *fp = fopen("out/3-cc.txt", "w");
+	assert(fp);
+	while (x <= 10) {
+		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2], y[3], hamiltonian(y, aufgabe3_a));
+		cash_carp(n, h, &x, y, f, aufgabe3_a, &ccs);
 	}
 	fclose(fp);
 }
