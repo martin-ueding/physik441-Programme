@@ -18,6 +18,9 @@ out:
 
 html: out/output-main.txt out/output-plot.txt README.dox
 	doxygen
+	mkdir -p html/out/
+	cp out/3-*.txt html/out/
+	cp animation.* raphael-min.js html/
 
 out/output-main.txt: main
 	./main | tee $@

@@ -109,7 +109,7 @@
 
  \htmlonly
  <center>
- <iframe src="../animation.html" width="450" height="500"></iframe>
+ <iframe src="animation.html" width="450" height="500"></iframe>
  </center>
  \endhtmlonly
  */
