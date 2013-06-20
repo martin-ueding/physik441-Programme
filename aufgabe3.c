@@ -140,7 +140,7 @@ void problem3_runge_kutta() {
 	rk4_init_state(n, &ccs);
 	FILE *fp = fopen("out/3-rk.txt", "w");
 	assert(fp);
-	while (x <= 5) {
+	while (x <= 20) {
 		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2],
 		        y[3], hamiltonian(y, aufgabe3_a));
 		rk4(n, h, &x, y, f, aufgabe3_a, &ccs);
@@ -159,7 +159,21 @@ void problem3_cash_carp() {
 	cash_carp_init_state(n, &ccs);
 	FILE *fp = fopen("out/3-cc.txt", "w");
 	assert(fp);
-	while (x <= 5) {
+	while (x <= 20) {
+		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2],
+		        y[3], hamiltonian(y, aufgabe3_a));
+		cash_carp(n, h, &x, y, f, aufgabe3_a, &ccs);
+	}
+	fclose(fp);
+
+	x = 0.;
+	y[0] = 1.57;
+	y[1] = 3.14;
+	y[2] = 0;
+	y[3] = 0;
+	fp = fopen("out/3-cc-higher.txt", "w");
+	assert(fp);
+	while (x <= 20) {
 		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2],
 		        y[3], hamiltonian(y, aufgabe3_a));
 		cash_carp(n, h, &x, y, f, aufgabe3_a, &ccs);

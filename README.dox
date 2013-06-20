@@ -55,8 +55,17 @@
 
  \subsection aufgabe3 Aufgabe 3
 
- Die Funktionen auf dem Aufgabenblatt habe ich implementiert in: dotphi1(),
+ Die Funktionen auf dem Aufgabenblatt hatte ich implementiert in: dotphi1(),
  dotphi2(), dotp1() sowie dotp2(). Und die Hamiltonfunktion in hamiltonian().
+ Leider hatte das nicht funktioniert, es kamen merkwürdige Ergebnisse raus.
+ Dieser stand ist im git Repository als Version 72a04bc hinterlegt.
+
+ Ich habe von https://en.wikipedia.org/wiki/Double_pendulum#Lagrangian die
+ Lagrangefunktion genutzt, allerdings \f$ T + V \f$ um eine (uneigentliche)
+ Hamiltonfunktion zu erhalten, die von \f$ \phi_i \f$ und \f$ \omega_1 \f$
+ (anstelle der Impuls \f$ p_1 \f$) abhängt. Die Differentialgleichungen habe
+ ich von http://www.myphysicslab.com/dbl_pendulum.html genommen. Mit ihnen
+ funktioniert das ganze.
 
  Als Startwerte habe ich genommen:
  \f[
@@ -112,6 +121,25 @@
  <iframe src="animation.html" width="450" height="500"></iframe>
  </center>
  \endhtmlonly
+
+ Nun das ganze noch mit einer größeren Auslenkung. Die passende Animation ist
+ oben auch zu sehen, als letzter Eintrag.
+
+ Als Startwerte habe ich genommen:
+ \f[
+ \phi_1(0) = 1{,}57
+ ,\quad
+ \phi_2(0) = 3{,}14
+ ,\quad
+ p_1(0) = 0
+ ,\quad
+ p_2(0) = 0
+ \f]
+
+ Hier die Plots, einmal Zeitentwicklung und einmal Phasenraum:
+
+ \image html out/3-cc-higher-zeit.png
+ \image html out/3-cc-higher-phase.png
  */
 
 // vim: ft=c
