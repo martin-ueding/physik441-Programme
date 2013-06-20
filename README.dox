@@ -105,6 +105,8 @@
  \image html out/3-rk-trajektorie.png
  \image html out/3-cc-trajektorie.png
 
+ Das ganze auch noch als Animation:
+
  \htmlonly
  <center>
  <iframe src="../animation.html" width="450" height="500"></iframe>
