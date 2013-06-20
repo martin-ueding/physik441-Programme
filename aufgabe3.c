@@ -23,7 +23,7 @@ double aufgabe3_a[2];
  */
 double dotphi1(double x, double *y, double *a) {
 	double s = sin(y[0] - y[1]);
-	return a[0] * (y[2] - y[3] * cos(y[0] - y[1])) / (1 + s * s);
+	return a[0] * (y[2] - y[3] * cos(y[0] - y[1])) / (1. + s * s);
 }
 
 /**
@@ -33,7 +33,7 @@ double dotphi1(double x, double *y, double *a) {
  */
 double dotphi2(double x, double *y, double *a) {
 	double s = sin(y[0] - y[1]);
-	return a[0] * (2 * y[3] - y[2] * cos(y[0] - y[1])) / (1 + s * s);
+	return a[0] * (2. * y[3] - y[2] * cos(y[0] - y[1])) / (1. + s * s);
 }
 
 /**
@@ -44,11 +44,11 @@ double dotphi2(double x, double *y, double *a) {
 double dotp1(double x, double *y, double *a) {
 	double s = sin(y[0] - y[1]);
 	double s2 = s * s;
-	double s22 = (1 + s2) * (1 * s2);
+	double s22 = (1. + s2) * (1. * s2);
 
-	return - a[0] * y[2] * y[3] * sin(y[0] - y[1]) / (1 + s2)
-	       + a[0] * (y[2] * y[2] + 2 * y[3] * y[3] - 2 * y[2] * y[3] * cos(y[0] - y[1])) / s22
-	       * sin(y[0] - y[1]) * cos(y[0] - y[1]) - 2 * a[1] * sin(y[0]);
+	return - a[0] * y[2] * y[3] * sin(y[0] - y[1]) / (1. + s2)
+	       + a[0] * (y[2] * y[2] + 2. * y[3] * y[3] - 2. * y[2] * y[3] * cos(y[0] - y[1])) / s22
+	       * sin(y[0] - y[1]) * cos(y[0] - y[1]) - 2. * a[1] * sin(y[0]);
 }
 
 /**
@@ -59,10 +59,10 @@ double dotp1(double x, double *y, double *a) {
 double dotp2(double x, double *y, double *a) {
 	double s = sin(y[0] - y[1]);
 	double s2 = s * s;
-	double s22 = (1 + s2) * (1 * s2);
+	double s22 = (1. + s2) * (1. * s2);
 
-	return a[0] * y[2] * y[3] * sin(y[0] - y[1]) / (1 + s2)
-	       - a[0] * (y[2] * y[2] + 2 * y[3] * y[3] - 2 * y[2] * y[3] * cos(y[0] - y[1])) / s22
+	return a[0] * y[2] * y[3] * sin(y[0] - y[1]) / (1. + s2)
+	       - a[0] * (y[2] * y[2] + 2 * y[3] * y[3] - 2. * y[2] * y[3] * cos(y[0] - y[1])) / s22
 	       * sin(y[0] - y[1]) * cos(y[0] - y[1]) - a[1] * sin(y[1]);
 }
 
