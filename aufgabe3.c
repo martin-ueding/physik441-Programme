@@ -17,7 +17,7 @@
  \li 0: \f$ m \f$
  \li 0: \f$ L \f$
  */
-double aufgabe3_a[2];
+double aufgabe3_a[3];
 
 /**
  First angular velocity.
@@ -107,8 +107,19 @@ double dotp2(double x, double *y, double *a) {
  \f[ H = \ldots \f]
  */
 double hamiltonian(double *y, double *a) {
-	return a[0] / 2. * (y[2] * y[2] + 2 * y[3] * y[3] - 2 * y[2] * y[3] * cos(y[0] - y[1])) / (1 + sin(y[0] - y[1]) * sin(y[0] - y[1]))
-		+ a[1] * (4 - 2 * cos(y[0]) - cos(y[1]));
+	double phi1 = y[0];
+	double phi2 = y[1];
+	double omega1 = y[2];
+	double omega2 = y[3];
+
+	double g = a[0];
+	double m = a[1];
+	double L = a[2];
+
+	return 1./6. * m * L*L * (
+			omega2*omega2 + 4.*omega1*omega1 + 3. * omega1*omega2 * cos(phi1-phi2)
+			)
+		- .5 * m * g * L * (3. * cos(phi1) + cos(phi2));
 }
 
 void problem3_runge_kutta() {
@@ -150,12 +161,13 @@ void problem3_cash_carp() {
 }
 
 void problem3() {
-	double m = .1;
 	double g = 9.81;
+	double m = .1;
 	double L = .4;
 
- 	aufgabe3_a[0] = 1. / (m * L * L);
-	aufgabe3_a[1] = m * g * L;
+ 	aufgabe3_a[0] = g;
+	aufgabe3_a[1] = m;
+	aufgabe3_a[2] = L;
 
 	printf("Using a[0] = %3g, a[1] = %3g\n", aufgabe3_a[0], aufgabe3_a[1]);
 
