@@ -74,11 +74,11 @@ double dotp1(double x, double *y, double *a) {
 	double L = a[2];
 
 	return (
-			- g * (2* m + m) * sin(phi1) - m * g * sin(phi1 - 2.*phi2) - 2.* sin(phi1-phi2) * m * (omega2*omega2 * L + omega1*omega1 *L*cos(phi1-phi2))
-		   )
-		/ (
-				L * (2.*m + m - m * cos(2. * phi1 - 2. * phi2))
-		  );
+	           - g * (2 * m + m) * sin(phi1) - m * g * sin(phi1 - 2.*phi2) - 2.* sin(phi1 - phi2) * m * (omega2 * omega2 * L + omega1 * omega1 * L * cos(phi1 - phi2))
+	       )
+	       / (
+	           L * (2.*m + m - m * cos(2. * phi1 - 2. * phi2))
+	       );
 }
 
 /**
@@ -97,11 +97,11 @@ double dotp2(double x, double *y, double *a) {
 	double L = a[2];
 
 	return (
-			2.*sin(phi1-phi2) * (omega1*omega1 * L * (m + m) + g*(m+m) * cos(phi1) + omega2*omega2 * L * m * cos(phi1-phi2))
-		   )
-		/
-		(L*(2. * m + m - m* cos(2.*phi1-2.*phi2))
-		);
+	           2.*sin(phi1 - phi2) * (omega1 * omega1 * L * (m + m) + g * (m + m) * cos(phi1) + omega2 * omega2 * L * m * cos(phi1 - phi2))
+	       )
+	       /
+	       (L * (2. * m + m - m * cos(2.*phi1 - 2.*phi2))
+	       );
 }
 
 /**
@@ -123,10 +123,10 @@ double hamiltonian(double *y, double *a) {
 	double m = a[1];
 	double L = a[2];
 
-	return 1./6. * m * L*L * (
-			omega2*omega2 + 4.*omega1*omega1 + 3. * omega1*omega2 * cos(phi1-phi2)
-			)
-		- .5 * m * g * L * (3. * cos(phi1) + cos(phi2));
+	return 1. / 6. * m * L * L * (
+	           omega2 * omega2 + 4.*omega1 * omega1 + 3. * omega1 * omega2 * cos(phi1 - phi2)
+	       )
+	       - .5 * m * g * L * (3. * cos(phi1) + cos(phi2));
 }
 
 void problem3_runge_kutta() {
@@ -142,7 +142,7 @@ void problem3_runge_kutta() {
 	assert(fp);
 	while (x <= 5) {
 		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2],
-				y[3], hamiltonian(y, aufgabe3_a));
+		        y[3], hamiltonian(y, aufgabe3_a));
 		rk4(n, h, &x, y, f, aufgabe3_a, &ccs);
 	}
 	fclose(fp);
@@ -161,7 +161,7 @@ void problem3_cash_carp() {
 	assert(fp);
 	while (x <= 5) {
 		fprintf(fp, "%15g %15g %15g %15g %15g %15g\n", x, y[0], y[1], y[2],
-				y[3], hamiltonian(y, aufgabe3_a));
+		        y[3], hamiltonian(y, aufgabe3_a));
 		cash_carp(n, h, &x, y, f, aufgabe3_a, &ccs);
 	}
 	fclose(fp);
@@ -172,7 +172,7 @@ void problem3() {
 	double m = .1;
 	double L = .4;
 
- 	aufgabe3_a[0] = g;
+	aufgabe3_a[0] = g;
 	aufgabe3_a[1] = m;
 	aufgabe3_a[2] = L;
 
