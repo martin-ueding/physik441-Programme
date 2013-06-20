@@ -30,7 +30,7 @@ out/output-plot.txt: out/output-main.txt plot
 
 main: $(o_files)
 
-physik441-07-Ueding.tar: html
+physik441-08-Ueding.tar: html
 	git archive --output "$@" master
 	tar --append -f "$@" html
 
