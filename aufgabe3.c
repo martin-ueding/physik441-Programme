@@ -11,7 +11,6 @@
 
  The indices are the following:
 
- http://www.myphysicslab.com/dbl_pendulum.html
 
  \li 0: \f$ g \f$
  \li 0: \f$ m \f$
@@ -21,6 +20,10 @@ double aufgabe3_a[3];
 
 /**
  First angular velocity.
+
+ These formulas are taken from:
+
+ http://www.myphysicslab.com/dbl_pendulum.html
 
  \f[ \dot \phi_1 = \ldots \f]
  */
@@ -103,6 +106,10 @@ double dotp2(double x, double *y, double *a) {
 
 /**
  Hamiltonian of the system.
+
+ This formula is taken from:
+
+ https://en.wikipedia.org/wiki/Double_pendulum#Lagrangian
 
  \f[ H = \ldots \f]
  */
