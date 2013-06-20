@@ -104,6 +104,12 @@
 
  \image html out/3-rk-trajektorie.png
  \image html out/3-cc-trajektorie.png
+
+ \htmlonly
+ <center>
+ <iframe src="../animation.html" width="450" height="500"></iframe>
+ </center>
+ \endhtmlonly
  */
 
 // vim: ft=c

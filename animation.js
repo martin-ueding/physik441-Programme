@@ -3,6 +3,7 @@
 var l = 100;
 
 var start = function(filename) {
+	$("#holder").html("");
 	paper = Raphael("holder", 4*l, 4*l+10);
 	midpoint = paper.circle(2*l, 2*l, 5);
 	s1 = paper.circle(2*l, 3*l, 10);
@@ -23,7 +24,7 @@ var start = function(filename) {
 var start_animation = function() {
 	lines = data.split("\n");
 	i = 0;
-	oldtime = -.1;
+	oldtime = -1.5;
 	animation_step();
 }
 
