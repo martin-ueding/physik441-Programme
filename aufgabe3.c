@@ -11,8 +11,11 @@
 
  The indices are the following:
 
- \li 0: \f$ \frac{1}{m L^2} \f$
- \li 1:	\f$ m g L \f$
+ http://www.myphysicslab.com/dbl_pendulum.html
+
+ \li 0: \f$ g \f$
+ \li 0: \f$ m \f$
+ \li 0: \f$ L \f$
  */
 double aufgabe3_a[2];
 
@@ -22,8 +25,16 @@ double aufgabe3_a[2];
  \f[ \dot \phi_1 = \ldots \f]
  */
 double dotphi1(double x, double *y, double *a) {
-	double s = sin(y[0] - y[1]);
-	return a[0] * (y[2] - y[3] * cos(y[0] - y[1])) / (1. + s * s);
+	//double phi1 = y[0];
+	//double phi2 = y[1];
+	double omega1 = y[2];
+	//double omega2 = y[3];
+
+	//double g = a[0];
+	//double m = a[1];
+	//double L = a[2];
+
+	return omega1;
 }
 
 /**
@@ -32,8 +43,16 @@ double dotphi1(double x, double *y, double *a) {
  \f[ \dot \phi_2 = \ldots \f]
  */
 double dotphi2(double x, double *y, double *a) {
-	double s = sin(y[0] - y[1]);
-	return a[0] * (2. * y[3] - y[2] * cos(y[0] - y[1])) / (1. + s * s);
+	//double phi1 = y[0];
+	//double phi2 = y[1];
+	//double omega1 = y[2];
+	double omega2 = y[3];
+
+	//double g = a[0];
+	//double m = a[1];
+	//double L = a[2];
+
+	return omega2;
 }
 
 /**
@@ -42,13 +61,21 @@ double dotphi2(double x, double *y, double *a) {
  \f[ \dot p_1 = \ldots \f]
  */
 double dotp1(double x, double *y, double *a) {
-	double s = sin(y[0] - y[1]);
-	double s2 = s * s;
-	double s22 = (1. + s2) * (1. * s2);
+	double phi1 = y[0];
+	double phi2 = y[1];
+	double omega1 = y[2];
+	double omega2 = y[3];
 
-	return - a[0] * y[2] * y[3] * sin(y[0] - y[1]) / (1. + s2)
-	       + a[0] * (y[2] * y[2] + 2. * y[3] * y[3] - 2. * y[2] * y[3] * cos(y[0] - y[1])) / s22
-	       * sin(y[0] - y[1]) * cos(y[0] - y[1]) - 2. * a[1] * sin(y[0]);
+	double g = a[0];
+	double m = a[1];
+	double L = a[2];
+
+	return (
+			- g * (2* m + m) * sin(phi1) - m * g * sin(phi1 - 2.*phi2) - 2.* sin(phi1-phi2) * m * (omega2*omega2 * L + omega1*omega1 *L*cos(phi1-phi2))
+		   )
+		/ (
+				L * (2.*m + m - m * cos(2. * phi1 - 2. * phi2))
+		  );
 }
 
 /**
@@ -57,13 +84,21 @@ double dotp1(double x, double *y, double *a) {
  \f[ \dot p_2 = \ldots \f]
  */
 double dotp2(double x, double *y, double *a) {
-	double s = sin(y[0] - y[1]);
-	double s2 = s * s;
-	double s22 = (1. + s2) * (1. * s2);
+	double phi1 = y[0];
+	double phi2 = y[1];
+	double omega1 = y[2];
+	double omega2 = y[3];
 
-	return a[0] * y[2] * y[3] * sin(y[0] - y[1]) / (1. + s2)
-	       - a[0] * (y[2] * y[2] + 2 * y[3] * y[3] - 2. * y[2] * y[3] * cos(y[0] - y[1])) / s22
-	       * sin(y[0] - y[1]) * cos(y[0] - y[1]) - a[1] * sin(y[1]);
+	double g = a[0];
+	double m = a[1];
+	double L = a[2];
+
+	return (
+			2.*sin(phi1-phi2) * (omega1*omega1 * L * (m + m) + g*(m+m) * cos(phi1) + omega2*omega2 * L * m * cos(phi1-phi2))
+		   )
+		/
+		(L*(2. * m + m - m* cos(2.*phi1-2.*phi2))
+		);
 }
 
 /**
