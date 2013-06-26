@@ -33,12 +33,12 @@ struct state {
 
  Solves a set of \c n ODE.
 
- \param n[in] Numer of ODE
- \param h[in] Step width
- \param x[in, out] x-coodinate
- \param y[in, out] y-coordinates
- \param a[in] Parameters for the ODE
- \param s[in, out] State of the ODE solver
+ \param[in] n Numer of ODE
+ \param[in] h Step width
+ \param[in, out] x x-coodinate
+ \param[in, out] y y-coordinates
+ \param[in] a Parameters for the ODE
+ \param[in, out] s State of the ODE solver
  */
 void rk4(int n, double h, double *x, double *y, ode *f, double *a, struct state *s);
 
