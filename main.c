@@ -41,7 +41,7 @@ double dgl_w_alpha_prime(double x, double *y, double *a) {
 }
 
 void aufgabe1() {
-	puts("aufgabe1");
+	puts("# Aufgabe 1");
 	double h = .01;
 	double x;
 	double alpha = 5.;
@@ -70,31 +70,122 @@ void aufgabe1() {
 }
 
 void aufgabe2() {
-	int step_count = 100;
+	puts("# Aufgabe 2");
+	int step_count = 1000;
 	double h = .01;
 
 	double s[step_count];
 	double u[step_count];
 	double r[step_count];
 
-	double e = 1.;
+	double e_min;
+	double e_max;
+	double e;
 
-	for (int step_id = 0; step_id < step_count; step_id++) {
-		double x = h * step_id;
-		s[step_id] = 2. * (e - 0.5 *x*x);
-		r[step_count] = 0.;
-	}
+	e_min = 0.;
+	e_max = 1.;
 
-	u[0] = 1;
-	u[1] = 1;
+			u[0] = 1;
+			u[1] = 1;
 
-	numerov(step_count, h, s, u, r);
+	//printf("%20s %20s\n", "Energie", "Grenzwert");
 
-	FILE *fp = fopen("out/2c.txt", "w");
+	FILE *fp = fopen("out/2f-gerade.txt", "w");
 	assert(fp);
-	for (int step_id = 0; step_id < step_count; step_id++) {
-		double x = h * step_id;
-		fprintf(fp, "%15g %15g\n", x, u[step_id]);
+	for (e_max = 1.; e_max < 50.; e_max += .5) {
+		double a = e_min;
+		double b = e_max;
+		do {
+			e = (a+b) / 2.;
+
+
+			for (int step_id = 0; step_id < step_count; step_id++) {
+				double x = h * step_id;
+				s[step_id] = 2. * (e - 0.5 *x*x);
+				r[step_count] = 0.;
+			}
+
+			numerov(step_count, h, s, u, r);
+
+
+			int decrement = 2;
+
+			while (1) {
+				if (u[step_count -decrement] > 0) {
+					a = e;
+					break;
+				}
+				else if (u[step_count -decrement] < 0) {
+					b = e;
+					break;
+				}
+				else {
+					decrement++;
+				}
+				//printf("%d\n", decrement);
+			}
+
+			//printf("%20f %20g\n", e, u[step_count -decrement]);
+		} while (fabs(a - b) >= 1e-8);
+
+		if (e == e_min || e == e_max) {
+			printf("%15f Keine erfolgreiche Bisektion\n", e_max);
+		}
+		else {
+			printf("%15f %15f\n", e_max, e);
+			fprintf(fp, "%f\n", e);
+		}
+	}
+	fclose(fp);
+
+	fp = fopen("out/2f-ungerade.txt", "w");
+	assert(fp);
+	for (e_max = 1.; e_max < 50.; e_max += .5) {
+		double a = e_min;
+		double b = e_max;
+		do {
+			e = (a+b) / 2.;
+
+
+			for (int step_id = 0; step_id < step_count; step_id++) {
+				double x = h * step_id;
+				s[step_id] = 2. * (e - 0.5 *x*x);
+				r[step_count] = 0.;
+			}
+
+			u[0] = 0;
+			u[1] = h;
+
+			numerov(step_count, h, s, u, r);
+
+
+			int decrement = 2;
+
+			while (1) {
+				if (u[step_count -decrement] > 0) {
+					a = e;
+					break;
+				}
+				else if (u[step_count -decrement] < 0) {
+					b = e;
+					break;
+				}
+				else {
+					decrement++;
+				}
+				//printf("%d\n", decrement);
+			}
+
+			//printf("%20f %20g\n", e, u[step_count -decrement]);
+		} while (fabs(a - b) >= 1e-8);
+
+		if (e == e_min || e == e_max) {
+			printf("%15f Keine erfolgreiche Bisektion\n", e_max);
+		}
+		else {
+			printf("%15f %15f\n", e_max, e);
+			fprintf(fp, "%f\n", e);
+		}
 	}
 	fclose(fp);
 }

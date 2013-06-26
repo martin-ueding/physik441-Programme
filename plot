@@ -65,6 +65,36 @@ def main():
     pl.savefig("out/2c.png")
     pl.clf()
 
+    gerade = list(sorted(set(np.genfromtxt("out/2f-gerade.txt"))))
+    ungerade = list(sorted(set(np.genfromtxt("out/2f-ungerade.txt"))))
+
+    print "Energieniveaus für gerade Wellenfunktionen:"
+    print ", ".join(["{:.1f}".format(e) for e in gerade])
+    print
+    print "Energieniveaus für ungerade Wellenfunktionen:"
+    print ", ".join(["{:.1f}".format(e) for e in ungerade])
+
+    n_gerade = np.linspace(0, len(gerade), len(gerade));
+    n_ungerade = np.linspace(0, len(ungerade), len(ungerade));
+
+
+    plotargs = {
+        "linestyle": "none",
+        "marker": ".",
+    }
+
+    pl.plot(n_gerade, gerade, label=ur"$\psi_\mathrm{gerade}$", **plotargs)
+    pl.plot(n_ungerade, ungerade, label=ur"$\psi_\mathrm{ungerade}$", **plotargs)
+    pl.title(ur"Alle Daten")
+    pl.xlabel(ur"$x$")
+    pl.ylabel(ur"$E_n$")
+    pl.grid(True)
+    pl.legend(loc="best")
+    pl.savefig("out/2f.pdf")
+    pl.savefig("out/2f.png")
+    pl.clf()
+
+
 
 def _parse_args():
     """
