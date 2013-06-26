@@ -85,109 +85,61 @@ void aufgabe2() {
 	e_min = 0.;
 	e_max = 1.;
 
-			u[0] = 1;
-			u[1] = 1;
+	char *filenames[] = {"out/2f-gerade.txt", "out/2f-ungerade.txt"};
+	double u_start[2][2] = {{1, 1}, {0, h}};
 
-	//printf("%20s %20s\n", "Energie", "Grenzwert");
+	for (int even_odd = 0; even_odd < 2; even_odd++) {
+		FILE *fp = fopen(filenames[even_odd], "w");
+		assert(fp);
+		for (e_max = 1.; e_max < 50.; e_max += .5) {
+			double a = e_min;
+			double b = e_max;
+			do {
+				e = (a+b) / 2.;
 
-	FILE *fp = fopen("out/2f-gerade.txt", "w");
-	assert(fp);
-	for (e_max = 1.; e_max < 50.; e_max += .5) {
-		double a = e_min;
-		double b = e_max;
-		do {
-			e = (a+b) / 2.;
+
+				for (int step_id = 0; step_id < step_count; step_id++) {
+					double x = h * step_id;
+					s[step_id] = 2. * (e - 0.5 *x*x);
+					r[step_count] = 0.;
+				}
+
+				u[0] = u_start[even_odd][0];
+				u[1] = u_start[even_odd][1];
+
+				numerov(step_count, h, s, u, r);
 
 
-			for (int step_id = 0; step_id < step_count; step_id++) {
-				double x = h * step_id;
-				s[step_id] = 2. * (e - 0.5 *x*x);
-				r[step_count] = 0.;
+				int decrement = 2;
+
+				while (1) {
+					if (u[step_count -decrement] > 0) {
+						a = e;
+						break;
+					}
+					else if (u[step_count -decrement] < 0) {
+						b = e;
+						break;
+					}
+					else {
+						decrement++;
+					}
+					//printf("%d\n", decrement);
+				}
+
+				//printf("%20f %20g\n", e, u[step_count -decrement]);
+			} while (fabs(a - b) >= 1e-8);
+
+			if (e == e_min || e == e_max) {
+				printf("%15f Keine erfolgreiche Bisektion\n", e_max);
 			}
-
-			numerov(step_count, h, s, u, r);
-
-
-			int decrement = 2;
-
-			while (1) {
-				if (u[step_count -decrement] > 0) {
-					a = e;
-					break;
-				}
-				else if (u[step_count -decrement] < 0) {
-					b = e;
-					break;
-				}
-				else {
-					decrement++;
-				}
-				//printf("%d\n", decrement);
+			else {
+				printf("%15f %15f\n", e_max, e);
+				fprintf(fp, "%f\n", e);
 			}
-
-			//printf("%20f %20g\n", e, u[step_count -decrement]);
-		} while (fabs(a - b) >= 1e-8);
-
-		if (e == e_min || e == e_max) {
-			printf("%15f Keine erfolgreiche Bisektion\n", e_max);
 		}
-		else {
-			printf("%15f %15f\n", e_max, e);
-			fprintf(fp, "%f\n", e);
-		}
+		fclose(fp);
 	}
-	fclose(fp);
-
-	fp = fopen("out/2f-ungerade.txt", "w");
-	assert(fp);
-	for (e_max = 1.; e_max < 50.; e_max += .5) {
-		double a = e_min;
-		double b = e_max;
-		do {
-			e = (a+b) / 2.;
-
-
-			for (int step_id = 0; step_id < step_count; step_id++) {
-				double x = h * step_id;
-				s[step_id] = 2. * (e - 0.5 *x*x);
-				r[step_count] = 0.;
-			}
-
-			u[0] = 0;
-			u[1] = h;
-
-			numerov(step_count, h, s, u, r);
-
-
-			int decrement = 2;
-
-			while (1) {
-				if (u[step_count -decrement] > 0) {
-					a = e;
-					break;
-				}
-				else if (u[step_count -decrement] < 0) {
-					b = e;
-					break;
-				}
-				else {
-					decrement++;
-				}
-				//printf("%d\n", decrement);
-			}
-
-			//printf("%20f %20g\n", e, u[step_count -decrement]);
-		} while (fabs(a - b) >= 1e-8);
-
-		if (e == e_min || e == e_max) {
-			printf("%15f Keine erfolgreiche Bisektion\n", e_max);
-		}
-		else {
-			printf("%15f %15f\n", e_max, e);
-			fprintf(fp, "%f\n", e);
-		}
-	}
-	fclose(fp);
 }
 
 int main(int argc, char **argv) {
