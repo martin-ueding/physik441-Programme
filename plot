@@ -67,6 +67,8 @@ def main():
 
     gerade = list(sorted(set(np.genfromtxt("out/2f-gerade.txt"))))
     ungerade = list(sorted(set(np.genfromtxt("out/2f-ungerade.txt"))))
+    gerade2 = list(sorted(set(np.genfromtxt("out/2g-gerade.txt"))))
+    ungerade2 = list(sorted(set(np.genfromtxt("out/2g-ungerade.txt"))))
 
     print "Energieniveaus für gerade Wellenfunktionen:"
     print ", ".join(["{:.1f}".format(e) for e in gerade])
@@ -74,9 +76,19 @@ def main():
     print "Energieniveaus für ungerade Wellenfunktionen:"
     print ", ".join(["{:.1f}".format(e) for e in ungerade])
 
+    print
+
+    print "Energieniveaus für gerade Wellenfunktionen:"
+    print ", ".join(["{:.1f}".format(e) for e in gerade2])
+    print
+    print "Energieniveaus für ungerade Wellenfunktionen:"
+    print ", ".join(["{:.1f}".format(e) for e in ungerade2])
+
     n_gerade = np.linspace(0, len(gerade), len(gerade));
     n_ungerade = np.linspace(0, len(ungerade), len(ungerade));
 
+    n_gerade2 = np.linspace(0, len(gerade2), len(gerade2));
+    n_ungerade2 = np.linspace(0, len(ungerade2), len(ungerade2));
 
     plotargs = {
         "linestyle": "none",
@@ -85,8 +97,10 @@ def main():
 
     pl.plot(n_gerade, gerade, label=ur"$\psi_\mathrm{gerade}$", **plotargs)
     pl.plot(n_ungerade, ungerade, label=ur"$\psi_\mathrm{ungerade}$", **plotargs)
-    pl.title(ur"Alle Daten")
-    pl.xlabel(ur"$x$")
+    pl.plot(n_gerade2, gerade2, label=ur"$\tilde{\psi}_\mathrm{gerade}$", **plotargs)
+    pl.plot(n_ungerade2, ungerade2, label=ur"$\tilde{\psi}_\mathrm{ungerade}$", **plotargs)
+    pl.title(ur"Energieniveaus")
+    pl.xlabel(ur"$n$")
     pl.ylabel(ur"$E_n$")
     pl.grid(True)
     pl.legend(loc="best")
