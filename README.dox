@@ -32,7 +32,65 @@
 
  \subsection aufgabe1 Aufgabe 1
 
+ Gegeben ist folgendes Problem:
+ \f[
+ y'' = \frac{2y}{(1+x)^2}
+ ,\quad
+ y(0) = 0
+ ,\quad
+ y(1) = 0{,}5
+ \f]
+
+ In der Notation des Skripts habe ich dadurch \f$ a = 0, b = 1, y_a = 1, y_b = 0{,}5 \f$.
+
+ Im Skript wird ein gekoppeltes Differentialgleichungssystem hergeleitet. Dieses schreibe ich explizit hin:
+ \f[
+ \frac{\mathrm d}{\mathrm dx}
+ \begin{pmatrix}
+ y \\
+ w_\alpha \\
+ y' \\
+ w_\alpha'
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+ y' \\
+ w_\alpha' \\
+ \frac{2y}{(1+x)^2} \\
+ \frac 2{(1+x)^2} w_\alpha
+ \end{pmatrix}
+ \f]
+
+ Ich beginne mit \f$ \alpha = 5 \f$ und benutze dann die im Skript gegebenen Anfangswerte:
+ \f[
+ y(a) = y_a
+ ,\quad
+ y'(a) = \alpha
+ ,\quad
+ w(a) = 0
+ ,\quad
+ w'(a) = 1
+ \f]
+
+ Nach dem ich mit rk4() bis \f$ x = 1 \f$ gegangen bin, stehen im Array \c y
+ alle Funktionswerte an der Stelle \f$ x = 1 \f$ drin. Somit kann ich \f$
+ F'(\alpha) = \partial_\alpha y(b, \alpha) = w_\alpha(b) \f$ sowie \f$
+ F(\alpha) = y(b, \alpha) - y_b \f$ ausrechnen. Das nächste \f$ \alpha \f$
+ erhalte ich, in dem ich die Newton'sche Formel benutze:
+ \f[
+ \alpha := \alpha - \frac{F(\alpha)}{F'(\alpha)}
+ \f]
+
+ Dieses Verfahren wiederhole ich hundert Mal. Wenn ich Glück im Startwert \f$
+ \alpha \f$ habe, dann sollte eine stabile Lösung herauskommen.
+
+ In diesem Plot sind alle errechneten Punkte drin:
+
  \image html out/1-Alles.png
+
+ Die letzten Daten zeigen eine Funktion, die die Anfangswerte erfüllt. Außerdem
+ ist die Krümmung positiv, was schon mal ein gutes Zeichen ist.
+
  \image html out/1-Letzte.png
  */
 
