@@ -1,0 +1,36 @@
+// Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+/**
+ \mainpage physik441-09
+ \author Martin Ueding <dev@martin-ueding.de>
+ \copyright MIT License
+
+ \tableofcontents
+
+ \section kompilieren Kompilieren und Ausführen
+
+ Dieses Programm ist in C 99 geschrieben und kann mit folgenden Kommandos
+ kompiliert und ausgeführt werden:
+ \code
+ make dep
+ make
+ ./main
+ ./plot
+ \endcode
+
+ \section ausgabe Ausgabe
+
+ Ausgabe des Programms selbst (\c main):
+
+ \include out/output-main.txt
+
+ Ausgabe des Plottens (\c plot):
+
+ \include out/output-plot.txt
+
+ \section aufgaben Aufgaben
+
+ \subsection aufgabe1 Aufgabe 1
+ */
+
+// vim: ft=c
