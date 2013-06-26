@@ -5,3 +5,4 @@ main.o
 out/
 rk4.o
 dep.makefile
+numerov.o
