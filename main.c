@@ -97,7 +97,6 @@ void aufgabe2() {
 			do {
 				e = (a+b) / 2.;
 
-
 				for (int step_id = 0; step_id < step_count; step_id++) {
 					double x = h * step_id;
 					s[step_id] = 2. * (e - 0.5 *x*x);
@@ -108,7 +107,6 @@ void aufgabe2() {
 				u[1] = u_start[even_odd][1];
 
 				numerov(step_count, h, s, u, r);
-
 
 				int decrement = 2;
 
