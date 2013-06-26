@@ -53,6 +53,18 @@ def main():
     pl.savefig("out/1-Letzte.pdf")
     pl.savefig("out/1-Letzte.png")
     pl.clf()
+    
+    data = np.genfromtxt("out/2c.txt")
+    pl.plot(data[:, 0], data[:, 1], label=ur"$\psi$", **plotargs)
+    pl.title(ur"Alle Daten")
+    pl.xlabel(ur"$x$")
+    #pl.ylabel(ur"")
+    pl.grid(True)
+    pl.legend(loc="best")
+    pl.savefig("out/2c.pdf")
+    pl.savefig("out/2c.png")
+    pl.clf()
+
 
 def _parse_args():
     """

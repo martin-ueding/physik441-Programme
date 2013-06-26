@@ -92,6 +92,10 @@
  ist die Krümmung positiv, was schon mal ein gutes Zeichen ist.
 
  \image html out/1-Letzte.png
+
+ \subsection aufgabe2 Aufgabe 2
+
+ \image html out/2c.png
  */
 
 // vim: ft=c
