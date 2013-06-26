@@ -19,7 +19,8 @@ def main():
     options = _parse_args()
 
     plotargs = {
-        "linestyle": "-",
+        "linestyle": "none",
+        "marker": ".",
     }
 
     data = np.genfromtxt("out/1.txt")
@@ -35,6 +36,10 @@ def main():
     pl.savefig("out/1-Alles.pdf")
     pl.savefig("out/1-Alles.png")
     pl.clf()
+
+    plotargs = {
+        "linestyle": "-",
+    }
 
     steps = len(data)/100
     last_data = data[99*steps:, :]
