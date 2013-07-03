@@ -33,9 +33,21 @@
 
  \subsection aufgabe1 Aufgabe 1
 
+ Ich lese die Daten aus der Datei ein, mit matrix_load(). Diese speichere ich
+ dann direkt wieder mit matrix_save() ohne Angabe der Größe, um es mit
+ matplotlib als Diagram plotten zu können:
+
  \image html out/1-raw.png
+
+ Die Daten sind also Rauschen im Hintergrund und in jeder Zeile und Spalte eine
+ größere Zahl. Das Problem der Maximierung der Spur ist wohl ein sehr komplexes
+ Problem. Da die Daten allerdings so einfach gegeben sind, komme ich mir meinem
+ einfachen Algorithmus aus. Ich schaue für jede Spalte, in welcher Zeile die
+ größte Zahl steht und tausche diese Zeile dann dort hin.
+
+ Danach sieht die Matrix so aus:
 
  \image html out/1-minimized.png
  */
 
-// vim: ft=c
+// vim: ft=c spell spelllang=de
