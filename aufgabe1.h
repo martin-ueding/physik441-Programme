@@ -10,6 +10,7 @@
 #include <string.h>
 
 void aufgabe1();
-void matrix_print(double **data, int size);
+void matrix_load(FILE *fp, int size, double *data);
+void matrix_print(double *data, int size);
 
 #endif /* end of include guard: AUFGABE1_H */
