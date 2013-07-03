@@ -12,5 +12,9 @@
 void aufgabe1();
 void matrix_load(FILE *fp, int size, double *data);
 void matrix_print(double *data, int size);
+void matrix_save(char *filename, double *data, int size);
+void maximize_diagonal(double *data, int size);
+void swap_lines(double *data, int size, int source, int target);
+double trace(double *data, int size);
 
 #endif /* end of include guard: AUFGABE1_H */
