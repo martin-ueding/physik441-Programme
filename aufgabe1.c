@@ -6,22 +6,17 @@ void aufgabe1() {
 	puts("# Aufgabe 1");
 
 	puts("## Einlesen der Daten");
-
 	FILE *fp = fopen("daten10.dat", "r");
 	assert(fp);
-
 	int size;
 	assert(fscanf(fp, "%d\n", &size) == 1);
 	double *data = malloc(size*size * sizeof(double));
 	assert(data);
-
 	matrix_load(fp, size, data);
+	fclose(fp);
 
 	puts("## Ausgabe der Rohdaten");
-
 	matrix_print(data, size);
-
-	fclose(fp);
 
 	free(data);
 }
@@ -42,7 +37,7 @@ void matrix_load(FILE *fp, int size, double *data) {
 void matrix_print(double *data, int size) {
 	for (int line_id = 0; line_id < size; line_id++) {
 		for (int column_id = 0; column_id < size; column_id++) {
-			printf("%f ", data[line_id * size + column_id]);
+			printf(" %f", data[line_id * size + column_id]);
 		}
 		printf("\n");
 	}
