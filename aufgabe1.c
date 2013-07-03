@@ -70,7 +70,7 @@ void maximize_diagonal(double *data, int size) {
 		double largest = -1e100;
 		int largest_id = -1;
 		// Find the largest entry in this column.
-		for (int line_id = column_id; line_id < size; line_id++) {
+		for (int line_id = 0; line_id < size; line_id++) {
 			double val = data[line_id * size + column_id];
 			if (val > largest) {
 				largest = val;
@@ -91,9 +91,15 @@ void swap_lines(double *data, int size, int source, int target) {
 	
 	printf("Swapping %d with %d\n", source, target);
 	double buffer[size];
-	memcpy(buffer, data+size*target, size);
-	memcpy(data+size*target, data+size*source, size);
-	memcpy(data+size*source, buffer, size);
+	for (int column_id = 0; column_id < size; column_id++) {
+		buffer[column_id] = data[target * size + column_id];
+	}
+	for (int column_id = 0; column_id < size; column_id++) {
+		data[target * size + column_id] = data[source * size + column_id];
+	}
+	for (int column_id = 0; column_id < size; column_id++) {
+		data[source * size + column_id] = buffer[column_id];
+	}
 }
 
 double trace(double *data, int size) {
