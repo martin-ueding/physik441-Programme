@@ -7,18 +7,28 @@ void aufgabe1() {
 
 	FILE *fp = fopen("daten10.dat", "r");
 	assert(fp);
+
 	int size;
 	assert(fscanf(fp, "%d\n", &size) == 1);
 	double data[size][size];
+
 	char *token;
 	size_t buffer_size = 1000;
 	char linebuffer[buffer_size];
 	for (int line_id = 0; line_id < size; line_id++) {
-		fgets(linebuffer, buffer_size-1, fp);
+		assert(fgets(linebuffer, buffer_size-1, fp));
 		for (int column_id = 0; column_id < size; column_id++) {
-			token = strtok(linebuffer, " \t\n");
+			token = strtok(column_id == 0 ? linebuffer : NULL, " \t\n");
 			data[line_id][column_id] = atof(token);
 		}
 	}
+
+	for (int line_id = 0; line_id < size; line_id++) {
+		for (int column_id = 0; column_id < size; column_id++) {
+			printf("%f ", data[line_id][column_id]);
+		}
+		printf("\n");
+	}
+
 	fclose(fp);
 }
