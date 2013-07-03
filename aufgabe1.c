@@ -5,7 +5,7 @@
 void aufgabe1() {
 	puts("# Aufgabe 1");
 
-	FILE *fp = fopen("daten10.dat", "w");
+	FILE *fp = fopen("daten10.dat", "r");
 	assert(fp);
 	int size;
 	assert(fscanf(fp, "%d\n", &size) == 1);
