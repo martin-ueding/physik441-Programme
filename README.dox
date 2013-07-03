@@ -48,6 +48,35 @@
  Danach sieht die Matrix so aus:
 
  \image html out/1-minimized.png
+
+ Die Lösung, die ich mit GNU Octave und dessen \c rref Funktion erhalten habe, ist:
+
+ \code
+ -0.164899
+  0.965085
+  0.032495
+  0.376828
+ -0.692531
+  0.419645
+ -0.716338
+ -0.715967
+ -0.499678
+ -0.172070
+  0.731785
+ -0.998223
+ -0.220316
+ -0.485642
+ -0.340696
+ -0.224472
+  0.340282
+ -0.126607
+ -0.220524
+ -0.405750
+ \endcode
+
+ Mein Programm liefert dieses Ergebnis:
+
+ \include out/1-result.txt
  */
 
 // vim: ft=c spell spelllang=de
