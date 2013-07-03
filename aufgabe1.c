@@ -16,17 +16,40 @@ void aufgabe1() {
 	fclose(fp);
 
 	puts("## Ausgabe der Rohdaten");
-	matrix_print(data, size);
+	//matrix_print(data, size);
 	matrix_save("out/1-raw.txt", data, size);
 	printf("Spur: %g\n", trace(data, size));
 
 	puts("## Maximieren der Diagonalen");
 	maximize_diagonal(data, size);
-	matrix_print(data, size);
+	//matrix_print(data, size);
 	matrix_save("out/1-minimized.txt", data, size);
 	printf("Spur: %g\n", trace(data, size));
 
+	puts("## Überprüfe Konvergenz");
+	int convergent_count = check_convergence(data, size);
+	printf("Konvergente Einträge: %d/%d\n", convergent_count, size);
+
 	free(data);
+}
+
+int check_convergence(double *data, int size) {
+	int convergent_count = 0;
+	for (int line_id = 0; line_id < size; line_id++) {
+		double sum = 0.;
+		for (int column_id = 0; column_id < size; column_id++) {
+			if (line_id == column_id) {
+				continue;
+			}
+			sum += fabs(data[line_id * size + column_id]);
+		}
+
+		if (sum < data[line_id * size + line_id]) {
+			convergent_count++;
+		}
+	}
+
+	return convergent_count;
 }
 
 void matrix_load(FILE *fp, int size, double *data) {

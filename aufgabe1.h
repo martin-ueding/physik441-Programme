@@ -9,11 +9,13 @@
 #define AUFGABE1_H
 
 #include <assert.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 void aufgabe1();
+int check_convergence(double *data, int size);
 void matrix_load(FILE *fp, int size, double *data);
 void matrix_print(double *data, int size);
 void matrix_save(char *filename, double *data, int size);
