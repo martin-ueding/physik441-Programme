@@ -23,12 +23,16 @@ void aufgabe1() {
 		}
 	}
 
+	matrix_print((double **) data, size);
+
+	fclose(fp);
+}
+
+void matrix_print(double **data, int size) {
 	for (int line_id = 0; line_id < size; line_id++) {
 		for (int column_id = 0; column_id < size; column_id++) {
 			printf("%f ", data[line_id][column_id]);
 		}
 		printf("\n");
 	}
-
-	fclose(fp);
 }
