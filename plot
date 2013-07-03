@@ -19,7 +19,7 @@ def main():
     options = _parse_args()
 
     data = np.genfromtxt("out/1-raw.txt");
-    pl.pcolormesh(data)
+    pl.pcolormesh(data[:, :-1])
     pl.colorbar() 
     pl.title(ur"Matrix in Rohform")
     pl.xlabel(ur"Zeile")
@@ -29,7 +29,7 @@ def main():
     pl.clf()
 
     data = np.genfromtxt("out/1-minimized.txt");
-    pl.pcolormesh(data)
+    pl.pcolormesh(data[:, :-1])
     pl.colorbar() 
     pl.title(ur"Matrix nach Maximierung der Diagonalen")
     pl.xlabel(ur"Zeile")

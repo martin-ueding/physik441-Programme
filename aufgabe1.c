@@ -10,6 +10,7 @@ void aufgabe1() {
 	assert(fp);
 	int size;
 	assert(fscanf(fp, "%d\n", &size) == 1);
+	size += 1;
 	double *data = malloc(size*size * sizeof(double));
 	assert(data);
 	matrix_load(fp, size, data);
@@ -28,16 +29,18 @@ void aufgabe1() {
 
 	puts("## Überprüfe Konvergenz");
 	int convergent_count = check_convergence(data, size);
-	printf("Konvergente Einträge: %d/%d\n", convergent_count, size);
+	printf("Konvergente Einträge: %d/%d\n", convergent_count, size-1);
+
+	puts("## Gauss-Seidel");
 
 	free(data);
 }
 
 int check_convergence(double *data, int size) {
 	int convergent_count = 0;
-	for (int line_id = 0; line_id < size; line_id++) {
+	for (int line_id = 0; line_id < size-1; line_id++) {
 		double sum = 0.;
-		for (int column_id = 0; column_id < size; column_id++) {
+		for (int column_id = 0; column_id < size-1; column_id++) {
 			if (line_id == column_id) {
 				continue;
 			}
@@ -52,11 +55,24 @@ int check_convergence(double *data, int size) {
 	return convergent_count;
 }
 
+void gauss_seidel_step(double *data, int size, double *x) {
+	for (int line_id = 0; line_id < size-1; line_id++) {
+		double new_x = data[line_id * size + size];
+		for (int column_id = 0; column_id < size-1; column_id++) {
+			if (line_id == column_id) {
+				continue;
+			}
+			new_x -= data[line_id * size + column_id] * x[line_id];
+		}
+		x[line_id] = new_x;
+	}
+}
+
 void matrix_load(FILE *fp, int size, double *data) {
 	char *token;
 	size_t buffer_size = 1000;
 	char linebuffer[buffer_size];
-	for (int line_id = 0; line_id < size; line_id++) {
+	for (int line_id = 0; line_id < size-1; line_id++) {
 		assert(fgets(linebuffer, buffer_size-1, fp));
 		for (int column_id = 0; column_id < size; column_id++) {
 			token = strtok(column_id == 0 ? linebuffer : NULL, " \t\n");
@@ -66,7 +82,7 @@ void matrix_load(FILE *fp, int size, double *data) {
 }
 
 void matrix_print(double *data, int size) {
-	for (int line_id = 0; line_id < size; line_id++) {
+	for (int line_id = 0; line_id < size-1; line_id++) {
 		for (int column_id = 0; column_id < size; column_id++) {
 			printf(" %f", data[line_id * size + column_id]);
 		}
@@ -77,7 +93,7 @@ void matrix_print(double *data, int size) {
 void matrix_save(char *filename, double *data, int size) {
 	FILE *fp = fopen(filename, "w");
 	assert(fp);
-	for (int line_id = 0; line_id < size; line_id++) {
+	for (int line_id = 0; line_id < size-1; line_id++) {
 		for (int column_id = 0; column_id < size; column_id++) {
 			fprintf(fp, " %f", data[line_id * size + column_id]);
 		}
@@ -88,12 +104,12 @@ void matrix_save(char *filename, double *data, int size) {
 
 void maximize_diagonal(double *data, int size) {
 	// Iterate through the columns ...
-	for (int column_id = 0; column_id < size; column_id++) {
+	for (int column_id = 0; column_id < size-1; column_id++) {
 		// XXX Negative infinity should be used here for initialization.
 		double largest = -1e100;
 		int largest_id = -1;
 		// Find the largest entry in this column.
-		for (int line_id = 0; line_id < size; line_id++) {
+		for (int line_id = 0; line_id < size-1; line_id++) {
 			double val = data[line_id * size + column_id];
 			if (val > largest) {
 				largest = val;
@@ -105,6 +121,18 @@ void maximize_diagonal(double *data, int size) {
 		// Swap the line with the largest entry in this column with the current line.
 		swap_lines(data, size, largest_id, column_id);
 	}
+}
+
+double residual(double *data, int size, double *x) {
+	double outter_sum = 0.;
+	for (int line_id = 0; line_id < size-1; line_id++) {
+		double inner_sum = 0.;
+		for (int column_id = 0; column_id < size-1; column_id++) {
+			inner_sum += data[line_id * size + column_id] * x[column_id] - data[line_id * size + size];
+		}
+		outter_sum += inner_sum * inner_sum;
+	}
+	return sqrt(outter_sum);
 }
 
 void swap_lines(double *data, int size, int source, int target) {
@@ -127,7 +155,7 @@ void swap_lines(double *data, int size, int source, int target) {
 
 double trace(double *data, int size) {
 	double result = 0.;
-	for (int column_id = 0; column_id < size; column_id++) {
+	for (int column_id = 0; column_id < size-1; column_id++) {
 		result += data[column_id * size + column_id];
 	}
 	return result;
