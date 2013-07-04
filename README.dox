@@ -77,6 +77,17 @@
  Mein Programm liefert dieses Ergebnis:
 
  \include out/1-result.txt
+
+ \subsection aufgabe2 Aufgabe 2
+
+ Besselprogramm läuft, siehe \ref ausgabe.
+
+ \subsection aufgabe3 Aufgabe 3
+
+ Plots der Werte:
+
+ \image html out/3-raw.png
+ \image html out/3-transformed.png
  */
 
 // vim: ft=c spell spelllang=de

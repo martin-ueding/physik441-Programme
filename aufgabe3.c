@@ -1,10 +1,14 @@
-// Taken from
+// Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+// Licensed under The MIT License
+//
+// Originally taken from
 // https://www.gnu.org/software/gsl/manual/html_node/Radix_002d2-FFT-routines-for-complex-data.html
 
-#include <stdio.h>
-#include <math.h>
+#include <assert.h>
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_fft_complex.h>
+#include <math.h>
+#include <stdio.h>
 
 #include "aufgabe3.h"
 
@@ -28,14 +32,21 @@ void aufgabe3() {
 		REAL(data, i) = REAL(data, 128 - i) = 1.0;
 	}
 
+	FILE *fp;
+	fp = fopen("out/3-raw.txt", "w");
+	assert(fp);
 	for (i = 0; i < 128; i++) {
-		printf("%d %e %e\n", i, REAL(data, i), IMAG(data, i));
+		fprintf(fp, "%d %e %e\n", i, REAL(data, i), IMAG(data, i));
 	}
-	printf("\n");
+	fclose(fp);
+	fp = NULL;
 
 	gsl_fft_complex_radix2_forward(data, 1, 128);
 
+	fp = fopen("out/3-transformed.txt", "w");
+	assert(fp);
 	for (i = 0; i < 128; i++) {
-		printf("%d %e %e\n", i, REAL(data, i) / sqrt(128), IMAG(data, i) / sqrt(128));
+		fprintf(fp, "%d %e %e\n", i, REAL(data, i) / sqrt(128), IMAG(data, i) / sqrt(128));
 	}
+	fclose(fp);
 }
