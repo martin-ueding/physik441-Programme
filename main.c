@@ -7,6 +7,7 @@
 #include <unistd.h>
 
 #include "aufgabe1.h"
+#include "aufgabe2.h"
 
 extern char *optarg;
 extern int optind, opterr, optopt;
@@ -23,11 +24,11 @@ int main(int argc, char **argv) {
 		}
 	}
 
-	aufgabe_t aufgaben[5] = {aufgabe1};
+	aufgabe_t aufgaben[5] = {aufgabe1, aufgabe2};
 
 	if (argc > 1) {
 		for (int arg_id = 1; arg_id < argc; arg_id++) {
-			aufgaben[atoi(argv[arg_id])-1]();
+			aufgaben[atoi(argv[arg_id]) - 1]();
 		}
 	}
 	else {

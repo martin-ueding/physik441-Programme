@@ -23,7 +23,7 @@ void matrix_save(char *filename, double *data, int size);
 void maximize_diagonal(double *data, int size);
 void print_line(double *data, int size);
 double residual(double *data, int size, double *x);
-void save_line(char* filename, double *data, int size);
+void save_line(char *filename, double *data, int size);
 void swap_lines(double *data, int size, int source, int target);
 double trace(double *data, int size);
 

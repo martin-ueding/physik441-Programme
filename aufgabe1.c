@@ -11,7 +11,7 @@ void aufgabe1() {
 	int size;
 	assert(fscanf(fp, "%d\n", &size) == 1);
 	size += 1;
-	double *data = malloc(size*size * sizeof(double));
+	double *data = malloc(size * size * sizeof(double));
 	assert(data);
 	matrix_load(fp, size, data);
 	fclose(fp);
@@ -29,11 +29,11 @@ void aufgabe1() {
 
 	puts("## Überprüfe Konvergenz");
 	int convergent_count = check_convergence(data, size);
-	printf("Konvergente Einträge: %d/%d\n", convergent_count, size-1);
+	printf("Konvergente Einträge: %d/%d\n", convergent_count, size - 1);
 
 	puts("## Gauss-Seidel");
-	double x[size-1];
-	for (int line_id = 0; line_id < size-1; line_id++) {
+	double x[size - 1];
+	for (int line_id = 0; line_id < size - 1; line_id++) {
 		x[line_id] = 0.;
 	}
 	for (int iter = 0; iter < 100; iter++) {
@@ -41,16 +41,16 @@ void aufgabe1() {
 		//print_line(x, size-1);
 	}
 
-	save_line("out/1-result.txt", x, size-1);
+	save_line("out/1-result.txt", x, size - 1);
 
 	free(data);
 }
 
 int check_convergence(double *data, int size) {
 	int convergent_count = 0;
-	for (int line_id = 0; line_id < size-1; line_id++) {
+	for (int line_id = 0; line_id < size - 1; line_id++) {
 		double sum = 0.;
-		for (int column_id = 0; column_id < size-1; column_id++) {
+		for (int column_id = 0; column_id < size - 1; column_id++) {
 			if (line_id == column_id) {
 				continue;
 			}
@@ -66,9 +66,9 @@ int check_convergence(double *data, int size) {
 }
 
 void gauss_seidel_step(double *data, int size, double *x) {
-	for (int line_id = 0; line_id < size-1; line_id++) {
-		double new_x = data[line_id * size + size-1];
-		for (int column_id = 0; column_id < size-1; column_id++) {
+	for (int line_id = 0; line_id < size - 1; line_id++) {
+		double new_x = data[line_id * size + size - 1];
+		for (int column_id = 0; column_id < size - 1; column_id++) {
 			if (line_id == column_id) {
 				continue;
 			}
@@ -84,8 +84,8 @@ void matrix_load(FILE *fp, int size, double *data) {
 	char *token;
 	size_t buffer_size = 1000;
 	char linebuffer[buffer_size];
-	for (int line_id = 0; line_id < size-1; line_id++) {
-		assert(fgets(linebuffer, buffer_size-1, fp));
+	for (int line_id = 0; line_id < size - 1; line_id++) {
+		assert(fgets(linebuffer, buffer_size - 1, fp));
 		for (int column_id = 0; column_id < size; column_id++) {
 			token = strtok(column_id == 0 ? linebuffer : NULL, " \t\n");
 			data[line_id * size + column_id] = atof(token);
@@ -94,7 +94,7 @@ void matrix_load(FILE *fp, int size, double *data) {
 }
 
 void matrix_print(double *data, int size) {
-	for (int line_id = 0; line_id < size-1; line_id++) {
+	for (int line_id = 0; line_id < size - 1; line_id++) {
 		for (int column_id = 0; column_id < size; column_id++) {
 			printf(" %f", data[line_id * size + column_id]);
 		}
@@ -105,7 +105,7 @@ void matrix_print(double *data, int size) {
 void matrix_save(char *filename, double *data, int size) {
 	FILE *fp = fopen(filename, "w");
 	assert(fp);
-	for (int line_id = 0; line_id < size-1; line_id++) {
+	for (int line_id = 0; line_id < size - 1; line_id++) {
 		for (int column_id = 0; column_id < size; column_id++) {
 			fprintf(fp, " %f", data[line_id * size + column_id]);
 		}
@@ -116,12 +116,12 @@ void matrix_save(char *filename, double *data, int size) {
 
 void maximize_diagonal(double *data, int size) {
 	// Iterate through the columns ...
-	for (int column_id = 0; column_id < size-1; column_id++) {
+	for (int column_id = 0; column_id < size - 1; column_id++) {
 		// XXX Negative infinity should be used here for initialization.
 		double largest = -1e100;
 		int largest_id = -1;
 		// Find the largest entry in this column.
-		for (int line_id = 0; line_id < size-1; line_id++) {
+		for (int line_id = 0; line_id < size - 1; line_id++) {
 			double val = data[line_id * size + column_id];
 			if (val > largest) {
 				largest = val;
@@ -144,17 +144,17 @@ void print_line(double *data, int size) {
 
 double residual(double *data, int size, double *x) {
 	double outter_sum = 0.;
-	for (int line_id = 0; line_id < size-1; line_id++) {
+	for (int line_id = 0; line_id < size - 1; line_id++) {
 		double inner_sum = 0.;
-		for (int column_id = 0; column_id < size-1; column_id++) {
+		for (int column_id = 0; column_id < size - 1; column_id++) {
 			inner_sum += data[line_id * size + column_id] * x[column_id];
 		}
-		outter_sum += pow(inner_sum - data[line_id * size + size-1], 2);
+		outter_sum += pow(inner_sum - data[line_id * size + size - 1], 2);
 	}
 	return sqrt(outter_sum);
 }
 
-void save_line(char* filename, double *data, int size) {
+void save_line(char *filename, double *data, int size) {
 	FILE *fp = fopen(filename, "w");
 	assert(fp);
 	for (int line_id = 0; line_id < size; line_id++) {
@@ -167,7 +167,7 @@ void swap_lines(double *data, int size, int source, int target) {
 	if (source == target) {
 		return;
 	}
-	
+
 	printf("Swapping %d with %d\n", source, target);
 	double buffer[size];
 	for (int column_id = 0; column_id < size; column_id++) {
@@ -183,7 +183,7 @@ void swap_lines(double *data, int size, int source, int target) {
 
 double trace(double *data, int size) {
 	double result = 0.;
-	for (int column_id = 0; column_id < size-1; column_id++) {
+	for (int column_id = 0; column_id < size - 1; column_id++) {
 		result += data[column_id * size + column_id];
 	}
 	return result;
