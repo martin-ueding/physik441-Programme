@@ -88,6 +88,11 @@
 
  \image html out/3-raw.png
  \image html out/3-transformed.png
+ 
+ \subsection aufgabe4 Aufgabe 4
+
+ \image html out/4-raw.png
+ \image html out/4-transformed.png
  */
 
 // vim: ft=c spell spelllang=de

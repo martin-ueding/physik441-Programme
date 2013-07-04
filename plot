@@ -60,6 +60,29 @@ def main():
     pl.savefig('out/3-transformed.pdf')
     pl.clf()
 
+    data = np.genfromtxt("out/4-raw.txt");
+    pl.plot(data[:, 0], data[:, 1], label=ur"Realteil", linestyle="-", marker="o")
+    pl.plot(data[:, 0], data[:, 2], label=ur"Imaginärteil", linestyle="-", marker="o")
+    pl.title(ur"Rohdaten vor FFT")
+    pl.xlabel(ur"Zeile")
+    pl.legend(loc="best")
+    pl.grid(True)
+    pl.savefig('out/4-raw.png')
+    pl.savefig('out/4-raw.pdf')
+    pl.clf()
+
+    data = np.genfromtxt("out/4-transformed.txt");
+    pl.plot(data[:, 0], data[:, 1], label=ur"Realteil", linestyle="none", marker="o")
+    pl.plot(data[:, 0], data[:, 2], label=ur"Imaginärteil", linestyle="none", marker="o")
+    pl.plot(data[:, 0], np.sqrt(data[:, 1]**2 + data[:, 2]**2), label=ur"Betrag", linestyle="none", marker="+")
+    pl.title(ur"Daten nach FFT")
+    pl.xlabel(ur"Zeile")
+    pl.legend(loc="best")
+    pl.grid(True)
+    pl.savefig('out/4-transformed.png')
+    pl.savefig('out/4-transformed.pdf')
+    pl.clf()
+
 def _parse_args():
     """
     Parses the command line arguments.
