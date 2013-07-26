@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
@@ -21,9 +21,9 @@ def main():
     data = np.genfromtxt("out/1-raw.txt");
     pl.pcolormesh(data[:, :-1])
     pl.colorbar() 
-    pl.title(ur"Matrix in Rohform")
-    pl.xlabel(ur"Zeile")
-    pl.ylabel(ur"Spalte")
+    pl.title(r"Matrix in Rohform")
+    pl.xlabel(r"Zeile")
+    pl.ylabel(r"Spalte")
     pl.savefig('out/1-raw.png')
     pl.savefig('out/1-raw.pdf')
     pl.clf()
@@ -31,18 +31,18 @@ def main():
     data = np.genfromtxt("out/1-minimized.txt");
     pl.pcolormesh(data[:, :-1])
     pl.colorbar() 
-    pl.title(ur"Matrix nach Maximierung der Diagonalen")
-    pl.xlabel(ur"Zeile")
-    pl.ylabel(ur"Spalte")
+    pl.title(r"Matrix nach Maximierung der Diagonalen")
+    pl.xlabel(r"Zeile")
+    pl.ylabel(r"Spalte")
     pl.savefig('out/1-minimized.png')
     pl.savefig('out/1-minimized.pdf')
     pl.clf()
 
     data = np.genfromtxt("out/3-raw.txt");
-    pl.plot(data[:, 0], data[:, 2], label=ur"Imaginärteil", linestyle="none", marker="o")
-    pl.plot(data[:, 0], data[:, 1], label=ur"Realteil", linestyle="none", marker="o")
-    pl.title(ur"Rohdaten vor FFT")
-    pl.xlabel(ur"Zeile")
+    pl.plot(data[:, 0], data[:, 2], label=r"Imaginärteil", linestyle="none", marker="o")
+    pl.plot(data[:, 0], data[:, 1], label=r"Realteil", linestyle="none", marker="o")
+    pl.title(r"Rohdaten vor FFT")
+    pl.xlabel(r"Zeile")
     pl.legend(loc="best")
     pl.grid(True)
     pl.savefig('out/3-raw.png')
@@ -50,10 +50,10 @@ def main():
     pl.clf()
 
     data = np.genfromtxt("out/3-transformed.txt");
-    pl.plot(data[:, 0], data[:, 2], label=ur"Imaginärteil", linestyle="none", marker="o")
-    pl.plot(data[:, 0], data[:, 1], label=ur"Realteil", linestyle="none", marker="o")
-    pl.title(ur"Daten nach FFT")
-    pl.xlabel(ur"Zeile")
+    pl.plot(data[:, 0], data[:, 2], label=r"Imaginärteil", linestyle="none", marker="o")
+    pl.plot(data[:, 0], data[:, 1], label=r"Realteil", linestyle="none", marker="o")
+    pl.title(r"Daten nach FFT")
+    pl.xlabel(r"Zeile")
     pl.legend(loc="best")
     pl.grid(True)
     pl.savefig('out/3-transformed.png')
@@ -61,10 +61,10 @@ def main():
     pl.clf()
 
     data = np.genfromtxt("out/4-raw.txt");
-    pl.plot(data[:, 0], data[:, 1], label=ur"Realteil", linestyle="-", marker="o")
-    pl.plot(data[:, 0], data[:, 2], label=ur"Imaginärteil", linestyle="-", marker="o")
-    pl.title(ur"Rohdaten vor FFT")
-    pl.xlabel(ur"Zeile")
+    pl.plot(data[:, 0], data[:, 1], label=r"Realteil", linestyle="-", marker="o")
+    pl.plot(data[:, 0], data[:, 2], label=r"Imaginärteil", linestyle="-", marker="o")
+    pl.title(r"Rohdaten vor FFT")
+    pl.xlabel(r"Zeile")
     pl.legend(loc="best")
     pl.grid(True)
     pl.savefig('out/4-raw.png')
@@ -72,11 +72,11 @@ def main():
     pl.clf()
 
     data = np.genfromtxt("out/4-transformed.txt");
-    pl.plot(data[:, 0], data[:, 1], label=ur"Realteil", linestyle="none", marker="o")
-    pl.plot(data[:, 0], data[:, 2], label=ur"Imaginärteil", linestyle="none", marker="o")
-    pl.plot(data[:, 0], np.sqrt(data[:, 1]**2 + data[:, 2]**2), label=ur"Betrag", linestyle="none", marker="+")
-    pl.title(ur"Daten nach FFT")
-    pl.xlabel(ur"Zeile")
+    pl.plot(data[:, 0], data[:, 1], label=r"Realteil", linestyle="none", marker="o")
+    pl.plot(data[:, 0], data[:, 2], label=r"Imaginärteil", linestyle="none", marker="o")
+    pl.plot(data[:, 0], np.sqrt(data[:, 1]**2 + data[:, 2]**2), label=r"Betrag", linestyle="none", marker="+")
+    pl.title(r"Daten nach FFT")
+    pl.xlabel(r"Zeile")
     pl.legend(loc="best")
     pl.grid(True)
     pl.savefig('out/4-transformed.png')
