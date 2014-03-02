@@ -1,0 +1,7 @@
+dep.makefile
+*.tar
+*.o
+main
+html/
+tags
+test_main
