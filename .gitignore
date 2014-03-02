@@ -1,0 +1,7 @@
+*.csv
+*.o
+2
+3
+4
+dep.makefile
+plot*.pdf
