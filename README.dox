@@ -1,0 +1,126 @@
+// Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+/**
+ \mainpage physik441 Übungsblatt 7
+
+ \tableofcontents
+
+ \section kompilieren Kompilieren und Ausführen
+
+ Dieses Programm ist in C 99 geschrieben und kann mit folgenden Kommandos
+ kompiliert und ausgeführt werden:
+ \code
+ make dep
+ make
+ ./main
+ \endcode
+
+ \section ausgabe Ausgabe
+
+ \include out/output.txt
+
+ \section aufgaben Aufgaben
+ \subsection aufgabe1 Aufgabe 1
+ \subsubsection aufgabe1a Aufgabe 1a
+
+ Gegeben ist die Bewegungsgleichung:
+ \f[
+ \ddot \varphi + \omega^2 \sin(\varphi) = 0
+ \f]
+
+ Da \f$ \omega = 1 \f$ gilt, und ich \f$ \omega \f$ lieber als
+ Winkelgeschwindigkeit und nicht als Eigenfrequenz benutzen möchte, führe ich
+ jetzt \f$ \omega \f$ als Winkelgeschwindigkeit ein.
+
+ Dies überführe ich in zwei explizite, gewöhnliche Differentialgleichungen
+ erster Ordnung:
+ \f{align}{
+ \dot \varphi &= \omega \\
+ \dot \omega &= - \sin(\varphi)
+ \f}
+
+ \subsubsection aufgabe1b Aufgabe 1b
+
+ Den Algorithmus habe ich so aus der Vorlesung übernommen.
+
+ Für verschiedene \f$ \omega(0) \f$ die Plots. Hier wird die Amplitude zwar
+ immer größer, allerdings ist es noch sehr nah an einem Sinus dran:
+
+ \image html out/1b-1.png
+ \image latex out/1b-1.pdf
+
+ Es ist zu erkennen, dass es nicht mehr sinusförmig ist.
+
+ \image html out/1b-2.png
+ \image latex out/1b-2.pdf
+
+ Noch deutlicher:
+
+ \image html out/1b-3.png
+ \image latex out/1b-3.pdf
+
+ Jetzt schlägt das Pendel oben über, so dass es sich immer weiter aufwickelt.
+
+ \image html out/1b-4.png
+
+ \subsubsection aufgabe1c Aufgabe 1c
+
+ Da ich nur diskrete Punkte erhalte, und die Schwingungsdauer sich durch
+ Rechenfehler leicht ändert, ist diese nicht direkt ein Vielfaches der
+ Schrittweite \f$ h \f$.
+
+ Ich kann allerdings die beiden Punkte, bei denen der Vorzeichenwechsel
+ passiert, mit einer linearen Funktion interpolieren. Die Krümmung ist im
+ harmonischen Fall gerade null, weil es sich um einen Wendepunkt handelt. Somit
+ mache ich auch keinen allzu großen Fehler.
+
+ Mit dem Python 2 Programm \c plot fitte ich daran eine lineare Funktion \f$
+ y(t) = mt + b \f$ und erhalte die Fitparameter aus \ref ausgabe. Die
+ Nullstelle dieser Funktion liegt bei:
+ \f[
+ t = - \frac bm
+ \f]
+
+ Dies ist auch gleich die halbe Periode. Mit einer Eigenfrequenz von \f$ 1 \f$
+ sollte die Periode auch gerade \f$ 2\pi \f$ sein, dies kommt einigermaßen hin.
+
+ \subsubsection aufgabe1d Aufgabe 1d
+
+ Die Energie im Pendel ist gegeben durch:
+ \f[
+ E = \frac 12 m r^2 \omega^2 - mgr \cos(\varphi)
+ \f]
+
+ In den Plots aus \ref aufgabe1b ist zu erkennen, dass für kleine initiale
+ Geschwindigkeiten die Energie erhalten bleibt, bei größeren initialen
+ Geschwindigkeiten die Energie vom Startwert abweicht.
+
+ \subsubsection aufgabe1e Aufgabe 1e
+
+ Mit einer Toleranz von \f$ 10^0 \f$ sind die Sinuskurven nicht mehr wirklich
+ als solche zu erkennen:
+
+ \image html out/1e-0.png
+
+ Bei \f$ 10^{-1} \f$ wird es schon besser:
+
+ \image html out/1e-1.png
+
+ \image html out/1e-2.png
+
+ Bei \f$ 10^{-3} \f$ ist kein Fehler mehr zu erkennen.
+ 
+ \image html out/1e-3.png
+
+ Die Anzahl der Schritte steigt mit der Potenz der geforderten Toleranz.
+
+ \image html out/1e-steps.png
+
+ Mit jedem Schritt muss die Funktion viermal ausgewertet werden. Wenn \f$ h \f$
+ halbiert wird, so muss sie achtmal ausgewertet werden. Der Fehler sinkt
+ allerdings mit \f$ 2^{-p} \f$, in diesem Fall mit \f$ 2^{-4} \f$. Also sollte
+ eine Halbierung der Schrittweite eine Verdopplung der Schritte, allerdings
+ einen Genauigkeitsgewinn von Faktor \f$ 16 \f$ bringen.
+ */
+
+// vim: ft=c spell spelllang=de
