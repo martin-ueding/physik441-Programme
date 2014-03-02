@@ -1,0 +1,145 @@
+// Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+/**
+ \mainpage physik441-08
+ \author Martin Ueding <dev@martin-ueding.de>
+ \copyright MIT License
+
+ \tableofcontents
+
+ \section kompilieren Kompilieren und Ausführen
+
+ Dieses Programm ist in C 99 geschrieben und kann mit folgenden Kommandos
+ kompiliert und ausgeführt werden:
+ \code
+ make dep
+ make
+ ./main
+ ./plot
+ \endcode
+
+ \section ausgabe Ausgabe
+
+ Ausgabe des Programms selbst (\c main):
+
+ \include out/output-main.txt
+
+ Ausgabe des Plottens (\c plot):
+
+ \include out/output-plot.txt
+
+ \section aufgaben Aufgaben
+
+ \subsection aufgabe1 Aufgabe 1
+
+ Ich habe den Quelltext aus der Vorlesung übernommen, allerdings die als \c
+ static deklarierten Variablen in rk4() durch ein Struct \ref state ersetzt.
+
+ Mit rk4() integriere ich die Funktionen phi() und omega() und erhalte eine
+ ansehnliche Lösung. Einmal die Zeitentwicklung des Ortes und der
+ Winkelgeschwindigkeit, sowie den Phasenraum:
+
+ \image html out/1-t-phi.png
+
+ \image html out/1-phi-omega.png
+
+ \subsection aufgabe2 Aufgabe 2
+
+ Der Cash-Carp Algorithmus ist in cash_carp() implementiert. Dabei habe ich die
+ Funktion rk4() so angepasst, dass der Quelltxt nicht mehr doppelt ist (DRY –
+ Don't Repeat Yourself) und direkt das Butcher-Tableau benutzt werden kann.
+
+ \image html out/2-t-phi.png
+
+ \image html out/2-phi-omega.png
+
+ \subsection aufgabe3 Aufgabe 3
+
+ Die Funktionen auf dem Aufgabenblatt hatte ich implementiert in: dotphi1(),
+ dotphi2(), dotp1() sowie dotp2(). Und die Hamiltonfunktion in hamiltonian().
+ Leider hatte das nicht funktioniert, es kamen merkwürdige Ergebnisse raus.
+ Dieser stand ist im git Repository als Version 72a04bc hinterlegt.
+
+ Ich habe von https://en.wikipedia.org/wiki/Double_pendulum#Lagrangian die
+ Lagrangefunktion genutzt, allerdings \f$ T + V \f$ um eine (uneigentliche)
+ Hamiltonfunktion zu erhalten, die von \f$ \phi_i \f$ und \f$ \omega_1 \f$
+ (anstelle der Impuls \f$ p_1 \f$) abhängt. Die Differentialgleichungen habe
+ ich von http://www.myphysicslab.com/dbl_pendulum.html genommen. Mit ihnen
+ funktioniert das ganze.
+
+ Als Startwerte habe ich genommen:
+ \f[
+ \phi_1(0) = 0
+ ,\quad
+ \phi_2(0) = 0{,}2
+ ,\quad
+ p_1(0) = 0
+ ,\quad
+ p_2(0) = 0
+ \f]
+
+ Die Konstanten habe ich entfernt:
+ \f[
+ \frac{1}{mL^2} := 1
+ ,\quad
+ mgL := 1
+ \f]
+
+ Die Hamiltonfunktion hängt nicht explizit von der Zeit ab, somit ist sie eine
+ Erhaltungsgröße. Außerdem ist die Poissonklammer der Hamiltonfunktion mit sich
+ selbst auch gleich null.
+ \f[
+ \dot H = \underbrace{\{H, H\}_{p,q}}_{=0}
+ + \underbrace{\frac{\partial H}{\partial t}}_{=0}
+ \f]
+
+ Auslenkung, Impuls und Energie gegen die Zeit aufgetragen:
+
+ \image html out/3-rk-zeit.png
+ \image html out/3-cc-zeit.png
+
+ Der Phasenraum \f$ (\phi, p) \f$ für beide Teilpendel:
+
+ \image html out/3-rk-phase.png
+ \image html out/3-cc-phase.png
+
+ Die Auslenkungen gegeneinander:
+
+ \image html out/3-rk-auslenkung.png
+ \image html out/3-cc-auslenkung.png
+
+ Hier ist noch die Trajektorie des Pendes geplottet. Dabei werden nur 100
+ Schritte geplottet. Die helleren Bilder sind älter, als wären sie verblasst.
+
+ \image html out/3-rk-trajektorie.png
+ \image html out/3-cc-trajektorie.png
+
+ Das ganze auch noch als Animation:
+
+ \htmlonly
+ <center>
+ <iframe src="animation.html" width="450" height="500"></iframe>
+ </center>
+ \endhtmlonly
+
+ Nun das ganze noch mit einer größeren Auslenkung. Die passende Animation ist
+ oben auch zu sehen, als letzter Eintrag.
+
+ Als Startwerte habe ich genommen:
+ \f[
+ \phi_1(0) = 1{,}57
+ ,\quad
+ \phi_2(0) = 3{,}14
+ ,\quad
+ p_1(0) = 0
+ ,\quad
+ p_2(0) = 0
+ \f]
+
+ Hier die Plots, einmal Zeitentwicklung und einmal Phasenraum:
+
+ \image html out/3-cc-higher-zeit.png
+ \image html out/3-cc-higher-phase.png
+ */
+
+// vim: ft=c
