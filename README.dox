@@ -1,0 +1,45 @@
+// Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+
+/**
+ \mainpage physik441-06
+
+ \section kompilieren Kompilieren und Ausführen
+
+ Dieses Programm ist in C 99 geschrieben und kann mit folgenden Kommandos kompiliert und ausgeführt werden:
+ \code
+ make dep
+ make
+ ./main
+ \endcode
+
+ \section aufgaben Aufgaben
+
+ \subsection aufgabe1 Aufgabe 1
+
+ Siehe cubic_spline_interpolate().
+
+ \subsection aufgabe2 Aufgabe 2
+
+ Gegeben ist folgende Datei mit Punkten:
+
+ \include daten06.dat
+
+ Diese liest das Programm ein und speichert sie noch einmal ohne Angabe der
+ Zeilenzahl ab:
+
+ \include out/points.csv
+
+ Dann werden die Koeffizienten mit der Funktion cubic_spline_interpolate()
+ bestimmt und gespeichert:
+
+ \include out/coefficients.csv
+
+ Mit cubic_spline_eval_linspace() werden viele Punkte in die Splines
+ eingesetzt. Die Messdaten und die interpolierten Daten werden dann geplottet:
+
+ \image html out/plot.png
+ \image latex out/plot.pdf
+
+ */
+
+// vim: ft=c

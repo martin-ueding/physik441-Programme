@@ -1,0 +1,6 @@
+*.o
+dep.makefile
+html
+main
+out
+tags
