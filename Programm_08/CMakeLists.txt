@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.6)
+project(Program_08)
+set(CMAKE_C_FLAGS  "-O3 -pedantic -std=c99 -Wall")
+set(CMAKE_C_COMPILER "/usr/bin/gcc")
+add_executable(main main.c aufgabe3.c cash-carp.c rk4.c)
+target_link_libraries(main m)
