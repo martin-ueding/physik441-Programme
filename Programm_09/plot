@@ -1,7 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+# Copyright © 2013-2014 Martin Ueding <dev@martin-ueding.de>
 
 """
 Generates plots for the given data.
@@ -24,13 +24,13 @@ def main():
     }
 
     data = np.genfromtxt("out/1.txt")
-    pl.plot(data[:, 0], data[:, 1], label=ur"$y$", **plotargs)
-    pl.plot(data[:, 0], data[:, 2], label=ur"$w_\alpha$", **plotargs)
-    pl.plot(data[:, 0], data[:, 3], label=ur"$y^\prime$", **plotargs)
-    pl.plot(data[:, 0], data[:, 4], label=ur"$w_\alpha^\prime$", **plotargs)
-    pl.title(ur"Alle Daten")
-    pl.xlabel(ur"$x$")
-    #pl.ylabel(ur"")
+    pl.plot(data[:, 0], data[:, 1], label=r"$y$", **plotargs)
+    pl.plot(data[:, 0], data[:, 2], label=r"$w_\alpha$", **plotargs)
+    pl.plot(data[:, 0], data[:, 3], label=r"$y^\prime$", **plotargs)
+    pl.plot(data[:, 0], data[:, 4], label=r"$w_\alpha^\prime$", **plotargs)
+    pl.title(r"Alle Daten")
+    pl.xlabel(r"$x$")
+    #pl.ylabel(r"")
     pl.grid(True)
     pl.legend(loc="best")
     pl.savefig("out/1-Alles.pdf")
@@ -43,46 +43,35 @@ def main():
 
     steps = len(data)/100
     last_data = data[99*steps:, :]
-    print last_data.shape
-    pl.plot(last_data[:, 0], last_data[:, 1], label=ur"$y$", **plotargs)
-    pl.title(ur"Letzte Berechnung")
-    pl.xlabel(ur"$x$")
-    #pl.ylabel(ur"")
+    print(last_data.shape)
+    pl.plot(last_data[:, 0], last_data[:, 1], label=r"$y$", **plotargs)
+    pl.title(r"Letzte Berechnung")
+    pl.xlabel(r"$x$")
+    #pl.ylabel(r"")
     pl.grid(True)
     pl.legend(loc="best")
     pl.savefig("out/1-Letzte.pdf")
     pl.savefig("out/1-Letzte.png")
     pl.clf()
     
-    data = np.genfromtxt("out/2c.txt")
-    pl.plot(data[:, 0], data[:, 1], label=ur"$\psi$", **plotargs)
-    pl.title(ur"Alle Daten")
-    pl.xlabel(ur"$x$")
-    #pl.ylabel(ur"")
-    pl.grid(True)
-    pl.legend(loc="best")
-    pl.savefig("out/2c.pdf")
-    pl.savefig("out/2c.png")
-    pl.clf()
-
     gerade = list(sorted(set(np.genfromtxt("out/2f-gerade.txt"))))
     ungerade = list(sorted(set(np.genfromtxt("out/2f-ungerade.txt"))))
     gerade2 = list(sorted(set(np.genfromtxt("out/2g-gerade.txt"))))
     ungerade2 = list(sorted(set(np.genfromtxt("out/2g-ungerade.txt"))))
 
-    print "Energieniveaus für gerade Wellenfunktionen:"
-    print ", ".join(["{:.1f}".format(e) for e in gerade])
-    print
-    print "Energieniveaus für ungerade Wellenfunktionen:"
-    print ", ".join(["{:.1f}".format(e) for e in ungerade])
+    print("Energieniveaus für gerade Wellenfunktionen:")
+    print(", ".join(["{:.1f}".format(e) for e in gerade]))
+    print()
+    print("Energieniveaus für ungerade Wellenfunktionen:")
+    print(", ".join(["{:.1f}".format(e) for e in ungerade]))
 
-    print
+    print()
 
-    print "Energieniveaus für gerade Wellenfunktionen:"
-    print ", ".join(["{:.1f}".format(e) for e in gerade2])
-    print
-    print "Energieniveaus für ungerade Wellenfunktionen:"
-    print ", ".join(["{:.1f}".format(e) for e in ungerade2])
+    print("Energieniveaus für gerade Wellenfunktionen:")
+    print(", ".join(["{:.1f}".format(e) for e in gerade2]))
+    print()
+    print("Energieniveaus für ungerade Wellenfunktionen:")
+    print(", ".join(["{:.1f}".format(e) for e in ungerade2]))
 
     n_gerade = np.linspace(0, len(gerade), len(gerade));
     n_ungerade = np.linspace(0, len(ungerade), len(ungerade));
@@ -95,13 +84,13 @@ def main():
         "marker": ".",
     }
 
-    pl.plot(n_gerade, gerade, label=ur"$\psi_\mathrm{gerade}$", **plotargs)
-    pl.plot(n_ungerade, ungerade, label=ur"$\psi_\mathrm{ungerade}$", **plotargs)
-    pl.plot(n_gerade2, gerade2, label=ur"$\tilde{\psi}_\mathrm{gerade}$", **plotargs)
-    pl.plot(n_ungerade2, ungerade2, label=ur"$\tilde{\psi}_\mathrm{ungerade}$", **plotargs)
-    pl.title(ur"Energieniveaus")
-    pl.xlabel(ur"$n$")
-    pl.ylabel(ur"$E_n$")
+    pl.plot(n_gerade, gerade, label=r"$\psi_\mathrm{gerade}$", **plotargs)
+    pl.plot(n_ungerade, ungerade, label=r"$\psi_\mathrm{ungerade}$", **plotargs)
+    pl.plot(n_gerade2, gerade2, label=r"$\tilde{\psi}_\mathrm{gerade}$", **plotargs)
+    pl.plot(n_ungerade2, ungerade2, label=r"$\tilde{\psi}_\mathrm{ungerade}$", **plotargs)
+    pl.title(r"Energieniveaus")
+    pl.xlabel(r"$n$")
+    pl.ylabel(r"$E_n$")
     pl.grid(True)
     pl.legend(loc="best")
     pl.savefig("out/2f.pdf")
